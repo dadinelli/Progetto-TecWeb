@@ -14,7 +14,7 @@ section{
 
 body{
     background-color: black;
-    font-family: 'Open-Sans', sans-serif;
+    font-family: 'Lexend', 'Open-Sans', sans-serif;
     color: var(--txtcolor);
     max-width: 70%;
     margin: auto;
@@ -65,9 +65,12 @@ h2{
     border: none;
     padding: 0px 0px 0px 10px;
     border-radius: 5px;
+    transition: background-color 0.15s;
 }
 
-.username_input input:hover, .password_input input:hover{
+.username_input input:focus, .password_input input:focus{
+    outline: none;
+    background-color: rgb(39, 39, 39);
 }
 
 .login_button{
@@ -81,6 +84,7 @@ h2{
     border-radius: 10px;
     background-color: lightskyblue;
     transition: opacity 0.15s;
+    cursor: pointer;
 }
 
 .login_button:hover{

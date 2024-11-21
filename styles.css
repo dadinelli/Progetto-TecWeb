@@ -20,11 +20,18 @@ a{
 
 body{
     background-color: black;
-    font-family: 'Open-Sans', sans-serif;
+    font-family: 'Lexend', 'Open Sans', sans-serif;
+    font-weight: 200;
     color: var(--txtcolor);
     max-width: 70%;
     margin: auto;
     max-width: 1024px;
+}
+
+@media{
+    body{
+
+    }
 }
 
 header{
@@ -43,7 +50,7 @@ header{
     right: 0;
     background-color: black;
     z-index: 50;
-    /*border-bottom: 1px solid var(--borderbottomcolor);*/
+    border-bottom: 1px solid var(--borderbottomcolor);
 }
 
 .menu_list{
@@ -53,8 +60,8 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 50px;
+    margin-left: 50px;
 
     /*padding-left: 100px;
     padding-right: 100px;*/
@@ -92,7 +99,7 @@ header{
     color: var(--visitedcolor);
 }*/
 
-.login_icon{
+.header_icon{
     border: 1px solid red;
     height: 20px;
     width: 20px;
