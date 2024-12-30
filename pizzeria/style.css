@@ -1,0 +1,208 @@
+*{
+    margin: 0em;
+    padding: 0em;
+}
+
+:root{
+    --bgcolor: #1C1C1C;
+    --red: #92140C;
+    --light-gray: #D3D4D9;
+    --txtcolor: rgb(145, 166, 186);
+    --linkcolor: blue;
+    --visitedcolor: orange;
+    --breadcolor: rgba(0, 0, 0, 0.8);
+    --txtbgcolor: rgba(145, 166, 186, 0.5);
+}
+
+html, body{
+    color: var(--txtcolor);
+    background-color: var(--bgcolor);
+}
+
+body{
+    background-image: url(materiale/background-verticale.jpg);
+    background-size: cover;
+    font-size: 100%;
+    font-family: 'open sans', sans-serif;
+    line-height: 1.5em;
+    border: 1px solid black;
+    font-weight: 100;
+}
+
+
+/*
+=============
+HEADER
+=============
+*/
+
+header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.top_menu h1{
+    background-image: url('materiale/images/logo_fipav.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    text-indent: -9999px;
+}
+
+/*
+=============
+MENU
+=============
+*/
+
+#menu{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--breadcolor);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.top_menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#menu img{
+    width: 5%;
+    border-radius: 5em;
+    margin-left: 1em;
+}
+
+.top_menu ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5em;
+    list-style: none;
+    padding: 1em 1em;
+}
+
+.top_menu ul li{
+    padding: 0.5em;
+}
+
+#menu a:link{
+    color: var(--linkcolor);
+    text-decoration: none;
+}
+
+#menu a:visited{
+    color: var(--visitedcolor);
+}
+
+
+/*
+=============
+BREADCRUMB
+=============
+*/
+
+#breadcrumb{
+    padding: 0.5em 1em;
+}
+
+/*
+=============
+MAIN
+=============
+*/
+
+main h2, h3{
+    font-weight: 100;
+}
+
+#presentazione{
+    color: var(--txtcolor);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 80vh;
+}
+
+#presentazione h1{
+    font-size: 2em;
+    font-weight: 100;
+    text-shadow: 0 0 .3em rgb(54, 54, 54);
+    transition: font-size 0.5s;
+}
+
+#presentazione h1:hover{
+    font-size: 2.5em;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+}
+
+.text-container-right, .text-container-left{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    background-color: var(--txtbgcolor);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.text-container-right{
+    align-items: right;
+    text-align: right;
+}
+
+.text-container-left{
+    align-items: left;
+}
+
+.facciata{
+    flex: 1;
+    width: 30%;
+}
+
+#recensioni{
+    color: var(--txtcolor);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 60vh;
+}
+
+/*
+=============
+FOOTER
+=============
+*/
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    color: black;
+    background-color: var(--txtbgcolor);
+    height: 20vh;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
