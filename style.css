@@ -98,9 +98,13 @@ MENU
     cursor: pointer;
 }
 
-@media screen and (max-width: 800px){
+#hamb-button{
+    display: none;
+}
+
+@media screen and (max-width: 1000px){
     #menu img{
-        width: 10%;
+        width: 15%;
     }
 
     .top_menu ul{
@@ -108,26 +112,32 @@ MENU
     }
 
     .top_menu ul.open{
-        background-image: url(materiale/hamburger-menu-white.png);
-        background-repeat: no-repeat;
-        background-position: 98% center;
-
+        font-size: 1em;
+        width: 100%;
+        padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         height: auto;
-        width: 100%;
         position: absolute;
         top: 0;
         left: 0;
         background-color: var(--menucolor);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        max-height: auto;
     }
 
     .top_menu ul li{
         padding: 1em;
+    }
+
+    #hamb-button{
+        display: block;
+        width: 5%;
+        margin-right: 1em;
+        z-index: 100;
     }
 }
 
@@ -177,6 +187,12 @@ main h2, h3{
 section{
     display: flex;
     flex-direction: row;
+}
+
+@media screen and (max-width: 1000px){
+    section{
+        flex-direction: column;
+    }
 }
 
 .text-container-right, .text-container-left{
@@ -320,4 +336,14 @@ footer{
     height: 20vh;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+@media screen and (max-width: 1000px){
+    footer{
+        font-size: 1em;
+    }
+
+    #contatti, #social, #orari{
+        flex: 1;
+    }
 }
