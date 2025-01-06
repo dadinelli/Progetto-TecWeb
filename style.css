@@ -29,9 +29,9 @@ body{
     font-weight: 100;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 880px){
     body{
-        background-size: contain;
+        background-size: 150%;
     }
 }
 
@@ -77,7 +77,7 @@ MENU
     margin-left: 1em;
 }
 
-.top_menu ul{
+#menu-list{
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -87,7 +87,7 @@ MENU
     padding: 1em 1em;
 }
 
-.top_menu ul li{
+#menu-list li{
     padding: 0.5em;
 }
 
@@ -109,7 +109,7 @@ MENU
     display: none;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 880px){
 
     .top_menu{
         padding-top: 1em;
@@ -121,12 +121,7 @@ MENU
         margin-left: 1em;
     }
 
-    .top_menu ul{
-        display: none;
-    }
-
-    /* Define the keyframe animation */
-    @keyframes fadeInFromTop {
+    /*@keyframes fadeInFromTop {
         0% {
             opacity: 0;
             transform: translateY(-20px);
@@ -149,7 +144,6 @@ MENU
     }
 
     .top_menu ul.open{
-        margin-top: 4em;
         font-size: 1em;
         width: 100%;
         padding: 0;
@@ -166,14 +160,33 @@ MENU
         -webkit-backdrop-filter: blur(10px);
         max-height: auto;
         animation: fadeInFromTop 0.5s ease-in-out;
-    }
-
-    /*.top_menu ul.closing{
-        animation: fadeOutFromTop 0.5s ease-in-out;
     }*/
 
-    .top_menu ul li{
-        padding: 1em;
+    #menu-list{
+        font-size: 1em;
+        width: 100%;
+        padding: 1em 0 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--menucolor);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-20px);
+        transition: opacity 0.15s, transform 0.15s;
+    }
+
+    #menu-list{
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
     }
 
     #hamb-button{
@@ -184,7 +197,7 @@ MENU
         background-color: transparent;
         transition: all 0.15s;
         border-radius: 0.5em;
-        z-index: 100;
+        z-index: 200;
     }
 
     #hamb-button-img{
@@ -204,7 +217,7 @@ BREADCRUMB
     padding: 0.5em 1em;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 880px){
     #breadcrumb{
         font-size: .8em;
     }
@@ -286,7 +299,7 @@ section{
     height: 60vh;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 880px){
     section{
         flex-direction: column;
     }
@@ -386,7 +399,7 @@ LOGIN
     border: none;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 880px){
     #login-window{
         width: 70%;
     }
@@ -411,13 +424,19 @@ footer{
     -webkit-backdrop-filter: blur(10px);
 }
 
-@media screen and (max-width: 1000px){
+#contatti, #social, #orari{
+    flex: 1;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 880px){
     footer{
         font-size: 1em;
+        flex-direction: column;
+        height: auto;
     }
 
-    #contatti, #social, #orari{
-        flex: 1;
-        justify-content: space-around;
+    footer > *{
+        margin-bottom: 1em;
     }
 }
