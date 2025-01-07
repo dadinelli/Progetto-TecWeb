@@ -12,6 +12,7 @@
     --linkcolor: #ffa500;
     --visitedcolor: #ff8000;
     --menucolor: rgba(0, 0, 0, 0.8);
+    --menucolor-noshadow: rgb(0, 0, 0);
     --txtbgcolor: #91a6ba80;
 }
 
@@ -135,13 +136,11 @@ MENU
         position: absolute;
         top: 0;
         left: 0;
-        background-color: var(--menucolor);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background-color: var(--menucolor-noshadow);
         opacity: 0;
         pointer-events: none;
         transform: translateY(-20px);
-        transition: opacity 0.3s, transform 0.3s;
+        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     }
 
     #menu-list.visible{
@@ -334,8 +333,16 @@ LOGIN
     height: 2.5em;
     padding-left: 0.5em;
     border-radius: 0.5em;
-    width: 65%;
+    width: 100%;
     transition: all 0.15s;
+}
+
+#login-window label{
+    width: 65%;
+}
+
+#login-window fieldset label, fieldset legend{
+    margin-bottom: 0.5em;
 }
 
 #login-window input:focus{

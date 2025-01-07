@@ -22,7 +22,7 @@
 
                 <a href="index.html" id="logo-link"><img src="materiale/logo.webp" alt="Logo" id="logo-img"></a>
             
-                <button id="hamb-button" onclick="toggleMenu()"><img src="materiale/hamburger-menu-white.png" alt="Hamburger menu" id="hamb-button-img"></button>
+                <button id="hamb-button"><img src="materiale/hamburger-menu-white.png" alt="Hamburger menu" id="hamb-button-img"></button>
 
                 <ul id="menu-list">
                     <li lang="en"><a href="index.html">HOME</a></li>
@@ -47,17 +47,17 @@
 
             <fieldset id="personal-info">
                 <legend>Informazioni personali</legend>
-                <input type="text" placeholder="Nome" mandatory required onblur="">
-                <input type="text" placeholder="Cognome" mandatory required onblur="">
-                <input type="email" placeholder="Email" mandatory required onblur="">
-                <input type="tel" placeholder="Telefono" mandatory required onblur="">
+                <label><input type="text" placeholder="Nome" mandatory required onblur=""></label>
+                <label><input type="text" placeholder="Cognome" mandatory required onblur=""></label>
+                <label><input type="email" placeholder="Email" mandatory required onblur=""></label>
+                <label><input type="tel" placeholder="Telefono" mandatory required onblur=""></label>
             </fieldset>
 
             <fieldset id="user-info">
                 <legend>Account</legend>
-                <input type="username" placeholder="Username" mandatory required onblur="">
-                <input type="password" placeholder="Password" mandatory required onblur="">
-                <input type="password" placeholder="Conferma password" mandatory required onblur="">
+                <label><input type="username" placeholder="Username" mandatory required onblur=""></label>
+                <label><input type="password" placeholder="Password" mandatory required onblur=""></label>
+                <label><input type="password" placeholder="Conferma password" mandatory required onblur=""></label> 
             </fieldset>
 
             <button class="login-button" type="submit" onkeydown="enter">Registrati</button>
