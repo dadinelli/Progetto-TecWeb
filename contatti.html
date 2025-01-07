@@ -2,68 +2,94 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Contatti - Forno 800</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scopri la nostra pizzeria: pizze cotte a legna, ingredienti freschi e di qualità. Ordina online o vieni a trovarci per gustare l'autentica pizza italiana in un'atmosfera accogliente!">
-    <meta name="keywords" content="ristorante, pizzeria, pizza, cibo, cibo a domicilio, cibo da asporto, pizza a domicilio, pizza da asporto, pizzeria a domicilio, pizzeria da asporto, pizzeria a taglio, pizzeria al taglio, pizzeria d'asporto, pizzeria d'asporto, pizzeria a domicilio">
+    <meta name="description" content="Scopri la nostra pizzeria con pizze cotte a legna e ingredienti freschi. Vieni a trovarci o ordina online!">
     <meta name="author" content="Davide Martinelli, Riccardo Valerio, Alex Shu, Enrico Bianchi">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css" media="screen">
-    
-    <title>Document</title>
+    <title>Contatti - Forno 800</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav id="menu">
             <div class="top_menu">
-
-                <a href="index.html" id="logo-link"><img src="materiale/logo.webp" alt="Logo" id="logo-img"></a>
-            
-                <button id="hamb-button" onclick="toggleMenu()"><img src="materiale/hamburger-menu-white.png" alt="Hamburger menu" id="hamb-button-img"></button>
-
+                <a href="index.html" id="logo-link"><img src="materiale/logo.webp" alt="Logo Pizzeria Forno 800" id="logo-img"></a>
+                <button id="hamb-button" onclick="toggleMenu()" aria-label="Apri menu"><img src="materiale/hamburger-menu-white.png" alt="Menu" id="hamb-button-img"></button>
                 <ul id="menu-list">
-                    <li lang="en"><a href="index.html">HOME</a></li>
-                    <li><a href="menu.html">MENU</a></li>
-                    <li><a href="chisiamo.html">CHI SIAMO</a></li>
-                    <li><a href="sedi.html">SEDI</a></li>
-                    <li id="currentLink">CONTATTI</li>
-                    <li><a href="area-riservata.html">AREA RISERVATA</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="chisiamo.html">Chi Siamo</a></li>
+                    <li><a href="sedi.html">Sedi</a></li>
+                    <li id="currentLink">Contatti</li>
+                    <li><a href="area-riservata.html">Area Riservata</a></li>
                 </ul>
             </div>
-    
-            <nav id="breadcrumb">
-                <p>Ti trovi in: <a href="index.html"><span lang="en">Home</span></a>&nbsp;&sol;&nbsp;Contatti</p>
-            </nav>
         </nav>
-
     </header>
 
-    <main>
-        
+    <main class="contact-main">
+        <div class="contact-section">
+            <h2>Contattaci</h2>
+            <p>Email: <a href="mailto:forno800@example.com">forno800@example.com</a></p>
+            <p>Telefono: <a href="tel:+393939393939">+39 393 939 3939</a></p>
+
+            <h3>Dove Trovarci</h3>
+            <p>Via forno800, Padova</p>
+            <div id="map">
+                <iframe 
+                src="https://www.google.com/maps/embed?pb=..." 
+                title="Mappa della pizzeria Forno 800"
+                width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+
+            <div id="social">
+                <h3>Seguici!</h3>
+                <a href="https://instagram.com/forno800"><img src="materiale/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://facebook.com/forno800"><img src="materiale/facebook-icon.png" alt="Facebook"></a>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Informazioni utili</h2>
+            <p><strong>Parcheggio:</strong> Disponibile di fronte al ristorante.</p>
+            <p><strong>Accessibilità:</strong> Locale accessibile per persone con disabilità.</p>
+        </div>
+
+        <div class="contact-section">
+            <h2>Lavora con noi</h2>
+            <div class="contact-form">
+                <fieldset>
+                    <legend>Informazioni personali</legend>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                    <label for="cognome">Cognome</label>
+                    <input type="text" id="cognome" name="cognome" placeholder="Cognome" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Telefono" required>
+                    <label for="esperienza">Descrivi la tua esperienza</label>
+                    <textarea id="esperienza" name="esperienza" placeholder="Descrivi la tua esperienza" required></textarea>
+                </fieldset>
+                <button type="submit">Invia</button>
+            </div>
+        </div>
     </main>
 
     <footer>
         <div id="social">
             <p>Seguici!</p>
-            <a href=""><p>Instagram</p></a>
-            <a href=""><p>Facebook</p></a>
+            <a href="https://instagram.com/forno800">Instagram</a>
+            <a href="https://facebook.com/forno800">Facebook</a>
         </div>
-
         <div id="orari">
-            <p>11:00 - 15:00</p>
-            <p>18:00 - 22:00</p>
+            <p>Orari: 11:00 - 15:00 | 18:00 - 22:00</p>
             <p>Aperti tutti i giorni</p>
-
-            <address><p>Via Tiziano Aspetti 13 - Padova</p></address>
         </div>
-
         <div id="contatti">
             <p>Scrivici!</p>
-            <a href="tel:+393939393939"><p>+39 393 939 3939</p></a>
-            <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
+            <a href="tel:+393939393939">+39 393 939 3939</a>
+            <a href="mailto:forno800@example.com">forno800@example.com</a>
         </div>
     </footer>
 

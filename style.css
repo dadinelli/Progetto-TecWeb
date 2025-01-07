@@ -401,3 +401,113 @@ footer{
         margin-bottom: 1em;
     }
 }
+
+/*
+=============
+CONTATTI
+=============
+*/
+
+/* Stile per il main della pagina contatti */
+.contact-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 2em;
+}
+
+/* Stile per le sezioni della pagina contatti */
+.contact-section {
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 2em;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333; /* Colore più scuro per le scritte */
+}
+
+/* Stile per la mappa */
+#map iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 0.5em;
+}
+
+/* Stile per il form della pagina contatti */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.contact-form fieldset {
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 0 auto; /* Centra il fieldset */
+    width: 100%; /* Assicura che il fieldset occupi tutta la larghezza disponibile */
+    max-width: 600px; /* Limita la larghezza massima del fieldset */
+}
+
+.contact-form label {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    display: block; /* Forza il capo dopo ogni etichetta */
+    color: #333; /* Colore più scuro per le scritte */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    margin-bottom: 1em; /* Forza il capo dopo ogni input */
+}
+
+.contact-form button {
+    align-self: center;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 0.5em;
+    background-color: var(--linkcolor);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: var(--visitedcolor);
+}
+
+
+/* Stile per la sezione "Lavora con noi" */
+#work-with-us h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Media queries per la responsività */
+@media (max-width: 768px) {
+    .contact-section {
+        width: 95%;
+    }
+
+    #map iframe {
+        width: 100%;
+        height: 200px;
+    }
+}
+.contact-details p {
+    margin-bottom: 10px; /* Spazio tra i paragrafi */
+}
+#map {
+    margin-top: 15px; /* Spazio sopra la mappa */
+}
