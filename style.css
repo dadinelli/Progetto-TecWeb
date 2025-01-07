@@ -209,7 +209,7 @@ main h2, h3{
     font-size: 2em;
     font-weight: 100;
     text-shadow: 0 0 .3em rgb(54, 54, 54);
-    transition: font-size 0.5s;
+    transition: 1s;
 }
 
 #presentazione h1:hover{
@@ -232,6 +232,7 @@ section{
     -webkit-backdrop-filter: blur(10px);
     padding: 1em;
     box-sizing: border-box;
+    border-radius: 0.5em;
 }
 
 .text-container-right{
@@ -392,7 +393,7 @@ footer{
     -webkit-backdrop-filter: blur(10px);
 }
 
-#contatti, #social, #orari{
+#contatti, #orari{
     flex: 1;
     justify-content: space-between;
 }
@@ -516,4 +517,136 @@ CONTATTI
 }
 #map {
     margin-top: 2vh; 
+}
+
+
+/* ==============================
+CHI SIAMO
+============================== */
+
+#presentazione{
+    color: var(--txtcolor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgcolor 0.9);
+    height: 80vh;
+    text-align: center;
+    border-radius: 0.5em;
+}
+
+#presentazione h1{
+    font-size: 4em;
+    line-height: 1.5;
+}
+
+#presentazione p{
+    font-size: 2em;
+    margin: 2em;
+    line-height: 1.2;
+}
+
+#storia, #missione{
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 2em;
+    border-radius: 0.5em;
+}
+
+#storia h2, #missione h2{
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+#storia p, #missione p{
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+#storia .facciata, #missione .facciata{
+    width: 100%;
+    height: auto;
+    margin-top: 1em;
+    border-radius: 0.5em;
+}
+
+#storia .facciata img, #missione .facciata img{
+    width: 100%;
+    border-radius: 0.5em;
+
+}
+
+@media screen and (max-width: 880px){
+    #presentazione{
+        flex-direction: column;
+        height: auto;
+        padding: 2em;
+    }
+
+    #presentazione h1{
+        font-size: 1.8em;
+    }
+
+    #storia, #missione{
+        padding: 1.5em;
+    }
+
+    #storia h2, #missione h2{
+        font-size: 1.8em;
+    }
+
+    #storia p, #missione p{
+        font-size: 1em;
+    }
+
+    #storia .facciata img, #missione .facciata img{
+        width: 100%;
+    }
+}
+
+#sostenibilita {
+    text-align: center;
+    padding: 2em;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5em;
+    margin-top: 2em;
+    line-height: 1.5;
+}
+
+#sostenibilita h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: var(--txtdarkcolor);
+}
+
+#sostenibilita p {
+    font-size: 1.2em;
+    color: var(--txtdarkcolor);
+    text-align: justify;
+}
+
+#social {
+    text-align: center;
+    margin-top: 2em;
+    color: var(--txtcolor);
+}
+
+#social p {
+    font-size: 1.5em;
+    padding: 1em;
+    color: var(--txtcolor);
+}
+
+#social a {
+    margin: 0 1em;
+}
+
+#social img {
+    width: 5em;
+    height: 5em;
+    transition: transform 0.3s;
+}
+
+#social img:hover {
+    transform: scale(1.1);
 }
