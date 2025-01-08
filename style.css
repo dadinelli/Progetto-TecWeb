@@ -338,11 +338,19 @@ LOGIN
 }
 
 #login-window label{
-    width: 65%;
+    width: 70%;
 }
 
 #login-window fieldset label, fieldset legend{
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+#personal-info, #user-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 #login-window input:focus{
@@ -357,10 +365,6 @@ LOGIN
 
 #login-window a:visited{
     color: var(--visitedcolor);
-}
-
-#login-window fieldset > *{
-    margin-bottom: 1em;
 }
 
 #login-window fieldset{
