@@ -232,7 +232,6 @@ section{
     -webkit-backdrop-filter: blur(10px);
     padding: 1em;
     box-sizing: border-box;
-    border-radius: 0.5em;
 }
 
 .text-container-right{
@@ -393,9 +392,10 @@ footer{
     -webkit-backdrop-filter: blur(10px);
 }
 
-#contatti, #orari{
+#contatti, #social,  #orari{
     flex: 1;
     justify-content: space-between;
+    
 }
 
 @media screen and (max-width: 880px){
@@ -625,28 +625,28 @@ CHI SIAMO
     text-align: justify;
 }
 
-#social {
+#chisiamo-social {
     text-align: center;
     margin-top: 2em;
     color: var(--txtcolor);
 }
 
-#social p {
+#chisiamo-social p {
     font-size: 1.5em;
     padding: 1em;
     color: var(--txtcolor);
 }
 
-#social a {
+#chisiamo-social a {
     margin: 0 1em;
 }
 
-#social img {
+#chisiamo-social img {
     width: 5em;
     height: 5em;
     transition: transform 0.3s;
 }
 
-#social img:hover {
+#chisiamo-social img:hover {
     transform: scale(1.1);
 }
