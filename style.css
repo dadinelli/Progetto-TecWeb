@@ -528,7 +528,7 @@ CONTATTI
 CHI SIAMO
 ============================== */
 
-#presentazione{
+#chisiamo-presentazione{
     color: var(--txtcolor);
     display: flex;
     justify-content: center;
@@ -539,14 +539,14 @@ CHI SIAMO
     border-radius: 0.5em;
 }
 
-#presentazione h1{
+#chisiamo-presentazione h1{
     font-size: 4em;
     line-height: 1.5;
 }
 
-#presentazione p{
-    font-size: 2em;
-    margin: 2em;
+#chisiamo-presentazione p{
+    font-size: 1.2em;
+    margin: 1em;
     line-height: 1.2;
 }
 
@@ -563,7 +563,7 @@ CHI SIAMO
 }
 
 #storia p, #missione p{
-    font-size: 1.1em;
+    font-size: 1em;
     text-align: justify;
 }
 
@@ -581,17 +581,17 @@ CHI SIAMO
 }
 
 @media screen and (max-width: 880px){
-    #presentazione{
+    #chisiamo-presentazione{
         flex-direction: column;
         height: auto;
         padding: 2em;
     }
 
-    #presentazione h1{
+    #chisiamopresentazione h1{
         font-size: 1.8em;
     }
 
-    #storia, #missione{
+    #chisiamostoria, #missione{
         padding: 1.5em;
     }
 
@@ -610,15 +610,15 @@ CHI SIAMO
 
 #sostenibilita {
     text-align: center;
-    padding: 2em;
+    padding: 1em;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5em;
     margin-top: 2em;
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 #sostenibilita h2 {
-    font-size: 2.5em;
+    font-size: 2em;
     margin-bottom: 1em;
     color: var(--txtdarkcolor);
 }
@@ -631,7 +631,7 @@ CHI SIAMO
 
 #chisiamo-social {
     text-align: center;
-    margin-top: 2em;
+    margin-top: 1em;
     color: var(--txtcolor);
 }
 
@@ -639,6 +639,12 @@ CHI SIAMO
     font-size: 1.5em;
     padding: 1em;
     color: var(--txtcolor);
+}
+
+#chisiamo-social h3 {
+    font-size: 1.5em;
+    padding: 0.51em;
+    color: var(--txtdarkcolor);
 }
 
 #chisiamo-social a {
@@ -654,3 +660,85 @@ CHI SIAMO
 #chisiamo-social img:hover {
     transform: scale(1.1);
 }
+
+/*
+=============
+MENU
+=============
+*/
+
+
+#menu-section {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 800px;
+    background-color: var(--txtbgcolor);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-title {
+    text-align: center;
+    color: var(--txtdarkcolor);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.menu-category {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.category-title {
+    font-size: 1,5rem;
+    color: var(--txtdarkcolor);
+    border-bottom: 2px solid #ff8c00;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.category-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-item {
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    margin: 0.5rem 0;
+    background-color: whitesmoke;
+    border-radius: 1em;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--txtdarkcolor);
+}
+
+.menu-item:hover {
+    background-color: #ffefdb;
+    transform: scale(1.03);
+}
+
+.menu-item::after {
+    content: attr(data-description);
+    position: absolute;
+    bottom: 0%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: var(--visitedcolor);
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover::after {
+    bottom: 100%;
+    opacity: 1; 
+}
+

@@ -30,3 +30,19 @@ form.addEventListener('submit', function (e) {
     document.getElementById('confirmation-message').style.display = 'block';
     form.reset(); // Resetta i campi del form
 });
+
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('mouseover', () => {
+        item.classList.add('hovered');
+    });
+    item.addEventListener('mouseout', () => {
+        item.classList.remove('hovered');
+    });
+
+    item.addEventListener('click', () => {
+        // Aggiungi l'effetto di selezione (per far capire che è stato cliccato)
+        item.classList.toggle('selected');
+    });
+});
+
+
