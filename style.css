@@ -427,19 +427,18 @@ CONTATTI
     align-items: center;
     justify-content: center;
     min-height: 80vh;
-    padding: 2em;
+    padding: 2rem;
 }
 
 
 .contact-section {
     text-align: center;
     width: 80%;
-    max-width: 50em;
-    margin-bottom: 2em;
+    max-width: 50rem;
+    margin-bottom: 2rem;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 1em;
-    border-radius: 0.5em;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
     color: #333; 
 }
 
@@ -448,28 +447,28 @@ CONTATTI
     width: 100%;
     height: 18vw;
     border: 0;
-    border-radius: 0.5em;
-    min-height: 15em;
+    border-radius: 0.5rem;
+    min-height: 15rem;
 }
 
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1rem;
 }
 
 .contact-form fieldset {
     border: 1px solid #ccc;
-    padding: 1em;
-    border-radius: 0.5em;
+    padding: 1rem;
+    border-radius: 0.5rem;
     margin: 0 auto; 
     width: 90%; 
     max-width: 38rem; 
 }
 
 .contact-form label {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
     font-weight: bold;
     display: block;
     color: #333;
@@ -478,17 +477,17 @@ CONTATTI
 .contact-form input,
 .contact-form textarea {
     width: 80%;
-    padding: 1em;
+    padding: 1rem;
     border: 1px solid #ccc;
-    border-radius: 0.5em;
-    margin-bottom: 1em; 
+    border-radius: 0.5rem;
+    margin-bottom: 1rem; 
 }
 
 .contact-form button {
     align-self: center;
-    padding: 1em 2em;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     background-color: var(--linkcolor);
     color: white;
     cursor: pointer;
@@ -501,9 +500,9 @@ CONTATTI
 
 
 #work-with-us h2 {
-    font-size: 2em;
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -517,7 +516,7 @@ CONTATTI
     }
 }
 .contact-details p {
-    margin-bottom: 1em; 
+    margin-bottom: 1rem; 
 }
 #map {
     margin-top: 2vh; 
@@ -536,47 +535,47 @@ CHI SIAMO
     background-color: var(--bgcolor 0.9);
     height: 80vh;
     text-align: center;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 }
 
 #chisiamo-presentazione h1{
-    font-size: 4em;
+    font-size: 4rem;
     line-height: 1.5;
 }
 
 #chisiamo-presentazione p{
-    font-size: 1.2em;
-    margin: 1em;
+    font-size: 1.2rem;
+    margin: 1rem;
     line-height: 1.2;
 }
 
 #storia, #missione{
-    padding: 2em;
+    padding: 2rem;
     background-color: rgba(255, 255, 255, 0.5);
-    margin-top: 2em;
-    border-radius: 0.5em;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
 }
 
 #storia h2, #missione h2{
-    font-size: 2em;
-    margin-bottom: 1em;
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 #storia p, #missione p{
-    font-size: 1em;
+    font-size: 1rem;
     text-align: justify;
 }
 
 #storia .facciata, #missione .facciata{
     width: 100%;
     height: auto;
-    margin-top: 1em;
-    border-radius: 0.5em;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
 }
 
 #storia .facciata img, #missione .facciata img{
     width: 100%;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 
 }
 
@@ -584,23 +583,23 @@ CHI SIAMO
     #chisiamo-presentazione{
         flex-direction: column;
         height: auto;
-        padding: 2em;
+        padding: 2rem;
     }
 
     #chisiamopresentazione h1{
-        font-size: 1.8em;
+        font-size: 1.8rem;
     }
 
     #chisiamostoria, #missione{
-        padding: 1.5em;
+        padding: 1.5rem;
     }
 
     #storia h2, #missione h2{
-        font-size: 1.8em;
+        font-size: 1.8rem;
     }
 
     #storia p, #missione p{
-        font-size: 1em;
+        font-size: 1rem;
     }
 
     #storia .facciata img, #missione .facciata img{
@@ -610,50 +609,50 @@ CHI SIAMO
 
 #sostenibilita {
     text-align: center;
-    padding: 1em;
+    padding: 1rem;
     background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 0.5em;
-    margin-top: 2em;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
     line-height: 1.2;
 }
 
 #sostenibilita h2 {
-    font-size: 2em;
-    margin-bottom: 1em;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     color: var(--txtdarkcolor);
 }
 
 #sostenibilita p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color: var(--txtdarkcolor);
     text-align: justify;
 }
 
 #chisiamo-social {
     text-align: center;
-    margin-top: 1em;
+    margin-top: 1rem;
     color: var(--txtcolor);
 }
 
 #chisiamo-social p {
-    font-size: 1.5em;
-    padding: 1em;
+    font-size: 1.5rem;
+    padding: 1rem;
     color: var(--txtcolor);
 }
 
 #chisiamo-social h3 {
-    font-size: 1.5em;
-    padding: 0.51em;
+    font-size: 1.5rem;
+    padding: 0.5rem;
     color: var(--txtdarkcolor);
 }
 
 #chisiamo-social a {
-    margin: 0 1em;
+    margin: 0 1rem;
 }
 
 #chisiamo-social img {
-    width: 5em;
-    height: 5em;
+    width: 5rem;
+    height: 5rem;
     transition: transform 0.3s;
 }
 
@@ -666,15 +665,12 @@ CHI SIAMO
 MENU
 =============
 */
-
-
 #menu-section {
     margin: 2rem auto;
-    padding: 1.5rem;
-    max-width: 800px;
+    padding: 1rem;
+    max-width: 100%; 
     background-color: var(--txtbgcolor);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
 }
 
 .menu-title {
@@ -690,7 +686,8 @@ MENU
 }
 
 .category-title {
-    font-size: 1,5rem;
+    text-align: center;
+    font-size: 2rem;
     color: var(--txtdarkcolor);
     border-bottom: 2px solid #ff8c00;
     padding-bottom: 0.5rem;
@@ -699,46 +696,104 @@ MENU
 }
 
 .category-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1rem;
     list-style-type: none;
     padding: 0;
 }
 
 .menu-item {
-    font-size: 1.2rem;
-    padding: 1rem 1rem;
-    margin: 0.5rem 0;
-    background-color: whitesmoke;
-    border-radius: 1em;
-    cursor: pointer;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw;
+    height:25vw;
+    object-fit: cover;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    cursor: pointer;
     transition: all 0.3s ease;
-    color: var(--txtdarkcolor);
+    text-align: center;
+    padding: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item:hover {
     background-color: #ffefdb;
-    transform: scale(1.03);
+    transform: scale(1.05);
+}
+
+.menu-item img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;
+    border-radius: 5%;
+    margin-bottom: 0.5rem;
+}
+
+.menu-item .menu-item-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--txtdarkcolor);
+    margin-bottom: 0.5rem;
+}
+
+.menu-item .menu-item-price {
+    font-size: 1rem;
+    color: var(--txtdarkcolor);
+}
+
+@media (max-width: 1024px) {
+    .menu-item {
+        flex: 1 1 33%;
+        max-width: 30%;
+        min-height: min-content;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-item {
+        flex: 1 1 50%; 
+        max-width: 40%;
+        min-height: min-content;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-item {
+        flex: 1 1 100%;
+        max-width: 90%;
+        min-height: min-content;
+
+    }
 }
 
 .menu-item::after {
     content: attr(data-description);
     position: absolute;
-    bottom: 0%; 
+    bottom: -3rem; 
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 80%; 
     background-color: var(--visitedcolor);
     color: #ffffff;
     font-size: 0.9rem;
     text-align: center;
     padding: 0.5rem;
-    border-radius: 6px;
-    opacity: 0;
+    border-radius: 0.5rem;
+    opacity: 0; 
     transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    white-space: normal;
+    z-index: 10; 
 }
 
 .menu-item:hover::after {
-    bottom: 100%;
+    bottom: calc(30% + 0.5rem);
     opacity: 1; 
+    transform: translateX(-50%); 
 }
-
