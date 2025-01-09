@@ -535,11 +535,10 @@ CHI SIAMO
 ============================== */
 
 #chisiamo-presentazione{
-    color: var(--txtcolor);
+    color: var(--txtwarning);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--bgcolor 0.9);
     height: 80vh;
     text-align: center;
     border-radius: 0.5rem;
@@ -551,14 +550,14 @@ CHI SIAMO
 }
 
 #chisiamo-presentazione p{
-    font-size: 1.2rem;
-    margin: 1rem;
+    font-size: 1.5rem;
+    margin: 2rem;
     line-height: 1.2;
 }
 
 #storia, #missione{
     padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--menubgcolor);
     margin-top: 2rem;
     border-radius: 0.5rem;
 }
@@ -569,7 +568,7 @@ CHI SIAMO
 }
 
 #storia p, #missione p{
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: justify;
 }
 
@@ -617,22 +616,23 @@ CHI SIAMO
 #sostenibilita {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 0.5rem;
+    background-color: var(--menubgcolor);
+    border-radius: 1rem;
     margin-top: 2rem;
     line-height: 1.2;
 }
 
 #sostenibilita h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
     color: var(--txtdarkcolor);
 }
 
 #sostenibilita p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--txtdarkcolor);
     text-align: justify;
+    padding: 1rem;
 }
 
 #chisiamo-social {
@@ -644,7 +644,7 @@ CHI SIAMO
 #chisiamo-social p {
     font-size: 1.5rem;
     padding: 1rem;
-    color: var(--txtcolor);
+    color: var(--iconabgcolor);
 }
 
 #chisiamo-social h3 {
