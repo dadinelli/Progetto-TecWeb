@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css" media="screen">
-    
     <title>Document</title>
 </head>
 <body>
@@ -41,25 +40,24 @@
     </header>
 
     <main>
-        <form id="login-window">
+        <form id="login-window" action="registrazione.php" method="POST">
             <h1>Registrazione</h1>
-
             <fieldset id="personal-info">
                 <legend>Informazioni personali</legend>
-                <label><input type="text" placeholder="Nome" mandatory required onblur=""></label>
-                <label><input type="text" placeholder="Cognome" mandatory required onblur=""></label>
-                <label><input type="email" placeholder="Email" mandatory required onblur=""></label>
-                <label><input type="tel" placeholder="Telefono" mandatory required onblur=""></label>
+                <label><input id="nome" name="nome" type="text" placeholder="Nome" mandatory required onblur=""></label>
+                <label><input id="cognome" name="cognome" type="text" placeholder="Cognome" mandatory required onblur=""></label>
+                <label><input id="email" name="email" type="email" placeholder="Email" mandatory required onblur=""></label>
+                <label><input id="telefono" name="telefono" type="tel" placeholder="Telefono" mandatory required onb lur=""></label>
             </fieldset>
 
             <fieldset id="user-info">
                 <legend>Account</legend>
-                <label><input type="username" placeholder="Username" mandatory required onblur=""></label>
-                <label><input type="password" placeholder="Password" mandatory required onblur=""></label>
-                <label><input type="password" placeholder="Conferma password" mandatory required onblur=""></label> 
+                <label><input id="username" name="username" type="username" placeholder="Username" mandatory required onblur=""></label>
+                <label><input id="password" name="password"type="password" placeholder="Password" mandatory required onblur=""></label>
+                <label><input id="conferma_password" name="conferma_password" type="password" placeholder="Conferma password" mandatory required onblur=""></label> 
             </fieldset>
 
-            <button class="login-button" type="submit" onkeydown="enter">Registrati</button>
+            <button class="login-button" type="submit" id="submit" name="submit" onkeydown="enter">Registrati</button>
 
             <h2>Hai già un account? <a href="area-riservata.html">Accedi</a></h2>
         </form>
