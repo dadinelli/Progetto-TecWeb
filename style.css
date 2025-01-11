@@ -19,6 +19,7 @@
     --iconabgcolor: #f5f5f5;
     --iconabgcolorhover: #ffefdb;
     --txtwarning: orange;
+    --okcolor: #5ad67f;
 
 }
 
@@ -811,4 +812,116 @@ MENU
     background-color: var(--bgcolor);
     padding: 1rem;
     border-radius: 1rem;
+}
+
+/*
+=============
+PRIVATE
+=============
+*/
+
+#container{
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    background-color: var(--menucolor);
+}
+
+#container h2{
+    text-align: center;
+}
+
+#personal-info-display{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#personal-data{
+    list-style: none;
+}
+
+#personal-data li{
+    margin-bottom: 1em;
+}
+
+#reservation-form{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#reservation-form label{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#edit-personal-info-button{
+    border: none;
+    background-color: var(--txtwarning);
+    border-radius: 0.5em;
+    font-family: "open sans", sans-serif;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    width: 70%;
+}
+
+#change-password-button{
+    border: none;
+    background-color: var(--red);
+    border-radius: 0.5em;
+    font-family: "open sans", sans-serif;
+    padding: 0.5em;
+    width: 70%;
+}
+
+#edit-personal-info-button:hover, #change-password-button:hover, #check:hover{
+    opacity: 0.7;
+}
+
+#date:focus, #numero-persone:focus, #orario:focus{
+    outline: none;
+    opacity: 0.7;
+}
+
+#numero-persone, #orario, #date{
+    width: 50%;
+    background-color: var(--bgcolor);
+    color: var(--txtcolor);
+    border: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    font-family: 'open sans', sans-serif;
+    margin-left: 1em;
+}
+
+#check{
+    background-color: var(--okcolor);
+    border: none;
+    padding: 0.5em;
+    font-family: 'open sans', sans-serif;
+    border-radius: 0.5em;
+    width: 50%;
+}
+
+@media screen and (max-width: 880px){
+    #container{
+        flex-direction: column;
+    }
+
+    #reservation-form label{
+        flex-direction: column;
+        margin-bottom: 1em;
+    }
+
+    #numero-persone, #orario, #date{
+        margin: 0;
+    }
+
+    #personal-info-display{
+        margin-bottom: 2em;
+    }
 }
