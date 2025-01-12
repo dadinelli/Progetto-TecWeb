@@ -40,18 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && $con == true) {
         $username = $_POST['username'] ?? '';
         $password = $_POST['password'] ?? '';
+        
         $stmt = $pdo->prepare("SELECT * FROM cliente WHERE username = :username"); // Query parametrizzata per sicurezza
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {                      //Verifichiamo se la query ha prodotto a qualche risultato
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            // Verifica della password
-            /*-------------------------------------------------------------------------------------------------------------------------------
-            Nota!!!!!!!!!!!!!!
-            password_verify($password, $user['pass'] <--- da sostituire dopo perchè ora non abbiamo ancora fatto insert con password_hash che 
-            nasconde la password, dopo nella registrazione dobbiamo modificarlo e che faccia la roba della hash per la sicurazza.
-            --------------------------------------------------------------------------------------------------------------------------------*/
-            if ($password  == $user['Pass']){
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);       
+            if (password_verify($password, $user['Pass']){
                 $_SESSION['username'] = $username;
                 $_SESSION['is_logged_in'] = true; //per capire se è loggato o no
                 header("Location: private.html");
