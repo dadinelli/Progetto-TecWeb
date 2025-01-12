@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Forno 800</title>
+    <title>Prenotazioni - Forno 800</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Scopri la nostra pizzeria: pizze cotte a legna, ingredienti freschi e di qualità. Ordina online o vieni a trovarci per gustare l'autentica pizza italiana in un'atmosfera accogliente!">
     <meta name="keywords" content="ristorante, pizzeria, pizza, cibo, cibo a domicilio, cibo da asporto, pizza a domicilio, pizza da asporto, pizzeria a domicilio, pizzeria da asporto, pizzeria a taglio, pizzeria al taglio, pizzeria d'asporto, pizzeria d'asporto, pizzeria a domicilio">
@@ -17,6 +17,7 @@
 </head>
 <body>
     <header>
+        <h1>forno 800</h1>
         <nav id="menu">
             <div class="top_menu">
 
@@ -51,21 +52,22 @@
                     <li>Mail: </li>
                     <li>Tel: </li>
                 </ul>
+                
+                <div class="button-container">
+                    <button id="edit-personal-info-button"><a href=""></a>Modifica dati personali</button>
     
-                <button id="edit-personal-info-button"><a href=""></a>Modifica dati personali</button>
-    
-                <button id="change-password-button"><a href=""></a>Cambia passwword</button>
-    
-                <div id="online-reservation"></div>
+                    <button id="change-password-button"><a href=""></a>Cambia password</button>
+                </div>
             </div>
     
             
-            <form action="" id="reservation-form">
+            <form action="" id="reservation-form" method="post">
                 <h2>Prenota un tavolo</h2>
-                <label for="date">Data: <input type="date" name="date"  id="date" required></label>
+                <label for="date">Data: <input type="date" name="date" id="date" required></label>
                 <!-- <label for="orario">Ora: <input type="time" name="orario" id="orario" min="09:00" max="15:00" step="900"></label> -->
-                
-                <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1"></label>
+                <p class="error date-error"></p>
+
+                <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
 
                 <label for="orario">Orario: 
                 <select name="orario" id="orario" required>
@@ -88,8 +90,10 @@
                     <option value="14:45">14:45</option>
                 </select>
                 </label>
-                <button type="submit" id="check" onkeydown="enter">Verifica disponibilita'</button>
+                <div class="button-container"><button type="submit" id="check" onkeydown="enter">Verifica disponibilita'</button></div>
             </form>
+
+            <p class="success success-submission"></p>
         </div>
     </main>
 
@@ -115,6 +119,6 @@
         </div>
     </footer>
 
-    <script src="menu.js"></script>
+    <script src="private.js"></script>
 </body>
 </html>
