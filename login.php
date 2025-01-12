@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($password  == $user['Pass']){
                 $_SESSION['username'] = $username;
                 $_SESSION['is_logged_in'] = true; //per capire se è loggato o no
-                header("Location: index.html");
+                header("Location: private.html");
                 exit();
             } else {
                 echo "Password errata.            ";
