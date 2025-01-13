@@ -44,6 +44,12 @@ reservation_form.addEventListener('submit', function (e) {
         showError("date-error", "Inserisci una data futura");
         return false;
     }
+
+    let peopleNumber = document.getElementById('numero-persone').value;
+    if(peopleNumber > 20){
+        showError("too-many-people", "Per gruppi superiori a 20 persone contattare direttamente il ristorante");
+        return false;
+    }
    
     this.submit();
 });

@@ -926,6 +926,7 @@ PRIVATE
 
 .error.display-error{
     display: block;
+    transform: translateY(-1em);
 }
 
 @media screen and (max-width: 880px){
