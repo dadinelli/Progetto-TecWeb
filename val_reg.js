@@ -1,5 +1,5 @@
 // Gestione del menu a tendina
-/* const navToggle = document.getElementById('hamb-button');
+const navToggle = document.getElementById('hamb-button');
 const menuList = document.getElementById('menu-list');
 
 navToggle.addEventListener('click', () => {
@@ -12,15 +12,7 @@ document.addEventListener('click', (event) => {
     }
 });
 
-//Verifica data dopo  il giorno corrente
-function checkDate(){
-    const date = document.getElementById('date').value;
-    const today = new Date().toISOString().split('T')[0];
-
-    if(date < today) return true;
-    else return false;
-} */
-
+//input validation
 function showError(error_id, error_message){
     document.querySelector("."+error_id).classList.add("display-error");
     document.querySelector("."+error_id).innerHTML = error_message;
@@ -33,15 +25,33 @@ function clearError(){
     }
 }
 
-let reg_form = document.getElementById('reg-form');
+let reg_form = document.getElementById('login-window');
 
 reg_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
     clearError();
-    nome = document.getElementById("nome");
-    if(nome === ''){
-        showError("nome-error", "Inserisci un nome");
+    
+    let name = document.getElementById('nome').value;
+
+    console.log(name.length);
+
+    if(name.length > 30){
+        showError("name-error", "Inserisci un nome valido");
+        return false;
+    }
+
+    let surname = document.getElementById('cognome').value;
+    if(surname.length > 30){
+        showError("surame-error", "Inserisci un cognome valido");
+        return false;
+    }
+
+    let pwd = document.getElementById('password').value;
+    let confirm_pwd = document.getElementById('confirm-password').value;
+
+    if(pwd !== confirm_pwd){
+        showError("confirm-password-error", "Le password non corrispondono");
         return false;
     }
 

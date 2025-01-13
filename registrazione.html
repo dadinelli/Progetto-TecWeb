@@ -41,14 +41,15 @@
     </header>
 
     <main>
-        <form id="login-window" name="reg-form" method="post">
+        <form id="login-window" name="registration-form" method="post">
             <h1>Registrazione</h1>
 
             <fieldset id="personal-info">
                 <legend>Informazioni personali</legend>
                 <label><input id="nome" type="text" placeholder="Nome"></label>
-                <p class="error nome-error"></p>
-                <label><input type="text" placeholder="Cognome" mandatory required onblur=""></label>
+                <p class="error name-error"></p>
+                <label><input id="cognome" type="text" placeholder="Cognome" mandatory required onblur=""></label>
+                <p class="error surname-error"></p>
                 <label><input type="email" placeholder="Email" mandatory required onblur=""></label>
                 <label><input type="tel" placeholder="Telefono" mandatory required onblur=""></label>
             </fieldset>
@@ -56,8 +57,9 @@
             <fieldset id="user-info">
                 <legend>Account</legend>
                 <label><input type="username" placeholder="Username" mandatory required onblur=""></label>
-                <label><input type="password" placeholder="Password" mandatory required onblur=""></label>
-                <label><input type="password" placeholder="Conferma password" mandatory required onblur=""></label> 
+                <label><input id="password" type="password" placeholder="Password" mandatory required onblur=""></label>
+                <label><input id="confirm-password" type="password" placeholder="Conferma password" mandatory required onblur=""></label>
+                <p class="error confirm-password-error"></p>
             </fieldset>
 
             <button class="login-button" type="submit" onkeydown="enter">Registrati</button>
@@ -88,6 +90,5 @@
         </div>
     </footer>
     <script src="val_reg.js"></script>
-    <script src="menu.js"></script>
 </body>
 </html>
