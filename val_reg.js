@@ -33,9 +33,9 @@ function clearError(){
     }
 }
 
-let reservation_form = document.getElementById('reg-form');
+let reg_form = document.getElementById('reg-form');
 
-reservation_form.addEventListener('submit', function (e) {
+reg_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
     clearError();
@@ -44,7 +44,7 @@ reservation_form.addEventListener('submit', function (e) {
         showError("nome-error", "Inserisci un nome");
         return false;
     }
-   
+
     this.submit();
 });
 
