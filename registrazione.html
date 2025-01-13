@@ -41,12 +41,13 @@
     </header>
 
     <main>
-        <form id="login-window">
+        <form id="login-window" name="reg-form" method="post">
             <h1>Registrazione</h1>
 
             <fieldset id="personal-info">
                 <legend>Informazioni personali</legend>
-                <label><input type="text" placeholder="Nome" mandatory required onblur=""></label>
+                <label><input id="nome" type="text" placeholder="Nome"></label>
+                <p class="error nome-error"></p>
                 <label><input type="text" placeholder="Cognome" mandatory required onblur=""></label>
                 <label><input type="email" placeholder="Email" mandatory required onblur=""></label>
                 <label><input type="tel" placeholder="Telefono" mandatory required onblur=""></label>
