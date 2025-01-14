@@ -1,4 +1,6 @@
 <?php
+$durata_sessione = 5;
+session_set_cookie_params($durata_sessione * 60);
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Continua con la logic
@@ -40,10 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && $con == true) {
         $username = $_POST['username'] ?? '';
         $password = $_POST['password'] ?? '';
-        $stmt = $pdo->prepare("SELECT * FROM cliente WHERE username = :username"); // Query parametrizzata per sicurezza
+        $stmt = $pdo->prepare("SELECT * FROM cliente WHERE username = :username");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
-        if ($stmt->rowCount() > 0) {                      //Verifichiamo se la query ha prodotto a qualche risultato
+        if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             // Verifica della password
             /*-------------------------------------------------------------------------------------------------------------------------------
@@ -52,7 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             nasconde la password, dopo nella registrazione dobbiamo modificarlo e che faccia la roba della hash per la sicurazza.
             --------------------------------------------------------------------------------------------------------------------------------*/
             if ($password  == $user['Pass']){
+
                 $_SESSION['username'] = $username;
+                $_SESSION['ID_Cliente'] = $user['ID_Cliente'];
                 $_SESSION['is_logged_in'] = true; //per capire se è loggato o no
                 header("Location: private.html");
                 exit();
@@ -63,11 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             echo "Utente non trovato.";
-            //qui devi modificare la parte del html dove devi dirli che username è sbagliato
         }
     } 
-}else{
-    //Aggiornate la scritta con scritto "username o password errati"
 }
 ?>
 

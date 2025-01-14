@@ -46,8 +46,3 @@ document.querySelectorAll('.menu-item').forEach(item => {
 });
 
 
-//Verifica data dopo  il giorno corrente
-const today = new Date().toISOString().split('T')[0];
-console.log(today);
-document.getElementById('date').setAttribute('min', today);
-
