@@ -75,14 +75,13 @@
             </div>
     
             
-            <form action="" id="reservation-form" method="post">
+            <form action="prenota.php" id="reservation-form" method="post">
                 <h2>Prenota un tavolo</h2>
                 <label for="date">Data: <input type="date" name="date" id="date" required></label>
                 <!-- <label for="orario">Ora: <input type="time" name="orario" id="orario" min="09:00" max="15:00" step="900"></label> -->
                 <p class="error date-error"></p>
 
-                <label for="numero-persone">Numero persone: <input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
-                <p class="error too-many-people"></p>
+                <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
 
                 <label for="orario">Orario: 
                 <select name="orario" id="orario" required>
