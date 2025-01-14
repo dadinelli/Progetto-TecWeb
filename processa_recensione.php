@@ -45,6 +45,7 @@
                 $stmt->bindParam(':id_cliente', $user_ID, PDO::PARAM_INT);
                 
                 if($stmt->execute()){
+                    $pdo->commiit();
                     echo "Recensione realizzata con successo.";
                     header("Location: index.html");
                     exit();
