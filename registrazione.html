@@ -41,22 +41,30 @@
     </header>
 
     <main>
-        <form id="login-window">
+        <form id="login-window" name="registration-form" method="post">
             <h1>Registrazione</h1>
 
             <fieldset id="personal-info">
                 <legend>Informazioni personali</legend>
-                <label for="nome"><input type="text" placeholder="Nome" mandatory required onblur=""></label>
-                <label for="cognome"><input type="text" placeholder="Cognome" mandatory required onblur=""></label>
-                <label for="email"><input type="email" placeholder="Email" mandatory required onblur=""></label>
-                <label for="telefono"><input type="tel" placeholder="Telefono" mandatory required onblur=""></label>
+                <label><input id="nome" type="text" placeholder="Nome" mandatory required onblur=""></label>
+                <p class="error name1-error"></p>
+                <p class="error name2-error"></p>
+                <label><input id="cognome" type="text" placeholder="Cognome" mandatory required onblur=""></label>
+                <p class="error surname1-error"></p>
+                <p class="error surname2-error"></p>
+                <label><input id="email" type="email" placeholder="Email" mandatory required onblur=""></label>
+                <p class="error email-error"></p>
+                <label><input id="tel" type="tel" placeholder="Telefono" mandatory required onblur=""></label>
+                <p class="error tel-error"></p>
             </fieldset>
 
             <fieldset id="user-info">
                 <legend>Account</legend>
-                <label for="username"><input type="username" placeholder="Username" mandatory required onblur=""></label>
-                <label for="password"><input type="password" placeholder="Password" mandatory required onblur=""></label>
-                <label for="conferma password"><input type="password" placeholder="Conferma password" mandatory required onblur=""></label> 
+                <label><input type="username" placeholder="Username" mandatory required onblur=""></label>
+                <label><input id="password" type="password" placeholder="Password" mandatory required onblur=""></label>
+                <p class="error password-error"></p>
+                <label><input id="confirm-password" type="password" placeholder="Conferma password" mandatory required onblur=""></label>
+                <p class="error confirm-password-error"></p>
             </fieldset>
 
             <button class="login-button" type="submit" onkeydown="enter">Registrati</button>
@@ -86,7 +94,6 @@
             <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
         </div>
     </footer>
-
-    <script src="menu.js"></script>
+    <script src="val_reg.js"></script>
 </body>
 </html>
