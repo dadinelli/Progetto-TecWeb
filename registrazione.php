@@ -103,8 +103,8 @@ if($_SERVER['REQUEST_METHOD']==="POST"){ //bottone submit premuto
         }
         else { //email non ancora registrata
         //registro dati su db e reinderizzo alla pagina principale
-            $sqlInsert = "INSERT INTO Cliente (Nome,Cognome,Email,Telefono,Username,Pass) 
-                    VALUES (:nome, :cognome, :email, :telefono,:username, :password)";
+            $sqlInsert = "INSERT INTO Cliente (Email,Telefono,Username,Password,Nome,Cognome) 
+                    VALUES (:email, :telefono,:username, :password, :nome, :cognome)";
             $stmt = $pdo->prepare($sqlInsert);
             $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
             $stmt->bindParam(':cognome', $cognome, PDO::PARAM_STR);
