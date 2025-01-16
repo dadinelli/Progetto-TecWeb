@@ -730,7 +730,6 @@ MENU
 }
 
 .menu-item-description {
-    display: none;
     font-size: 1rem;
     color: var(--black);
     background-color: var(--menubgcolor); 
