@@ -20,7 +20,7 @@ function pulisciInput($value){
     return $value;
 }
 
-if(isset($_POST['submit'])){ //bottone submit premuto
+if($_SERVER['REQUEST_METHOD']==="POST"){ //bottone submit premuto
     //controllo input 
     $nome = pulisciInput($_POST['nome']);
     if(strlen($nome) == 0){
@@ -80,13 +80,12 @@ if(isset($_POST['submit'])){ //bottone submit premuto
     $password = password_hash($password, PASSWORD_DEFAULT); // Hash della password
     //se il form è valido provo a connettermi al database
     if($formValido){
-        $host = 'localhost';
-        $port = '5432';
-        $dbname = 'postgres';
-        $userdbname = 'postgres';
-        $passwordDB = 'password';
+        $host = 'localhost';                         
+        $dbname = 'progettotecweb';          
+        $userdbname = 'root';          
+        $passwordDB = '';
         try {
-            $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+            $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
             $pdo = new PDO($dsn, $userdbname, $passwordDB);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
@@ -104,8 +103,8 @@ if(isset($_POST['submit'])){ //bottone submit premuto
         }
         else { //email non ancora registrata
         //registro dati su db e reinderizzo alla pagina principale
-            $sqlInsert = "INSERT INTO Cliente (Nome,Cognome,Email,Telefono,Username,Pass) 
-                    VALUES (:nome, :cognome, :email, :telefono,:username, :password)";
+            $sqlInsert = "INSERT INTO Cliente (Email,Telefono,Username,Password,Nome,Cognome) 
+                    VALUES (:email, :telefono,:username, :password, :nome, :cognome)";
             $stmt = $pdo->prepare($sqlInsert);
             $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
             $stmt->bindParam(':cognome', $cognome, PDO::PARAM_STR);
