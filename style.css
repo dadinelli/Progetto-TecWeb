@@ -698,7 +698,7 @@ MENU
     text-align: center;
     font-size: 2rem;
     color: var(--txtdarkcolor);
-    border-bottom: 0.2rem solid #ff8c00;
+    border-bottom: 0.2rem solid var(--linkcolor);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -718,9 +718,8 @@ MENU
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20vw;
-    height:25vw;
-    object-fit: cover;
+    width: 20rem;
+    height:auto;
     background-color: var(--iconabgcolor);
     border-radius: 1rem;
     cursor: pointer;
@@ -729,6 +728,26 @@ MENU
     padding: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.menu-item-description {
+    display: none;
+    font-size: 1rem;
+    color: var(--black);
+    background-color: var(--menubgcolor); 
+    padding: 0.5rem; 
+    border-radius: 0.5rem; 
+    margin-top: 0.5rem; 
+    text-align: center; 
+    transition: all 0.5s ease; 
+    white-space: normal; 
+}
+
+/* Mostra la descrizione al passaggio del mouse */
+.menu-item:hover .menu-item-description,
+.menu-item:focus-within .menu-item-description {
+    display: block;
+}
+
 
 .menu-item:hover {
     background-color: var(--iconabgcolorhover);
@@ -757,54 +776,36 @@ MENU
 
 @media (max-width: 1024px) {
     .menu-item {
-        flex: 1 1 33%;
-        max-width: 30%;
-        min-height: min-content;
+        width: 18rem;
     }
 }
 
 @media (max-width: 768px) {
     .menu-item {
-        flex: 1 1 50%; 
-        max-width: 40%;
-        min-height: min-content;
+        width: 15rem; 
+    }
 
+    .menu-item-description {
+        font-size: 0.8rem; 
     }
 }
 
 @media (max-width: 480px) {
     .menu-item {
-        flex: 1 1 100%;
-        max-width: 90%;
-        min-height: min-content;
+        width: 100%; 
+    }
 
+    .menu-item-description {
+        padding: 0.3rem; 
     }
 }
 
-.menu-item::after {
-    content: attr(data-description);
-    position: absolute;
-    bottom: -3rem; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%; 
-    background-color: var(--visitedcolor);
-    color: #ffffff;
-    font-size: 0.9rem;
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    opacity: 0; 
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    white-space: normal;
-    z-index: 10; 
-}
 
-.menu-item:hover::after {
-    bottom: calc(30% + 0.5rem);
-    opacity: 1; 
-    transform: translateX(-50%); 
+
+.menu-item:focus-within {
+    outline:3px solid var(--bgcolor);
+    outline-offset: 0px; 
+    border-radius: 0.5rem; 
 }
 
 .allergeni {
