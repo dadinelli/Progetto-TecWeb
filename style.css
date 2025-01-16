@@ -741,13 +741,6 @@ MENU
     white-space: normal; 
 }
 
-/* Mostra la descrizione al passaggio del mouse */
-.menu-item:hover .menu-item-description,
-.menu-item:focus-within .menu-item-description {
-    display: block;
-}
-
-
 .menu-item:hover {
     background-color: var(--iconabgcolorhover);
     transform: scale(1.05);
@@ -762,14 +755,14 @@ MENU
 }
 
 .menu-item .menu-item-name {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: bold;
     color: var(--txtdarkcolor);
     margin-bottom: 0.5rem;
 }
 
 .menu-item .menu-item-price {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--txtdarkcolor);
 }
 
@@ -802,7 +795,7 @@ MENU
 
 
 .menu-item:focus-within {
-    outline:3px solid var(--bgcolor);
+    outline: 0.2rem solid var(--txtdarkcolor);
     outline-offset: 0px; 
     border-radius: 0.5rem; 
 }
