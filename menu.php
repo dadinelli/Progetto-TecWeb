@@ -6,16 +6,16 @@ $breadcum_content = "&nbsp;&sol;&nbsp;Menu";
 $script = "menu.js";
 
 $menu_content = '<ul id="menu-list">
-    <li lang="en"><a href="index.php">HOME</li>
+    <li lang="en"><a href="index.php">HOME</a></li>
     <li id="currentLink">MENU</li>
     <li><a href="chisiamo.php">CHI SIAMO</a></li>
-    <li><a href="contatti.php">CONTATTI</li>
+    <li><a href="contatti.php">CONTATTI</a></li>
     <li><a href="area-riservata.php">AREA RISERVATA</a></li>
     </ul>';
 
 include "template/header.php";
 
-$DOM = file_get_contents('html/contatti.html');
+$DOM = file_get_contents('html/menu.html');
 echo($DOM);
 
 include "template/footer.php";

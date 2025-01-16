@@ -15,7 +15,7 @@ $menu_content = '<ul id="menu-list">
 
 include "template/header.php";
 
-$DOM = file_get_contents('html/contatti.html');
+$DOM = file_get_contents('html/chisiamo.html');
 echo($DOM);
 
 include "template/footer.php";
