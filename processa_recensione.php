@@ -5,7 +5,7 @@
         $recensione = '';
         $user_ID = $_SESSION['ID_Cliente'];
         $currentDate = date("Y-m-d");
-        $fromValido = true;
+        $formValido = true;
 
 
         function pulisciInput($value){
@@ -15,7 +15,7 @@
             return $value;
         }
 
-        if(isset($_POST['submit'])){ //bottone submit premuto
+        if($_SERVER['REQUEST_METHOD']==="POST"){ //bottone submit premuto
             //controllo input 
             $recensione = pulisciInput($_POST['recensione']);
             if(strlen($recensione) == 0){;
@@ -45,24 +45,26 @@
                 $stmt->bindParam(':id_cliente', $user_ID, PDO::PARAM_INT);
                 
                 if($stmt->execute()){
-                    $pdo->commit();
                     echo "Recensione realizzata con successo.";
                     header("Location: index.html");
                     exit();
                 }
                 else {
-                    header("Location: index.html");
                     echo "Problemi con il salvataggio della recensione.";
+                    header("Location: index.html");
+                    exit();
                 }
             }
             else {
-                header("Location: index.html");
                 echo "Form non valido";
+                header("Location: index.html");
+                exit();
             }
         }
     }
     else {
-        header("Location: index.html");
         echo "Effettuare il login";
+        header("Location: index.html");
+        exit();
     }
 ?>
