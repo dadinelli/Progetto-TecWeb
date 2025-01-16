@@ -1,0 +1,48 @@
+<main class="contact-main">
+    <div class="contact-section">
+        <h2>Contattaci</h2>
+        <p>Email: <a href="mailto:forno800@example.com">forno800@example.com</a></p>
+        <p>Telefono: <a href="tel:+393939393939">+39 393 939 3939</a></p>
+
+        <h3>Dove Trovarci</h3>
+        <p>Via forno800, Padova</p>
+        <div id="map">
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=..." 
+            title="Mappa della pizzeria Forno 800"
+            width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+
+        <div id="chisiamo-social">
+            <h3>Seguici!</h3>
+            <a href="https://instagram.com/forno800"><img src="materiale/instagram_icon.png" alt="Instagram"></a>
+            <a href="https://facebook.com/forno800"><img src="materiale/facebook_icon.svg" alt="Facebook"></a>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2>Informazioni utili</h2>
+        <p><strong>Parcheggio:</strong> Disponibile di fronte al ristorante.</p>
+        <p><strong>Accessibilità:</strong> Locale accessibile per persone con disabilità.</p>
+    </div>
+
+    <div class="contact-section">
+        <h2>Lavora con noi</h2>
+        <form class="contact-form" action="/submit-job-application" method="POST">
+            <fieldset>
+                <legend>Informazioni personali</legend>
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                <label for="cognome">Cognome</label>
+                <input type="text" id="cognome" name="cognome" placeholder="Cognome" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <label for="telefono">Telefono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Telefono" required>
+                <label for="esperienza">Descrivi la tua esperienza</label>
+                <textarea id="esperienza" name="esperienza" placeholder="Descrivi la tua esperienza" required></textarea>
+            </fieldset>
+            <button type="submit">Invia</button>
+        </form>
+    </div>     
+</main>

@@ -1,0 +1,32 @@
+<main>
+    <form id="login-window" name="registration-form" method="post">
+        <h1>Registrazione</h1>
+
+        <fieldset id="personal-info">
+            <legend>Informazioni personali</legend>
+            <label><input id="nome" type="text" placeholder="Nome" mandatory required onblur=""></label>
+            <p class="error name1-error"></p>
+            <p class="error name2-error"></p>
+            <label><input id="cognome" type="text" placeholder="Cognome" mandatory required onblur=""></label>
+            <p class="error surname1-error"></p>
+            <p class="error surname2-error"></p>
+            <label><input id="email" type="email" placeholder="Email" mandatory required onblur=""></label>
+            <p class="error email-error"></p>
+            <label><input id="tel" type="tel" placeholder="Telefono" mandatory required onblur=""></label>
+            <p class="error tel-error"></p>
+        </fieldset>
+
+        <fieldset id="user-info">
+            <legend>Account</legend>
+            <label><input type="username" placeholder="Username" mandatory required onblur=""></label>
+            <label><input id="password" type="password" placeholder="Password" mandatory required onblur=""></label>
+            <p class="error password-error"></p>
+            <label><input id="confirm-password" type="password" placeholder="Conferma password" mandatory required onblur=""></label>
+            <p class="error confirm-password-error"></p>
+        </fieldset>
+
+        <button class="login-button" type="submit" onkeydown="enter">Registrati</button>
+
+        <h2>Hai già un account? <a href="area-riservata.php">Accedi</a></h2>
+    </form>
+</main>
