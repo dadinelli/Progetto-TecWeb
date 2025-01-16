@@ -10,7 +10,7 @@
     --txtcolor: #91a6ba;
     --txtdarkcolor: #050709;
     --linkcolor: #ffa500;
-    --visitedcolor: #ff8000;
+    --visitedcolor: #ff5900;
     --menucolor: rgba(0, 0, 0, 0.8);
     --menucolor-noshadow: rgb(0, 0, 0);
     --txtbgcolor: #91a6ba80;
@@ -501,7 +501,7 @@ CONTATTI
     padding: 1rem 2rem;
     border: none;
     border-radius: 0.5rem;
-    background-color: var(--linkcolor);
+    background-color: var(--bgcolor);
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -647,16 +647,11 @@ CHI SIAMO
     color: var(--txtcolor);
 }
 
-#chisiamo-social p {
-    font-size: 1.5rem;
+#chisiamo-social h3 {
+    font-size: 2rem;
     padding: 1rem;
     color: var(--iconabgcolor);
-}
-
-#chisiamo-social h3 {
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    color: var(--txtdarkcolor);
+    font-weight: 400;
 }
 
 #chisiamo-social a {
