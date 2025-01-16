@@ -20,7 +20,7 @@ function pulisciInput($value){
     return $value;
 }
 
-if($_SERVER['REQUEST_METHOD']==="POST"){ //bottone submit premuto
+if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
     //controllo input 
     $nome = pulisciInput($_POST['nome']);
     if(strlen($nome) == 0){
@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){ //bottone submit premuto
         $formValido = false;
     }
 
-    $telefono = pulisciInput($_POST['telefono']);
+    $telefono = pulisciInput($_POST['tel']);
     if(strlen($telefono) == 0){
         $messaggiForm .= '<li>Numero di Telefono non inserito</li>';
         $formValido = false;
@@ -103,8 +103,8 @@ if($_SERVER['REQUEST_METHOD']==="POST"){ //bottone submit premuto
         }
         else { //email non ancora registrata
         //registro dati su db e reinderizzo alla pagina principale
-            $sqlInsert = "INSERT INTO Cliente (Email,Telefono,Username,Password,Nome,Cognome) 
-                    VALUES (:email, :telefono,:username, :password, :nome, :cognome)";
+            $sqlInsert = "INSERT INTO Cliente (Nome,Cognome,Email,Telefono,Username,Pass) 
+                          VALUES (:nome, :cognome, :email, :telefono, :username, :password)";             
             $stmt = $pdo->prepare($sqlInsert);
             $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
             $stmt->bindParam(':cognome', $cognome, PDO::PARAM_STR);
@@ -125,7 +125,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){ //bottone submit premuto
         }
     }else{
         //faccio visualizzare i messaggi di errore del form
-        header("Location: registrazione.html");
+        header("Location: chisiamo.html");
         $messaggiForm = '<div id = "messageErrors"><ul>'. $messaggiForm. '</ul></div>';
         $paginaHTML= str_replace("<messaggiForm />", $messaggiForm, $paginaHTML);
     }
