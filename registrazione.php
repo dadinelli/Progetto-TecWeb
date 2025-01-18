@@ -114,18 +114,18 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
             $stmt->bindParam(':password', $password, PDO::PARAM_STR);
             if($stmt->execute()){
                 $_SESSION['success_message'] = "Registrazione avvenuta con successo!";
-                header("Location: index.html");
+                header("Location: index.php");
                 exit();
             }
             else { 
                 $_SESSION['error_message'] = "Abbiamo avuto un problema con la registrazione";
-                header("Location: registrazione.html");
+                header("Location: registrazione.php");
                 exit();
             }
         }
     }else{
         //faccio visualizzare i messaggi di errore del form
-        header("Location: chisiamo.html");
+        header("Location: chisiamo.php");
         $messaggiForm = '<div id = "messageErrors"><ul>'. $messaggiForm. '</ul></div>';
         $paginaHTML= str_replace("<messaggiForm />", $messaggiForm, $paginaHTML);
     }
