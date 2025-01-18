@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Forno 800</title>
+    <title>Prenotazioni - Forno 800</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Scopri la nostra pizzeria: pizze cotte a legna, ingredienti freschi e di qualità. Ordina online o vieni a trovarci per gustare l'autentica pizza italiana in un'atmosfera accogliente!">
     <meta name="keywords" content="ristorante, pizzeria, pizza, cibo, cibo a domicilio, cibo da asporto, pizza a domicilio, pizza da asporto, pizzeria a domicilio, pizzeria da asporto, pizzeria a taglio, pizzeria al taglio, pizzeria d'asporto, pizzeria d'asporto, pizzeria a domicilio">
@@ -12,11 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css" media="screen">
-    
-    <title>Document</title>
 </head>
 <body>
+    <script>
+        function loadPrivateContent() {
+            const xhr = new XMLHttpRequest();                                       //se non sapete cosa è, praticametne è un oggetto che serve per fare richieste http asincrone al server
+                                                                                    //quindi non bisogna ricaricare la pagina
+            xhr.open('GET', 'private.php', true);                                   //chiede al private.php di mandarti dei dati (GET) e true serve per indicare che la richiesta è asincrona
+            xhr.onload = function () {                                              //callback eseguita automaticamente quando è arrivata la risposta del server
+                if (xhr.status === 200) {                                           //richiesta soddistatta con il numero 200
+                    document.getElementById('content').innerHTML = xhr.responseText;//prende i dati (xhr.responseText) e lo setta nel document. blablabla e questo è collegato al <div id="content">
+                }
+            };
+            xhr.send();                                                             //Dopo aver aperto la richiesta, questa riga la invia effettivamente al server.
+                                                                                    //A questo punto, il browser invia una richiesta GET al server chiedendo il contenuto di private.php.
+        }
+        loadPrivateContent();
+    </script>
     <header>
+        <h1>forno 800</h1>
         <nav id="menu">
             <div class="top_menu">
 
@@ -44,28 +58,28 @@
             <div id="personal-info-display">
                 <h2>Dati Personali</h2>
 
-                <ul id="personal-data">
-                    <li>Username: </li>
-                    <li>Nome: </li>
-                    <li>Cognome: </li>
-                    <li>Mail: </li>
-                    <li>Tel: </li>
-                </ul>
+                <div id="content">
+                    <!-- Qui poi successivamente vi stamperà ul con tutti i dati, perchè con id = content io l'ho gestito dentro in script 
+                         document.getElementById('content').innerHTML = xhr.responseText; se la richiesta è andata buon fine dovrebbe avere status 200, praticamente
+                         prende il contenuto della riga e restituito dal server e lo inserisce nell'elemento della pagina con id "content"
+                    --> 
+                </div>
+                
+                <div class="button-container">
+                    <button id="edit-personal-info-button"><a href=""></a>Modifica dati personali</button>
     
-                <button id="edit-personal-info-button"><a href=""></a>Modifica dati personali</button>
-    
-                <button id="change-password-button"><a href=""></a>Cambia passwword</button>
-    
-                <div id="online-reservation"></div>
+                    <button id="change-password-button"><a href=""></a>Cambia password</button>
+                </div>
             </div>
     
             
-            <form action="" id="reservation-form">
+            <form action="prenota.php" id="reservation-form" method="post">
                 <h2>Prenota un tavolo</h2>
-                <label for="date">Data: <input type="date" name="date"  id="date" required></label>
+                <label for="date">Data: <input type="date" name="date" id="date" required></label>
                 <!-- <label for="orario">Ora: <input type="time" name="orario" id="orario" min="09:00" max="15:00" step="900"></label> -->
-                
-                <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1"></label>
+                <p class="error date-error"></p>
+
+                <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
 
                 <label for="orario">Orario: 
                 <select name="orario" id="orario" required>
@@ -88,8 +102,10 @@
                     <option value="14:45">14:45</option>
                 </select>
                 </label>
-                <button type="submit" id="check" onkeydown="enter">Verifica disponibilita'</button>
+                <div class="button-container"><button type="submit" id="check" onkeydown="enter">Verifica disponibilita'</button></div>
             </form>
+
+            <p class="success success-submission"></p>
         </div>
     </main>
 
@@ -115,6 +131,6 @@
         </div>
     </footer>
 
-    <script src="menu.js"></script>
+    <script src="private.js"></script>
 </body>
 </html>
