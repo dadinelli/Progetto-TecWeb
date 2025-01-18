@@ -25,6 +25,11 @@ if ($_SESSION['is_logged_in'] === true) {
             $email = $cliente['Email'];
             $telefono = $cliente['Telefono'];
             $username = $cliente['Username'];
+            $_SESSION['nome'] = $nome;
+            $_SESSION['email'] = $email;
+            $_SESSION['telefono'] = $telefono;
+            $_SESSION['Username'] = $username;
+            $_SESSION['Cognome'] = $cognome;
             echo "
                 <ul id='personal-data'>
                     <li>Username: $username</li>

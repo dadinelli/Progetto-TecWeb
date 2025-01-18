@@ -1,4 +1,6 @@
 <?php
+$durata_sessione = 5;
+session_set_cookie_params($durata_sessione * 60);
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Continua con la logic
@@ -45,7 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($password == $user['Pass'] ||password_verify($password, $user['Pass'])){
+            // Verifica della password
+            /*-------------------------------------------------------------------------------------------------------------------------------
+            Nota!!!!!!!!!!!!!!
+            password_verify($password, $user['pass'] <--- da sostituire dopo perchè ora non abbiamo ancora fatto insert con password_hash che 
+            nasconde la password, dopo nella registrazione dobbiamo modificarlo e che faccia la roba della hash per la sicurazza.
+            --------------------------------------------------------------------------------------------------------------------------------*/
+            if (password_verify($password, $user['pass'])){
+
                 $_SESSION['username'] = $username;
                 $_SESSION['ID_Cliente'] = $user['ID_Cliente'];
                 $_SESSION['is_logged_in'] = true; //per capire se è loggato o no
