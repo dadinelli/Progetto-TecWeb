@@ -14,41 +14,26 @@
     <link rel="stylesheet" href="style.css" media="screen">
 </head>
 <body>
-    <script>
-        function loadPrivateContent() {
-            const xhr = new XMLHttpRequest();                                       //se non sapete cosa è, praticametne è un oggetto che serve per fare richieste http asincrone al server
-                                                                                    //quindi non bisogna ricaricare la pagina
-            xhr.open('GET', 'private.php', true);                                   //chiede al private.php di mandarti dei dati (GET) e true serve per indicare che la richiesta è asincrona
-            xhr.onload = function () {                                              //callback eseguita automaticamente quando è arrivata la risposta del server
-                if (xhr.status === 200) {                                           //richiesta soddistatta con il numero 200
-                    document.getElementById('content').innerHTML = xhr.responseText;//prende i dati (xhr.responseText) e lo setta nel document. blablabla e questo è collegato al <div id="content">
-                }
-            };
-            xhr.send();                                                             //Dopo aver aperto la richiesta, questa riga la invia effettivamente al server.
-                                                                                    //A questo punto, il browser invia una richiesta GET al server chiedendo il contenuto di private.php.
-        }
-        loadPrivateContent();
-    </script>
     <header>
         <h1>forno 800</h1>
         <nav id="menu">
             <div class="top_menu">
 
-                <a href="index.html" id="logo-link"><img src="materiale/logo.webp" alt="Logo" id="logo-img"></a>
+                <a href="index.php" id="logo-link"><img src="materiale/logo.webp" alt="Logo" id="logo-img"></a>
             
                 <button id="hamb-button" onclick="toggleMenu()"><img src="materiale/hamburger-menu-white.png" alt="Hamburger menu" id="hamb-button-img"></button>
 
                 <ul id="menu-list">
-                    <li lang="en"><a href="index.html">HOME</a></li>
-                    <li><a href="menu.html">MENU</a></li>
-                    <li><a href="chisiamo.html">CHI SIAMO</a></li>
-                    <li><a href="contatti.html">CONTATTI</a></li>
-                    <li><a href="area-riservata.html">AREA RISERVATA</a></li>
+                    <li lang="en"><a href="index.php">HOME</a></li>
+                    <li><a href="menu.php">MENU</a></li>
+                    <li><a href="chisiamo.php">CHI SIAMO</a></li>
+                    <li><a href="contatti.php">CONTATTI</a></li>
+                    <li><a href="area-riservata.php">AREA RISERVATA</a></li>
                 </ul>
             </div>
     
             <nav id="breadcrumb">
-                <p>Ti trovi in: <a href="index.html"><span lang="en">Home</span></a>&nbsp;&sol;&nbsp;Area Riservata</p>
+                <p>Ti trovi in: <a href="index.php"><span lang="en">Home</span></a>&nbsp;&sol;&nbsp;Area Riservata</p>
             </nav>
         </nav>
     </header>
@@ -82,7 +67,7 @@
                 <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
 
                 <label for="orario">Orario: 
-                <select name="orario" id="orario" required>
+                <select name="orario" id="orario" onkeydown="enter" required>
                     <option value="">Selezione un'opzione</option>
                     <option value="11:00">11:00</option>
                     <option value="11:15">11:15</option>

@@ -130,4 +130,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
         $paginaHTML= str_replace("<messaggiForm />", $messaggiForm, $paginaHTML);
     }
 }
+
+$DOM = file_get_contents("html/registrazione.html");
+echo $DOM;
 ?>

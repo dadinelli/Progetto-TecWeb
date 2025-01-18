@@ -48,5 +48,9 @@ if ($_SESSION['is_logged_in'] === true) {
 } else {
     echo "Utente non loggato o ID Cliente non trovato nella sessione.";
 }
+
+$DOM = file_get_contents("html/private.html");
+echo $DOM;
+
 ?>
 
