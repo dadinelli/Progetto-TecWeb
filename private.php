@@ -50,7 +50,6 @@ if ($_SESSION['is_logged_in'] === true) {
 }
 
 $DOM = file_get_contents("html/private.html");
-echo $DOM;
-
+echo($DOM);
 ?>
 

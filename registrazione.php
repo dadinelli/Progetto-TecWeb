@@ -132,5 +132,5 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
 }
 
 $DOM = file_get_contents("html/registrazione.html");
-echo $DOM;
+echo($DOM);
 ?>
