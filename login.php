@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             password_verify($password, $user['pass'] <--- da sostituire dopo perchè ora non abbiamo ancora fatto insert con password_hash che 
             nasconde la password, dopo nella registrazione dobbiamo modificarlo e che faccia la roba della hash per la sicurazza.
             --------------------------------------------------------------------------------------------------------------------------------*/
-            if (password_verify($password, $user['pass'])){
+            if (password_verify($password, $user['Pass'])){
 
                 $_SESSION['username'] = $username;
                 $_SESSION['ID_Cliente'] = $user['ID_Cliente'];
