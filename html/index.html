@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css" media="screen">
+    <!-- <link rel="stylesheet" href="mini.css" media="screen and (max-width: 1000px)"> -->
+    
+    <title>Document</title>
 </head>
 <body>
     <header>
@@ -64,8 +67,26 @@
             </div>
         </section>
 
-        <section id="recensioni">
-            <p>Dicono di noi</p>
+        <!-- <section id="vis_recensioni"> <p>Dicono di noi</p> </section> -->
+
+        <section id="ins_recensioni">
+            <form id="login-window" action="processa_recensione.php" method="post">
+                <h1>Facci sapere la tua esperienza</h1>
+                <label for="voto">Voto:</label>
+                <select id="voto" name="voto" required>
+                    <option value="1">1 - Pessimo</option>
+                    <option value="2">2 - Scarso</option>
+                    <option value="3">3 - Sufficiente</option>
+                    <option value="4">4 - Buono</option>
+                    <option value="5">5 - Eccellente</option>
+                </select>
+        
+                <label for="recensione">Recensione:</label><br>
+                <textarea id="recensione" name="recensione" rows="5" cols="40" placeholder="Scrivi qui la tua recensione..." required></textarea>
+        
+                <button class="login-button" type="submit">Invia</button>
+                <h2>Non hai un account? <a href="registrazione.php">Registrati</a></h2>
+            </form>
         </section>
     </main>
 
@@ -90,7 +111,42 @@
             <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
         </div>
     </footer>
+    <script>
+        function caricaRecensioni() {
+            // Effettua una richiesta AJAX al file PHP per ottenere le recensioni
+            fetch('visualizza_recensioni.php')
+                .then(response => response.json())
+                .then(data => {
+                    const recensioniUL = document.getElementById('recensioni-container');
+                    recensioniUL.innerHTML = ''; // Pulisce eventuali recensioni precedenti
+                    if (data.error) {
+                        recensioniUL.innerHTML = `<p>${data.error}</p>`;
+                    } else {
+                        // Loop per visualizzare ogni recensione
+                        data.forEach(recensione => {
+                            const recensioneElem = document.createElement('li');
 
+                            // Aggiungi il contenuto per ogni recensione
+                            recensioneElem.innerHTML = `
+                                <span class="username-recensioni">${recensione.Username}</span>
+                                <p class="valutazione-recensioni">${recensione.Valutazione}</p>
+                                <p class="testo-recensioni">${recensione.Testo}</p>
+                                <p class="data-recensioni">${recensione.Data}</small>
+                            `;
+
+                            // Aggiungi la recensione all'ul
+                            recensioniUL.appendChild(recensioneElem);
+                        });
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('recensioni-container').innerHTML = `<p>Errore nel caricamento delle recensioni.</p>`;
+                });
+        }
+
+        // Carica le recensioni al caricamento della pagina
+        window.onload = caricaRecensioni;
+    </script>
     <script src="menu.js"></script>
 </body>
 </html>

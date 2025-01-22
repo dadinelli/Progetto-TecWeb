@@ -35,23 +35,30 @@ function clearError(){
 
 let reservation_form = document.getElementById('reservation-form');
 
-reservation_form.addEventListener('submit', function (e) {
+reservation_form.addEventListener('change', function (e) {
 
     e.preventDefault();
     clearError();
 
+    console.log("Controllo input");
+
+    let date_error = true;
+    let people_number_error = true;
+
     if(checkDate()){
         showError("date-error", "Inserisci una data futura");
-        return false;
+        //return false;
     }
+    else date_error = false;
 
     let peopleNumber = document.getElementById('numero-persone').value;
     if(peopleNumber > 20){
         showError("too-many-people", "Per gruppi superiori a 20 persone contattare direttamente il ristorante");
         return false;
     }
-   
-    this.submit();
+    else people_number_error = false;
+
+    if(!date_error && !people_number_error) this.submit();
 });
 
 function loadPrivateContent() {
