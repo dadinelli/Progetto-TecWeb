@@ -1,6 +1,5 @@
 <?php
-$durata_sessione = 5;
-session_set_cookie_params($durata_sessione * 60);
+session_set_cookie_params(3600);
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Continua con la logic

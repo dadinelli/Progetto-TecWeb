@@ -54,14 +54,14 @@ reservation_form.addEventListener('change', function (e) {
     let peopleNumber = document.getElementById('numero-persone').value;
     if(peopleNumber > 20){
         showError("too-many-people", "Per gruppi superiori a 20 persone contattare direttamente il ristorante");
-        return false;
+        //return false;
     }
     else people_number_error = false;
 
     if(!date_error && !people_number_error) this.submit();
 });
 
-function loadPrivateContent() {
+/*function loadPrivateContent() {
     const xhr = new XMLHttpRequest();                                       //se non sapete cosa è, praticametne è un oggetto che serve per fare richieste http asincrone al server
                                                                             //quindi non bisogna ricaricare la pagina
     xhr.open('GET', 'private.php', true);                                   //chiede al private.php di mandarti dei dati (GET) e true serve per indicare che la richiesta è asincrona
@@ -73,6 +73,6 @@ function loadPrivateContent() {
     xhr.send();                                                             //Dopo aver aperto la richiesta, questa riga la invia effettivamente al server.
                                                                             //A questo punto, il browser invia una richiesta GET al server chiedendo il contenuto di private.php.
 }
-loadPrivateContent();
+loadPrivateContent();*/
 
 

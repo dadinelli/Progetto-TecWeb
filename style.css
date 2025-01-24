@@ -118,7 +118,7 @@ MENU
     text-decoration: none;
 }
 
-#menu a:visited{
+#menu-list a:visited{
     color: var(--visitedcolor);
 }
 
@@ -861,8 +861,8 @@ PRIVATE
     margin-bottom: 1em;
     width: 50%;
 }
-
-#change-password-button{
+ 
+#logout-button{
     border: none;
     background-color: var(--red);
     border-radius: 0.5em;
@@ -871,7 +871,7 @@ PRIVATE
     width: 50%;
 }
 
-#edit-personal-info-button:hover, #change-password-button:hover, #check:hover{
+#edit-personal-info-button:hover, #logout-button:hover, #check:hover{
     opacity: 0.7;
 }
 

@@ -28,7 +28,7 @@
                     <li><a href="menu.php">MENU</a></li>
                     <li><a href="chisiamo.php">CHI SIAMO</a></li>
                     <li><a href="contatti.php">CONTATTI</a></li>
-                    <li><a href="area-riservata.php">AREA RISERVATA</a></li>
+                    <li id="currentLink">AREA RISERVATA</li>
                 </ul>
             </div>
     
@@ -43,17 +43,12 @@
             <div id="personal-info-display">
                 <h2>Dati Personali</h2>
 
-                <div id="content">
-                    <!-- Qui poi successivamente vi stamperà ul con tutti i dati, perchè con id = content io l'ho gestito dentro in script 
-                         document.getElementById('content').innerHTML = xhr.responseText; se la richiesta è andata buon fine dovrebbe avere status 200, praticamente
-                         prende il contenuto della riga e restituito dal server e lo inserisce nell'elemento della pagina con id "content"
-                    --> 
-                </div>
+                <div id="content"></div>
                 
                 <div class="button-container">
                     <button id="edit-personal-info-button"><a href=""></a>Modifica dati personali</button>
-    
-                    <button id="change-password-button"><a href=""></a>Cambia password</button>
+
+                    <button id="logout-button">Esci</button>
                 </div>
             </div>
     

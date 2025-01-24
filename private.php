@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+$DOM = file_get_contents("html/private.html");
+
 if ($_SESSION['is_logged_in'] === true) {
     $idCliente = $_SESSION['ID_Cliente'];
 
@@ -30,7 +33,8 @@ if ($_SESSION['is_logged_in'] === true) {
             $_SESSION['telefono'] = $telefono;
             $_SESSION['Username'] = $username;
             $_SESSION['Cognome'] = $cognome;
-            echo "
+
+            $show_data = "
                 <ul id='personal-data'>
                     <li>Username: $username</li>
                     <li>Nome: $nome</li>
@@ -39,6 +43,9 @@ if ($_SESSION['is_logged_in'] === true) {
                     <li>Tel: $telefono</li>
                 </ul>
             ";
+
+            $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
+
         } else {
             echo "Cliente non trovato. $idCliente";
         }
@@ -47,9 +54,9 @@ if ($_SESSION['is_logged_in'] === true) {
     }
 } else {
     echo "Utente non loggato o ID Cliente non trovato nella sessione.";
+    header("Location: area-riservata.php");
 }
 
-$DOM = file_get_contents("html/private.html");
 echo($DOM);
 ?>
 
