@@ -868,7 +868,7 @@ PRIVATE
     border-radius: 0.5em;
     font-family: "open sans", sans-serif;
     padding: 0.5em;
-    width: 50%;
+    width: 100%;
 }
 
 #edit-personal-info-button:hover, #logout-button:hover, #check:hover{

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$paginaHTML = file_get_contents("registrazione.html");
+$paginaHTML = file_get_contents("html/registrazione.html");
 $messaggiForm = ''; //messaggi di errore
 $formValido = true;
 //inizializzazione variabili form
