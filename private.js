@@ -26,6 +26,11 @@ function showError(error_id, error_message){
     document.querySelector("."+error_id).innerHTML = error_message;
 }
 
+function showSuccess(success_id, success_mex){
+    document.querySelector("."+success_id).classList.add("display-success");
+    document.querySelector("."+success_id).innerHTML = success_mex;
+}
+
 function clearError(){
     let errors = document.querySelectorAll(".error");
     for(let error of errors){
@@ -34,31 +39,34 @@ function clearError(){
 }
 
 let reservation_form = document.getElementById('reservation-form');
+let date_error = true;
+let people_number_error = true;
 
 reservation_form.addEventListener('change', function (e) {
 
-    e.preventDefault();
     clearError();
-
-    console.log("Controllo input");
-
-    let date_error = true;
-    let people_number_error = true;
 
     if(checkDate()){
         showError("date-error", "Inserisci una data futura");
-        //return false;
     }
     else date_error = false;
 
     let peopleNumber = document.getElementById('numero-persone').value;
     if(peopleNumber > 20){
+        console.log("entra");
         showError("too-many-people", "Per gruppi superiori a 20 persone contattare direttamente il ristorante");
-        //return false;
     }
     else people_number_error = false;
+});
 
-    if(!date_error && !people_number_error) this.submit();
+reservation_form.addEventListener('submit', function(e){
+    
+    e.preventDefault();
+    if(date_error === false && people_number_error === false){
+        this.submit();
+        showSuccess("success", "Prenotazione inviata correttamente!")
+        console.log("successo");
+    }
 });
 
 /*function loadPrivateContent() {

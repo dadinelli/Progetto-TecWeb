@@ -46,8 +46,7 @@
                 <div id="content"></div>
                 
                 <div class="button-container">
-                    <button id="edit-personal-info-button"><a href=""></a>Modifica dati personali</button>
-
+                    <button id="edit-personal-info-button">Modifica dati personali</button>
                     <form action="logout.php"><button type="submit" id="logout-button">Esci</button></form>
                 </div>
             </div>
@@ -57,12 +56,13 @@
                 <h2>Prenota un tavolo</h2>
                 <label for="date">Data: <input type="date" name="date" id="date" required></label>
                 <!-- <label for="orario">Ora: <input type="time" name="orario" id="orario" min="09:00" max="15:00" step="900"></label> -->
-                <p class="error date-error"></p>
+                <p class="error date-error" aria-label="Inserisci una data futura"></p>
 
                 <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
+                <p class="error too-many-people" aria-label="Per gruppi superiori a 20 persone contattare direttamente il ristorante"></p>
 
                 <label for="orario">Orario: 
-                <select name="orario" id="orario" onkeydown="enter" required>
+                <select name="orario" id="orario" required>
                     <option value="">Selezione un'opzione</option>
                     <option value="11:00">11:00</option>
                     <option value="11:15">11:15</option>
@@ -87,6 +87,8 @@
 
             <p class="success success-submission"></p>
         </div>
+
+        <div class="confirmation-box"></div>
     </main>
 
     <footer>

@@ -3,6 +3,7 @@ session_start();
 
 $DOM = file_get_contents("html/private.html");
 
+//Load user data
 if ($_SESSION['is_logged_in'] === true) {
     $idCliente = $_SESSION['ID_Cliente'];
 
@@ -56,6 +57,11 @@ if ($_SESSION['is_logged_in'] === true) {
     echo "Utente non loggato o ID Cliente non trovato nella sessione.";
     header("Location: area-riservata.php");
 }
+
+/*include "prenota.php";
+if(isset($_POST['submit'])){
+    reservation($DOM);
+}*/
 
 echo($DOM);
 ?>

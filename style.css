@@ -9,8 +9,8 @@
     --light-gray: #D3D4D9;
     --txtcolor: #91a6ba;
     --txtdarkcolor: #050709;
-    --linkcolor: #ffa500;
-    --visitedcolor: #ff5900;
+    --linkcolor: #ff5900;
+    --visitedcolor: #ffa500;
     --menucolor: rgba(0, 0, 0, 0.8);
     --menucolor-noshadow: rgb(0, 0, 0);
     --txtbgcolor: #91a6ba80;
@@ -44,6 +44,13 @@ body{
     }
 }
 
+a:link{
+    color: var(--linkcolor);
+}
+
+a:visited{
+    color: var(--visitedcolor);
+}
 
 /*
 =============
@@ -66,7 +73,7 @@ header h1{
 
 /*
 =============
-MENU
+BARRA   MENU
 =============
 */
 
@@ -105,21 +112,11 @@ MENU
     flex-direction: row;
     justify-content: space-between;
     font-size: 1.5em;
-    list-style: none;
     padding: 1em 1em;
 }
 
 #menu-list li{
     padding: 0.5em;
-}
-
-#menu a:link{
-    color: var(--linkcolor);
-    text-decoration: none;
-}
-
-#menu-list a:visited{
-    color: var(--visitedcolor);
 }
 
 #currentLink{
@@ -314,7 +311,7 @@ LOGIN
     font-size: 1em;
 }
 
-#login-window > *{
+#login-window input, h1, button, h2{
     margin-bottom: 1.2em;
 }
 
@@ -346,12 +343,20 @@ LOGIN
     height: 2.5em;
     padding-left: 0.5em;
     border-radius: 0.5em;
-    width: 100%;
+    width: 70%;
     transition: all 0.15s;
 }
 
 #login-window label{
+    display: inline-block;
     width: 70%;
+    height: 0;
+    text-indent: -9999px;
+}
+
+#login-window input[type="checkbox"]{
+    border: none;
+    height: 1.5em;
 }
 
 #login-window fieldset label, fieldset legend{
@@ -388,6 +393,13 @@ LOGIN
     #login-window{
         width: 70%;
     }
+}
+
+#keep_connected_checkbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 /*
@@ -906,6 +918,10 @@ PRIVATE
     align-items: center;
 }
 
+.button-container form{
+    width: 50%;
+}
+
 .error{
     display: none;
     text-align: right;
@@ -915,6 +931,14 @@ PRIVATE
 .error.display-error{
     display: block;
     transform: translateY(-1em);
+}
+
+.success{
+    display: none;
+}
+
+.success.display-success{
+    display: block;
 }
 
 @media screen and (max-width: 880px){
@@ -939,4 +963,8 @@ PRIVATE
     .error{
         text-align: center;
     }
+}
+
+#user-data-list{
+    list-style: none;
 }
