@@ -43,6 +43,10 @@ if ($_SESSION['is_logged_in'] === true) {
                     <li>Mail: $email</li>
                     <li>Tel: $telefono</li>
                 </ul>
+                <div class='button-container'>
+                    <form action='mod_private.php'><button type='submit' id='edit-personal-info-button'>Modifica dati personali</button></form>
+                    <form action='logout.php'><button type='submit' id='logout-button'>Esci</button></form>
+                </div>
             ";
 
             $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
