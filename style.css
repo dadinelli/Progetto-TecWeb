@@ -258,7 +258,8 @@ section{
     width: 30%;
 }
 
-#recensioni{
+
+/*#recensioni{
     color: var(--txtcolor);
     display: flex;
     flex-direction: row;
@@ -267,7 +268,7 @@ section{
     text-align: justify;
     background-color: rgba(0, 0, 0, 0.6);
     height: 60vh;
-}
+}*/
 
 @media screen and (max-width: 880px){
     section{
@@ -303,6 +304,10 @@ LOGIN
     padding: 1em 1em 0.5em 1em;
 }
 
+#login-window.wider{
+    width: 50%;
+}
+
 #login-window h1{
     font-weight: 100;
 }
@@ -311,7 +316,7 @@ LOGIN
     font-size: 1em;
 }
 
-#login-window input, h1, button, h2{
+#login-window input, #login-window h1, button, h2, textarea, select{
     margin-bottom: 1.2em;
 }
 
@@ -327,7 +332,8 @@ LOGIN
 }
 
 .login-button:hover{
-    opacity: 0.7;    
+    opacity: 0.7;
+    cursor: pointer;    
 }
 
 .login-button:active{
@@ -393,6 +399,10 @@ LOGIN
     #login-window{
         width: 70%;
     }
+
+    #login-window.wider{
+        width: 70%;
+    }
 }
 
 #keep_connected_checkbox{
@@ -401,6 +411,29 @@ LOGIN
     justify-content: center;
     align-items: center;
 }
+
+#login-window textarea{
+    font-family: 'open sans', sans-serif;
+    font-size: 0.8em;
+    width: 80%;
+    height: 7em;
+    resize: none;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+    
+#login-window textarea:focus{
+    outline: none;
+}
+
+#login-window select{
+    font-family: 'open sans', sans-serif;
+    font-weight: 100;
+    width: 80%;
+    padding-left: 1em;
+}
+
 
 /*
 =============
@@ -871,7 +904,7 @@ PRIVATE
     font-family: "open sans", sans-serif;
     padding: 0.5em;
     margin-bottom: 1em;
-    width: 50%;
+    width: 100%;
 }
  
 #logout-button{
@@ -953,7 +986,7 @@ PRIVATE
 
     #numero-persone, #orario, #date{
         margin: 0;
-        width: 100%;
+        width: 90%;
     }
 
     #personal-info-display{
@@ -968,3 +1001,8 @@ PRIVATE
 #user-data-list{
     list-style: none;
 }
+
+.edit-data-form{
+    width: 50%;
+}
+
