@@ -35,12 +35,9 @@ if ($_SESSION['is_logged_in'] === true) {
             $_SESSION['Username'] = $username;
             $_SESSION['Cognome'] = $cognome;
 
-            $show_data = file_get_contents('html/edit_data.html');
-            $show_data = str_replace("value='email'", "value='$email'", $show_data);
-            $show_data = str_replace("value='username'", "value='$username'", $show_data);
-            $show_data = str_replace("value='telefono'", "value='$telefono'", $show_data);
-
-            $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
+            $DOM = str_replace("value='email'", "value='$email'", $show_data);
+            $DOM = str_replace("value='username'", "value='$username'", $show_data);
+            $DOM = str_replace("value='telefono'", "value='$telefono'", $show_data);
 
         } else {
             echo "Cliente non trovato. $idCliente";

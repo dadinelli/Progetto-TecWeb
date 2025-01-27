@@ -45,14 +45,48 @@
             <div id="personal-info-display">
                 <h2>Dati Personali</h2>
 
+                <label for="toggle-edit-personal-data" id="label-checkbox">Modifica dati personali</label><input type="checkbox" id="toggle-edit-personal-data">
+
                 <div id="content"></div>
+
+                <div class="edit-personal-data">
+                    <form id='login-window' class="wider" name='change-data-form' action='save_new_data.php' method='POST'>
+                        <h1>Modifica dati utente</h1>
+                    
+                        <fieldset id='personal-info'>
+                            <legend>Informazioni personali</legend>
+                            <label for='email'>Email</label>
+                            <input id='email' name='email' type='email' placeholder='Email' value='email' mandatory required onblur=''>
+                            <p class='error email-error'></p>
+                            <label for='tel'>Numero di Telefono</label>
+                            <input id='tel' name='tel' type='tel' placeholder='Telefono' value='telefono' mandatory required onblur=''>
+                            <p class='error tel-error'></p>
+                        </fieldset>
+                    
+                        <fieldset id='user-info'>
+                            <legend>Account</legend>
+                            <label for='username'>Username</label>
+                            <input id='username' name='username' type='username' placeholder='Username' value='username' mandatory required onblur=''>
+                            <label for='password-attuale'>Password attuale</label>
+                            <input id='password-attuale' name='password-attuale' type='password' placeholder='Password attuale' mandatory required onblur=''>
+                            <p class='error actual-password-error'></p>
+                            <label for='nuova-password'>Nuova password</label>
+                            <input id='nuova-password' name='nuova-password' type='password' placeholder='Nuova password' mandatory required onblur=''>
+                            <p class='error new-password-error'></p>
+                            <label for='confirm-new-password'>Conferma nuova password</label>
+                            <input id='confirm-new-password' name='confirm-new-password' type='password' placeholder='Conferma nuova password' mandatory required onblur=''>
+                            <p class='error confirm-password-error'></p>
+                        </fieldset>
+                    
+                        <button class='login-button' type='submit' onkeydown='enter'>Salva</button>
+                    </form>
+                </div>    
             </div>
     
             
             <form action="prenota.php" id="reservation-form" method="post">
                 <h2>Prenota un tavolo</h2>
                 <label for="date">Data: <input type="date" name="date" id="date" required></label>
-                <!-- <label for="orario">Ora: <input type="time" name="orario" id="orario" min="09:00" max="15:00" step="900"></label> -->
                 <p class="error date-error" aria-label="Inserisci una data futura"></p>
 
                 <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
@@ -84,8 +118,6 @@
 
             <p class="success success-submission"></p>
         </div>
-
-        <div class="confirmation-box"></div>
     </main>
 
     <footer>

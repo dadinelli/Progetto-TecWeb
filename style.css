@@ -306,6 +306,7 @@ LOGIN
 
 #login-window.wider{
     width: 50%;
+    
 }
 
 #login-window h1{
@@ -889,6 +890,7 @@ PRIVATE
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 20em;
 }
 
 #reservation-form label{
@@ -998,11 +1000,42 @@ PRIVATE
     }
 }
 
-#user-data-list{
-    list-style: none;
+.edit-personal-data{
+    display: none;
 }
 
-.edit-data-form{
+#label-checkbox{
+    display: inline-block;
+    background-color: var(--txtwarning);
+    color: var(--txtdarkcolor);
+    text-align: center;
     width: 50%;
+    margin: auto;
+    border-radius: 0.5em;
+    padding: 0.3em 0em;
 }
 
+#label-checkbox:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ .edit-personal-data{
+    display: block;
+}
+
+input[type="checkbox"]:checked ~ #personal-data{
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ #reservation-form{
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ .button-container{
+    display: none;
+}

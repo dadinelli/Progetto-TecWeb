@@ -44,13 +44,15 @@ if ($_SESSION['is_logged_in'] === true) {
                     <li>Tel: $telefono</li>
                 </ul>
                 <div class='button-container'>
-                    <form action='mod_private.php'><button type='submit' id='edit-personal-info-button'>Modifica dati personali</button></form>
                     <form action='logout.php'><button type='submit' id='logout-button'>Esci</button></form>
                 </div>
             ";
 
             $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
 
+            $DOM = str_replace("value='email'", "value='$email'", $DOM);
+            $DOM = str_replace("value='username'", "value='$username'", $DOM);
+            $DOM = str_replace("value='telefono'", "value='$telefono'", $DOM);
         } else {
             echo "Cliente non trovato. $idCliente";
         }
