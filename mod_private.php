@@ -42,17 +42,17 @@ if ($_SESSION['is_logged_in'] === true) {
                 <fieldset id='personal-info'>
                     <legend>Informazioni personali</legend>
                     <label for='email'>Email</label>
-                    <input id='email' name='email' type='email' placeholder='$email' mandatory required onblur=''>
+                    <input id='email' name='email' type='email' placeholder='Email' value='$email' mandatory required onblur=''>
                     <p class='error email-error'></p>
                     <label for='tel'>Numero di Telefono</label>
-                    <input id='tel' name='tel' type='tel' placeholder='$telefono' mandatory required onblur=''>
+                    <input id='tel' name='tel' type='tel' placeholder='Telefono' value='$telefono' mandatory required onblur=''>
                     <p class='error tel-error'></p>
                 </fieldset>
 
                 <fieldset id='user-info'>
                     <legend>Account</legend>
                     <label for='username'>Username</label>
-                    <input id='username' name='username' type='username' placeholder='$username' mandatory required onblur=''>
+                    <input id='username' name='username' type='username' placeholder='Username' value='$username' mandatory required onblur=''>
                     <label for='password-attuale'>Password attuale</label>
                     <input id='password-attuale' name='password-attuale' type='password' placeholder='Password attuale' mandatory required onblur=''>
                     <p class='error actual-password-error'></p>
