@@ -890,13 +890,14 @@ PRIVATE
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 20em;
+    height: 30em;
 }
 
 #reservation-form label{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 #edit-personal-info-button{
@@ -922,12 +923,12 @@ PRIVATE
     opacity: 0.7;
 }
 
-#date:focus, #numero-persone:focus, #orario:focus{
+#date:focus, #numero-persone:focus, #orario-pranzo:focus, #orario-cena:focus{
     outline: none;
     opacity: 0.7;
 }
 
-#numero-persone, #orario, #date{
+#numero-persone, #orario-pranzo, #orario-cena, #date{
     width: 50%;
     background-color: var(--bgcolor);
     color: var(--txtcolor);
@@ -986,7 +987,7 @@ PRIVATE
         margin-bottom: 1em;
     }
 
-    #numero-persone, #orario, #date{
+    #numero-persone, #orario-pranzo, #orario-cena, #date{
         margin: 0;
         width: 90%;
     }
@@ -1010,7 +1011,8 @@ PRIVATE
     color: var(--txtdarkcolor);
     text-align: center;
     width: 50%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 0.5em;
     padding: 0.3em 0em;
 }
@@ -1039,3 +1041,20 @@ input[type="checkbox"]:checked ~ #reservation-form{
 input[type="checkbox"]:checked ~ .button-container{
     display: none;
 }
+
+#pranzo:checked ~ #reservation-form #label-cena{
+    display: none;
+}
+
+#pranzo:checked ~ #reservation-form #label-pranzo{
+    display: block;
+}
+
+#cena:checked ~ #reservation-form #label-pranzo{
+    display: none;
+}
+
+#cena:checked ~ #reservation-form #label-cena{
+    display: block;
+}
+

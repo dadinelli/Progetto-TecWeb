@@ -92,8 +92,11 @@
                 <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
                 <p class="error too-many-people" aria-label="Per gruppi superiori a 20 persone contattare direttamente il ristorante"></p>
 
-                <label for="orario">Orario: 
-                <select name="orario" id="orario" required>
+                <label for="pranzo">Pranzo<input type="radio" name="opt" value="pranzo" id="pranzo" checked required></label>
+                <label for="cena">Cena<input type="radio" name="opt" value="cena" id="cena" required></label>
+                
+                <label for="orario-pranzo" id="label-pranzo">Orario: 
+                <select name="orario-pranzo" id="orario-pranzo" required>
                     <option value="">Selezione un'opzione</option>
                     <option value="11:00">11:00</option>
                     <option value="11:15">11:15</option>
@@ -111,6 +114,28 @@
                     <option value="14:15">14:15</option>
                     <option value="14:30">14:30</option>
                     <option value="14:45">14:45</option>
+                </select>
+                </label>
+
+                <label for="orario-cena" id="label-cena">Orario: 
+                <select name="orario-cena" id="orario-cena" required>
+                    <option value="">Selezione un'opzione</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:15">18:15</option>
+                    <option value="18:30">18:30</option>
+                    <option value="18:45">18:45</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:15">19:15</option>
+                    <option value="19:30">19:30</option>
+                    <option value="19:45">19:45</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:15">20:15</option>
+                    <option value="20:30">20:30</option>
+                    <option value="20:45">20:45</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:15">21:15</option>
+                    <option value="21:30">21:30</option>
+                    <option value="21:45">21:45</option>
                 </select>
                 </label>
                 <div class="button-container"><button type="submit" id="check" onkeydown="enter">Verifica disponibilita'</button></div>

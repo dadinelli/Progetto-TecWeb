@@ -8,6 +8,6 @@
     } else {
         $_SESSION['logout_error'] = "Non sei loggato!";
     }
-    header("Location: index.php");
+    header("Location: area-riservata.php");
     exit();
 ?>
