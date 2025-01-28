@@ -45,9 +45,11 @@
             <div id="personal-info-display">
                 <h2>Dati Personali</h2>
 
-                <label for="toggle-edit-personal-data" id="label-checkbox">Modifica dati personali</label><input type="checkbox" id="toggle-edit-personal-data">
-
                 <div id="content"></div>
+
+                <a href="logout.php">Esci</a>
+
+                <label for="toggle-edit-personal-data" id="label-checkbox">Modifica dati personali</label><input type="checkbox" id="toggle-edit-personal-data">
 
                 <div class="edit-personal-data">
                     <form id='login-window' class="wider" name='change-data-form' action='save_new_data.php' method='POST'>
@@ -56,25 +58,25 @@
                         <fieldset id='personal-info'>
                             <legend>Informazioni personali</legend>
                             <label for='email'>Email</label>
-                            <input id='email' name='email' type='email' placeholder='Email' value='email' mandatory required onblur=''>
+                            <input id='email' name='email' type='email' placeholder='Email' value='email' required>
                             <p class='error email-error'></p>
                             <label for='tel'>Numero di Telefono</label>
-                            <input id='tel' name='tel' type='tel' placeholder='Telefono' value='telefono' mandatory required onblur=''>
+                            <input id='tel' name='tel' type='tel' placeholder='Telefono' value='telefono' required>
                             <p class='error tel-error'></p>
                         </fieldset>
                     
                         <fieldset id='user-info'>
                             <legend>Account</legend>
                             <label for='username'>Username</label>
-                            <input id='username' name='username' type='username' placeholder='Username' value='username' mandatory required onblur=''>
+                            <input id='username' name='username' type='text' placeholder='Username' value='username' required>
                             <label for='password-attuale'>Password attuale</label>
-                            <input id='password-attuale' name='password-attuale' type='password' placeholder='Password attuale' mandatory required onblur=''>
+                            <input id='password-attuale' name='password-attuale' type='password' placeholder='Password attuale' required>
                             <p class='error actual-password-error'></p>
                             <label for='nuova-password'>Nuova password</label>
-                            <input id='nuova-password' name='nuova-password' type='password' placeholder='Nuova password' mandatory required onblur=''>
+                            <input id='nuova-password' name='nuova-password' type='password' placeholder='Nuova password' required>
                             <p class='error new-password-error'></p>
                             <label for='confirm-new-password'>Conferma nuova password</label>
-                            <input id='confirm-new-password' name='confirm-new-password' type='password' placeholder='Conferma nuova password' mandatory required onblur=''>
+                            <input id='confirm-new-password' name='confirm-new-password' type='password' placeholder='Conferma nuova password' required>
                             <p class='error confirm-password-error'></p>
                         </fieldset>
                     
@@ -87,57 +89,63 @@
             <form action="prenota.php" id="reservation-form" method="post">
                 <h2>Prenota un tavolo</h2>
                 <label for="date">Data: <input type="date" name="date" id="date" required></label>
-                <p class="error date-error" aria-label="Inserisci una data futura"></p>
+                <p class="error date-error"></p>
 
                 <label for="numero-persone">In quanti?<input type="number" id="numero-persone" name="numero-persone" min="1" required></label>
-                <p class="error too-many-people" aria-label="Per gruppi superiori a 20 persone contattare direttamente il ristorante"></p>
-
-                <label for="pranzo">Pranzo<input type="radio" name="opt" value="pranzo" id="pranzo" checked required></label>
-                <label for="cena">Cena<input type="radio" name="opt" value="cena" id="cena" required></label>
+                <p class="error too-many-people"></p>
                 
-                <label for="orario-pranzo" id="label-pranzo">Orario: 
-                <select name="orario-pranzo" id="orario-pranzo" required>
-                    <option value="">Selezione un'opzione</option>
-                    <option value="11:00">11:00</option>
-                    <option value="11:15">11:15</option>
-                    <option value="11:30">11:30</option>
-                    <option value="11:45">11:45</option>
-                    <option value="12:00">12:00</option>
-                    <option value="12:15">12:15</option>
-                    <option value="12:30">12:30</option>
-                    <option value="12:45">12:45</option>
-                    <option value="13:00">13:00</option>
-                    <option value="13:15">13:15</option>
-                    <option value="13:30">13:30</option>
-                    <option value="13:45">13:45</option>
-                    <option value="14:00">14:00</option>
-                    <option value="14:15">14:15</option>
-                    <option value="14:30">14:30</option>
-                    <option value="14:45">14:45</option>
-                </select>
-                </label>
+                <input type="radio" name="opt" value="pranzo" id="pranzo" checked>Pranzo
+                <input type="radio" name="opt" value="cena" id="cena">Cena
+                
 
-                <label for="orario-cena" id="label-cena">Orario: 
-                <select name="orario-cena" id="orario-cena" required>
-                    <option value="">Selezione un'opzione</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:15">18:15</option>
-                    <option value="18:30">18:30</option>
-                    <option value="18:45">18:45</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:15">19:15</option>
-                    <option value="19:30">19:30</option>
-                    <option value="19:45">19:45</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:15">20:15</option>
-                    <option value="20:30">20:30</option>
-                    <option value="20:45">20:45</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:15">21:15</option>
-                    <option value="21:30">21:30</option>
-                    <option value="21:45">21:45</option>
-                </select>
-                </label>
+                <div id="div-pranzo">
+                    <label for="orario-pranzo">Orario: 
+                    <select name="orario" id="orario-pranzo">
+                        <option value="">Selezione un'opzione</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:15">11:15</option>
+                        <option value="11:30">11:30</option>
+                        <option value="11:45">11:45</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:15">12:15</option>
+                        <option value="12:30">12:30</option>
+                        <option value="12:45">12:45</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:15">13:15</option>
+                        <option value="13:30">13:30</option>
+                        <option value="13:45">13:45</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:15">14:15</option>
+                        <option value="14:30">14:30</option>
+                        <option value="14:45">14:45</option>
+                    </select>
+                    </label>
+                </div>
+
+                <div id="div-cena">
+                    <label for="orario-cena" id="label-cena">Orario: 
+                    <select name="orario" id="orario-cena">
+                        <option value="">Selezione un'opzione</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:15">18:15</option>
+                        <option value="18:30">18:30</option>
+                        <option value="18:45">18:45</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:15">19:15</option>
+                        <option value="19:30">19:30</option>
+                        <option value="19:45">19:45</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:15">20:15</option>
+                        <option value="20:30">20:30</option>
+                        <option value="20:45">20:45</option>
+                        <option value="21:00">21:00</option>
+                        <option value="21:15">21:15</option>
+                        <option value="21:30">21:30</option>
+                        <option value="21:45">21:45</option>
+                    </select>
+                    </label>
+                </div>
+
                 <div class="button-container"><button type="submit" id="check" onkeydown="enter">Verifica disponibilita'</button></div>
             </form>
 
@@ -153,8 +161,8 @@
         </div>
 
         <div id="orari">
-            <p>11:00 - 15:00</p>
-            <p>18:00 - 22:00</p>
+            <p><abbr title="11-15"></abbr><time datetime="11:00">11:00</time> - <time datetime="15:00">15:00</time></p>
+            <p><abbr title="18-22"></abbr><time datetime="18:00">18:00</time> - <time datetime="22:00">22:00</time></p>
             <p>Aperti tutti i giorni</p>
 
             <address><p>Via Tiziano Aspetti 13 - Padova</p></address>

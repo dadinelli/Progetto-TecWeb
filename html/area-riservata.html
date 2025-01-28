@@ -17,6 +17,7 @@
 </head>
 <body>
     <header>
+        <a href="#login-window" class="hidden">Vai al contenuto</a>
         <nav id="menu">
             <div class="top_menu">
 
@@ -44,15 +45,15 @@
         <form id="login-window" action="login.php" method="POST">
             <h1><span lang="en">Login</span></h1>
             <label for="username">Username</label>
-            <input id = "username" name = "username" type="username" placeholder="Username" mandatory required onblur="">
+            <input id = "username" name = "username" type="text" placeholder="Username" required onblur="">
             <label for="password">Password</label>
-            <input id = "password" name = "password" type="password" placeholder="Password" mandatory required onblur="">
+            <input id = "password" name = "password" type="password" placeholder="Password" required onblur="">
             <button class="login-button" onkeydown="enter" type="submit">Login</button>
             <h2>Non hai un account? <a href="registrazione.php">Registrati</a></h2>
         </form>
     </main>
 
-    <footer> 
+    <footer>
         <div id= "social">
             <p>Seguici!</p>
             <a href=""><p>Instagram</p></a>
@@ -60,8 +61,8 @@
         </div>
 
         <div id="orari">
-            <p>11:00 - 15:00</p>
-            <p>18:00 - 22:00</p>
+            <p><abbr title="11-15"></abbr><time datetime="11:00">11:00</time> - <time datetime="15:00">15:00</time></p>
+            <p><abbr title="18-22"></abbr><time datetime="18:00">18:00</time> - <time datetime="22:00">22:00</time></p>
             <p>Aperti tutti i giorni</p>
 
             <address><p>Via Tiziano Aspetti 13 - Padova</p></address>

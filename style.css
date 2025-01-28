@@ -28,6 +28,10 @@ html, body{
     background-color: var(--bgcolor);
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background-image: url(materiale/background-verticale.jpg);
     background-size: cover;
@@ -36,6 +40,7 @@ body{
     line-height: 1.5em;
     font-weight: 100;
     background-attachment: fixed;
+    
 }
 
 @media screen and (max-width: 880px){
@@ -71,9 +76,17 @@ header h1{
     height: 0;
 }
 
+.hidden{
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    top: auto;
+}
+
 /*
 =============
-BARRA   MENU
+BARRA MENU
 =============
 */
 
@@ -245,30 +258,14 @@ section{
 }
 
 .text-container-right{
-    align-items: right;
     text-align: right;
 }
 
-.text-container-left{
-    align-items: left;
-}
 
 .facciata{
     flex: 1;
     width: 30%;
 }
-
-
-/*#recensioni{
-    color: var(--txtcolor);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 60vh;
-}*/
 
 @media screen and (max-width: 880px){
     section{
@@ -282,6 +279,23 @@ section{
     .facciata{
         width: 100%;
     }
+}
+
+.back-up{
+    text-align: center;
+    align-items: center;
+    margin-bottom: 0.9em;
+}
+
+.back-up a{
+    transition-duration: 0.3s;
+    background-color: var(--light-gray);
+    padding: 1em;
+    color: var(--bgcolor);
+    border-radius: 1em 1em 0 0;
+    text-decoration: none;
+    font-family: 'open sans', sans-serif;
+    font-weight: bolder;
 }
 
 /*
@@ -305,8 +319,7 @@ LOGIN
 }
 
 #login-window.wider{
-    width: 50%;
-    
+    width: 50%;   
 }
 
 #login-window h1{
@@ -571,7 +584,7 @@ CONTATTI
 
     #map iframe {
         width: 100%;
-        height: 25pvw;
+        height: 25vw;
     }
 }
 .contact-details p {
@@ -1042,19 +1055,35 @@ input[type="checkbox"]:checked ~ .button-container{
     display: none;
 }
 
-#pranzo:checked ~ #reservation-form #label-cena{
+#personal-info-display a{
+    background-color: var(--red);
+    color: var(--txtdarkcolor);
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 0.3em 0em;
+    margin-bottom: 1em;
+}
+
+#personal-info-display a:hover{
+    opacity: 0.7;
+}
+
+#div-cena{
     display: none;
 }
 
-#pranzo:checked ~ #reservation-form #label-pranzo{
+#cena:checked ~ #div-cena{
     display: block;
 }
 
-#cena:checked ~ #reservation-form #label-pranzo{
+#cena:checked ~ #div-pranzo{
     display: none;
-}
+} 
 
-#cena:checked ~ #reservation-form #label-cena{
+#pranzo:checked ~ #div-pranzo{
     display: block;
 }
-
