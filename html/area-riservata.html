@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Forno 800</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pagina dedicata al login della pizzeria">
+    <meta name="keywords" content="Forno 800, forno, legna, pizza, area riservata, login, accesso">
+    <meta name="author" content="Davide Martinelli, Riccardo Valerio, Alex Shu, Enrico Bianchi">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+    <header>
+        <a href="#login-window" class="hidden">Vai al contenuto</a>
+        <nav id="menu">
+            <div class="top_menu">
+
+                <a href="index.php" id="logo-link"><img src="materiale/logo.webp" alt="Logo" id="logo-img"></a>
+            
+                <button id="hamb-button" onclick="toggleMenu()"><img src="materiale/hamburger-menu-white.png" alt="Hamburger menu" id="hamb-button-img"></button>
+
+                <ul id="menu-list">
+                    <li lang="en"><a href="index.php">HOME</a></li>
+                    <li><a href="menu.php">MENU</a></li>
+                    <li><a href="chisiamo.php">CHI SIAMO</a></li>
+                    <li><a href="contatti.php">CONTATTI</a></li>
+                    <li id="currentLink">AREA RISERVATA</li>
+                </ul>
+            </div>
+    
+            <nav id="breadcrumb">
+                <p>Ti trovi in: <a href="index.php"><span lang="en">Home</span></a>&nbsp;&sol;&nbsp;Area Riservata</p>
+            </nav>
+        </nav>
+
+    </header>
+
+    <main>
+        <form id="login-window" class="with-margin" action="login.php" method="POST">
+            <h1><span lang="en">Login</span></h1>
+            <label for="username">Username</label>
+            <input id = "username" name = "username" type="text" placeholder="Username" required onblur="">
+            <label for="password">Password</label>
+            <input id = "password" name = "password" type="password" placeholder="Password" required onblur="">
+            <button class="login-button" onkeydown="enter" type="submit">Login</button>
+            <h2>Non hai un account? <a href="registrazione.php">Registrati</a></h2>
+        </form>
+    </main>
+
+    <footer>
+        <div id= "social">
+            <p>Seguici!</p>
+            <a href=""><p>Instagram</p></a>
+            <a href=""><p>Facebook</p></a>
+        </div>
+
+        <div id="orari">
+            <p><abbr title="11-15"></abbr><time datetime="11:00">11:00</time> - <time datetime="15:00">15:00</time></p>
+            <p><abbr title="18-22"></abbr><time datetime="18:00">18:00</time> - <time datetime="22:00">22:00</time></p>
+            <p>Aperti tutti i giorni</p>
+
+            <address><p>Via Tiziano Aspetti 13 - Padova</p></address>
+        </div>
+
+        <div id="contatti">
+            <p>Scrivici!</p>
+            <a href="tel:+393939393939"><p>+39 393 939 3939</p></a>
+            <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+</html>
