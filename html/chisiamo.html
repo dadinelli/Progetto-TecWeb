@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi siamo - Forno 800</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chi siamo: presentazione della pizzeria, i nostri obiettivi e le nostre attivita'">
+    <meta name="keywords" content="Pizzeria, Impatto, Sostenibilità, pizza, obiettivi, storia">
+    <meta name="author" content="Davide Martinelli, Riccardo Valerio, Alex Shu, Enrico Bianchi">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+    <header>
+        <a href="#chisiamo-presentazione" class="hidden">Vai al contenuto</a>
+        <nav id="menu">
+            <div class="top_menu">
+
+                <a href="index.php" id="logo-link"><img src="materiale/logo.webp" alt="Logo del ristorante" id="logo-img"></a>
+            
+                <button id="hamb-button"><img src="materiale/hamburger-menu-white.png" alt="Hamburger menu" id="hamb-button-img"></button>
+
+                <ul id="menu-list">
+                    <li lang="en"><a href="index.php">HOME</a></li>
+                    <li><a href="menu.php">MENU</a></li>
+                    <li id="currentLink">CHI SIAMO</li>
+                    <li><a href="contatti.php">CONTATTI</a></li>
+                    <li><a href="area-riservata.php">AREA RISERVATA</a></li>
+                </ul>
+            </div>
+    
+            <nav id="breadcrumb">
+                <p>Ti trovi in: <a href="index.php"><span lang="en">Home</span></a>&nbsp;&sol;&nbsp;Chi siamo</p>
+            </nav>
+        </nav>
+
+    </header>
+
+    <main>
+        <section id="chisiamo-presentazione">
+            <div>
+                <h1>Benvenuti da Forno 800!</h1>
+                <p>La nostra pizzeria è un luogo dove la tradizione incontra l'innovazione. Da più di 20 anni prepariamo pizze gourmet cotte nel forno a legna, utilizzando solo ingredienti freschi e di alta qualità.</p>
+            </div>
+        </section>
+        
+        <section id="storia">
+            <div class="text-container-right">
+                <h2>La nostra Storia</h2>
+                <p>Forno 800 è nato nel cuore di Padova come un piccolo angolo dove gli appassionati di pizza potevano gustare un'autentica pizza italiana. Oggi, il nostro ristorante è diventato un punto di riferimento per chi cerca il meglio della cucina tradizionale, con un tocco di creatività. Ogni pizza è una storia di passione, dall'impasto alla cottura, tutto viene curato nei minimi dettagli.</p>
+            </div>
+            <div class="facciata">
+                <img src="materiale/facciata.webp" alt="Facciata del ristorante">
+            </div>
+        </section>
+        
+        <section id="missione">
+            <div class="text-container-right">
+                <h2>La Nostra Missione</h2>
+                <p>La nostra missione è quella di offrire un'esperienza culinaria unica, dove ogni piatto racconta una storia di tradizione e innovazione. Siamo sempre alla ricerca dei migliori ingredienti locali e internazionali per proporre pizze creative e irresistibili. Inoltre, ci impegniamo a mantenere un ambiente accogliente, dove ogni cliente si senta come a casa.</p>
+            </div>
+            <div class="facciata">
+                <img src="materiale/interni.jpg" alt="Interno del ristorante">
+            </div>
+        </section>
+        
+        <section id="sostenibilita">
+            <div>
+                <h2>Il Nostro Impegno per la Sostenibilità</h2>
+                <p>Da Forno 800, crediamo nell'importanza di sostenere la comunità locale e l'ambiente. Lavoriamo con produttori locali per ottenere ingredienti freschi, biologici e di alta qualità, riducendo l'impronta ecologica del nostro ristorante. Inoltre, utilizziamo pratiche ecologiche per ridurre gli sprechi e il nostro impatto ambientale.</p>
+            </div>
+        </section>
+        
+    </main>
+
+    <div class="back-up">
+        <a href="#" aria-label="torna su">&#8593;</a>
+    </div>
+
+    <footer>
+        <div id= "social">
+            <p>Seguici!</p>
+            <a href=""><p>Instagram</p></a>
+            <a href=""><p>Facebook</p></a>
+        </div>
+
+        <div id="orari">
+            <p><abbr title="11-15"></abbr><time datetime="11:00">11:00</time> - <time datetime="15:00">15:00</time></p>
+            <p><abbr title="18-22"></abbr><time datetime="18:00">18:00</time> - <time datetime="22:00">22:00</time></p>
+            <p>Aperti tutti i giorni</p>
+
+            <address><p>Via Tiziano Aspetti 13 - Padova</p></address>
+        </div>
+
+        <div id="contatti">
+            <p>Scrivici!</p>
+            <a href="tel:+393939393939"><p>+39 393 939 3939</p></a>
+            <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+</body>
+</html>

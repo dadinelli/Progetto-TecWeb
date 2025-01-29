@@ -35,21 +35,10 @@ if ($_SESSION['is_logged_in'] === true) {
             $_SESSION['Username'] = $username;
             $_SESSION['Cognome'] = $cognome;
 
-            $show_data = "
-                <ul id='personal-data'>
-                    <li>Username: $username</li>
-                    <li>Nome: $nome</li>
-                    <li>Cognome: $cognome</li>
-                    <li>Mail: $email</li>
-                    <li>Tel: $telefono</li>
-                </ul>
-            ";
-
-            $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
-
             $DOM = str_replace("value='email'", "value='$email'", $DOM);
             $DOM = str_replace("value='username'", "value='$username'", $DOM);
             $DOM = str_replace("value='telefono'", "value='$telefono'", $DOM);
+
         } else {
             echo "Cliente non trovato. $idCliente";
         }
@@ -68,4 +57,3 @@ if(isset($_POST['submit'])){
 
 echo($DOM);
 ?>
-

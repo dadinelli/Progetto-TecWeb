@@ -31,8 +31,10 @@ name1_error = false;
 name2_error = false;
 surname1_error = false;
 surname1_error = false;
-email_error = false;
-tel_error = false;
+email1_error = false;
+email2_error = false;
+tel1_error = false;
+tel2_error = false;
 pass_error = false;
 conf_pass_error = false;
 
@@ -75,10 +77,10 @@ reg_form.addEventListener('change', function (e) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(email.length > 0){
         if(!emailPattern.test(email)){
-            showError("email-error", "Inserisci un email valida");
-            email_error = true;
+            showError("email1-error", "Inserisci un email valida");
+            email1_error = true;
         }
-        else email_error = false;
+        else email1_error = false;
     }
 
     //validazione telefono
@@ -86,10 +88,10 @@ reg_form.addEventListener('change', function (e) {
     const telPattern = /^\+39\s?(\(?\d{3}\)?[\s\-]?)?\d{3}[\s\-]?\d{4}$|^\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{4}$/;
     if(tel.length > 0){
         if(!telPattern.test(tel)){
-            showError("tel-error", "Inserisci un numero di telefono valido");
-            tel_error = true;
+            showError("tel1-error", "Inserisci un numero di telefono valido");
+            tel1_error = true;
         }
-        else tel_error = false;
+        else tel1_error = false;
     }
 
     //validazione password
@@ -116,7 +118,7 @@ reg_form.addEventListener('change', function (e) {
 reg_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
-    if(!(name1_error || name2_error || surname1_error || surname2_error || email_error || tel_error || pass_error ||conf_pass_error)){
+    if(!(name1_error || name2_error || surname1_error || surname2_error || email1_error || tel1_error || pass_error ||conf_pass_error)){
         this.submit();
     }
 });

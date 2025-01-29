@@ -1,6 +1,10 @@
 <?php
+
 session_start();
-if (isset($_SESSION["is_logged_in"]) == true){
+
+$DOM = file_get_contents("html/prenotazione.html");
+
+if (isset($_SESSION["is_logged_in"]) == true){    
     $numPersone = $_POST["numero-persone"];
     $data = $_POST["date"];
     $orario = $_POST["orario"];
@@ -51,9 +55,11 @@ if (isset($_SESSION["is_logged_in"]) == true){
             $pdo->beginTransaction();
             $tavolo = $stmt->fetch(PDO::FETCH_ASSOC);
             $idTavolo = $tavolo['ID_Tavolo'];
-            echo "ID Tavolo disponibile: " . $idTavolo . " - Numero Tavolo: " . $tavolo['Numero_Tavolo'];
+
+            //echo "ID Tavolo disponibile: " . $idTavolo . " - Numero Tavolo: " . $tavolo['Numero_Tavolo'];
+            
             $stmtPrenotazione = $pdo->prepare("INSERT INTO Prenotazione (data, Ora, Numero_Persone, Stato, ID_Cliente, ID_Owner)
-                                                      VALUES (:datas, :orario, :numeropersone, 'Confermata', :idcliente, 1)");
+                                                    VALUES (:datas, :orario, :numeropersone, 'Confermata', :idcliente, 1)");
             $stmtPrenotazione->bindParam(':datas', $data, PDO::PARAM_STR);
             $stmtPrenotazione->bindParam(':orario', $orario, PDO::PARAM_STR);
             $stmtPrenotazione->bindParam(':numeropersone', $numPersone, PDO::PARAM_INT);
@@ -71,33 +77,35 @@ if (isset($_SESSION["is_logged_in"]) == true){
             $stmtPrenotazioneTavoli->execute();
             $pdo->commit();
 
-            $emailContent = "
-            <div class='confirmation-box'>
-                <div class='icon'>
-                    <img src='success-icon.png' alt='Success Icon'>
-                </div>
-                <h1>Prenotazione Effettuata!</h1>
-                <p>Grazie, <strong>$name $cognome</strong>, per aver effettuato una prenotazione con noi!</p>
-                <div class='details'>
-                    <h3>Dettagli Prenotazione:</h3>
-                    <ul>
-                        <li><strong>Username:</strong> $username</li>
-                        <li><strong>Email:</strong> $email</li>
-                        <li><strong>Telefono:</strong> $telefono</li>
-                        <li><strong>Numero di persone:</strong> $numPersone</li>
-                        <li><strong>Data:</strong> $data</li>
-                        <li><strong>Orario:</strong> $orario</li>
-                    </ul>
-                </div>
-                <p class='thanks'>Non vediamo l'ora di accoglierti! Grazie per aver scelto il nostro servizio!</p>
-                <div class='button-container'>
-                    <a href='index.html' class='back-home-button'>Torna alla Home</a>
-                </div>    
+            $success = "
+            <h1>Prenotazione effettuata!</h1>
+            <p>Grazie, <strong>$name $cognome</strong>, per aver effettuato una prenotazione con noi!</p>
+            <div class='details'>
+                <h3>Dettagli prenotazione</h3>
+                <ul id='user-data-list'>
+                    <li><strong>Username:</strong> $username</li>
+                    <li><strong>Email:</strong> $email</li>
+                    <li><strong>Telefono:</strong> $telefono</li>
+                    <li><strong>Numero di persone:</strong> $numPersone</li>
+                    <li><strong>Data:</strong> $data</li>
+                    <li><strong>Orario:</strong> $orario</li>
+                </ul>
             </div>
-            ";
-            echo $emailContent;
+            <p>Non vediamo l'ora di accoglierti! Grazie per aver scelto il nostro servizio!</p>
+            <p><a href='index.php'>Torna alla Home</a></p>"; 
+
+            $DOM = str_replace("<p>content</p>", $success, $DOM);
         }else {
-            echo "Nessun tavolo disponibile per la prenotazione.";
+            $reject = "
+            <h1>Spiacenti, la prenotazione non è andata a buon fine</h1>
+            <p>Può succedere quando si tenta di prenotare più volte lo stesso giorno o semplicemente se
+                il ristorante è pieno.
+            </p>
+            <p>La preghiamo di riprovare inserendo un'altra data o orario, in alternativa contatta il ristorante!</p>";
+
+            $DOM = str_replace("<p>content</p>", $reject, $DOM);
         }
 }
+
+echo($DOM);
 ?>

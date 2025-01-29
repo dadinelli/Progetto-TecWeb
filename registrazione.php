@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$paginaHTML = file_get_contents("registrazione.html");
+$paginaHTML = file_get_contents("html/registrazione.html");
 $messaggiForm = ''; //messaggi di errore
 $formValido = true;
 //inizializzazione variabili form
@@ -94,40 +94,66 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
         }
         //connessione al db riuscita
         //controllo che l'email inserita non sia già stata utilizzata
-        $sqlCheckEmail = "SELECT * FROM Cliente WHERE email = :email";
+        $sqlCheckEmail = "SELECT * FROM Cliente WHERE Email = :email";
         $stmt = $pdo->prepare($sqlCheckEmail);
         $stmt->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
+        //controllo che l'username inserito non sia già stato utilizzato 
+        $sqlCheckUsername = "SELECT * FROM Cliente WHERE Username = :username";
+        $stmt2 = $pdo->prepare($sqlCheckUsername);
+        $stmt2->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt2->execute();
+        //controllo che il telefono inserito non sia già stato utilizzato
+        $sqlCheckTel = "SELECT * FROM Cliente WHERE Telefono = :telefono";
+        $stmt3 = $pdo->prepare($sqlCheckTel);
+        $stmt3->bindParam(':telefono', $telefono, PDO::PARAM_STR);
+        $stmt3->execute();
+        
         if ($stmt->rowCount() > 0) { //email già stata utilizzata
             $messaggiForm .= '<li>Email già utilizzata</li>';
+            header("Location: registrazione.php");
+            exit();
         }
-        else { //email non ancora registrata
+        if ($stmt2->rowCount() > 0) { //username già stato utilizzato
+            $messaggiForm .= '<li>Username già utilizzato</li>';
+            header("Location: registrazione.php");
+            exit();
+        }
+        if ($stmt3->rowCount() > 0) { //telefono già stato utilizzato
+            $messaggiForm .= '<li>Telefono già utilizzato</li>';
+            header("Location: registrazione.php");
+            exit();
+        }
+        //email, username e telefono non ancora registrati
         //registro dati su db e reinderizzo alla pagina principale
-            $sqlInsert = "INSERT INTO Cliente (Nome,Cognome,Email,Telefono,Username,Pass) 
-                          VALUES (:nome, :cognome, :email, :telefono, :username, :password)";             
-            $stmt = $pdo->prepare($sqlInsert);
-            $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
-            $stmt->bindParam(':cognome', $cognome, PDO::PARAM_STR);
-            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-            $stmt->bindParam(':telefono', $telefono, PDO::PARAM_STR);
-            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-            $stmt->bindParam(':password', $password, PDO::PARAM_STR);
-            if($stmt->execute()){
-                $_SESSION['success_message'] = "Registrazione avvenuta con successo!";
-                header("Location: index.html");
-                exit();
-            }
-            else { 
-                $_SESSION['error_message'] = "Abbiamo avuto un problema con la registrazione";
-                header("Location: registrazione.html");
-                exit();
-            }
+        $sqlInsert = "INSERT INTO Cliente (Nome,Cognome,Email,Telefono,Username,Pass) 
+                        VALUES (:nome, :cognome, :email, :telefono, :username, :password)";             
+        $stmt = $pdo->prepare($sqlInsert);
+        $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
+        $stmt->bindParam(':cognome', $cognome, PDO::PARAM_STR);
+        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+        $stmt->bindParam(':telefono', $telefono, PDO::PARAM_STR);
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->bindParam(':password', $password, PDO::PARAM_STR);
+        if($stmt->execute()){
+            $_SESSION['success_message'] = "Registrazione avvenuta con successo!";
+            header("Location: index.php");
+            exit();
+        }
+        else { 
+            $_SESSION['error_message'] = "Abbiamo avuto un problema con la registrazione";
+            header("Location: registrazione.php");
+            exit();
         }
     }else{
         //faccio visualizzare i messaggi di errore del form
-        header("Location: chisiamo.html");
+        header("Location: registrazione.php");
         $messaggiForm = '<div id = "messageErrors"><ul>'. $messaggiForm. '</ul></div>';
         $paginaHTML= str_replace("<messaggiForm />", $messaggiForm, $paginaHTML);
+        exit();
     }
 }
+
+$DOM = file_get_contents("html/registrazione.html");
+echo($DOM);
 ?>
