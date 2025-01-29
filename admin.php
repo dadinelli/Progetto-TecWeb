@@ -2,7 +2,7 @@
 
 $DOM = file_get_contents("html/admin.html");
 
-if(isset($_SESSION)){
+//if(isset($_SESSION)){
     
     //connessione al db
     $host = 'localhost';                         
@@ -18,39 +18,49 @@ if(isset($_SESSION)){
         exit(); //se connessione al database è fallita esce dal flusso 
     }
 
-    $all_reservations = "SELECT * from Prenotazione";
-    $stmt = $pdo->prepare($sqlCheckEmail);
+    $connection = new mysqli($host, $userdbname, $passwordDB, $dbname);
+
+    $all_reservations = "SELECT * 
+                                from Prenotazione JOIN Cliente
+                                ORDER BY Data";
+    $stmt = $pdo->prepare($all_reservations);
     $stmt->execute();
     
-    $reservationList;
+    $reservationList = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    if($stmt->rowCount()>0){
-        while($row = mysqli_fetch_assoc($stmt)){
+    $result = "";
+
+    if(count($reservationList)>0){
+        foreach($reservationList as $res){
+            $id = $res['ID_Prenotazione'];
+            $nome = $res['Nome'];
+            $cognome = $res['Cognome'];
+            $telefono = $res['Telefono'];
+            $data = $res['Data'];
+            $ora = $res['Ora'];
+            $numPersone = $res['Numero_Persone'];
+            
             $reservation = "
             <div id='login-window'>
-            <h2>ID Prenotazione: $id</h2>
+            <h2>$nome $cognome - $id</h2>
             <ul>
-                <li>Nome: $name</li>
-                <li>Cognome: $cognome</li>
                 <li>Telefono: $telefono</li>
-                <li>Data: $date</li>
+                <li>Data: $data</li>
                 <li>Ora: $ora</li>
                 <li>N. persone: $numPersone</li>
             </ul>
             </div>
             ";
-    
-            $reservationList.$reservation;
 
-            $DOM = str_replace("<div id='show-reservation'></div>", $reservationList, $DOM);
+            $result = $result.$reservation;
         }
+
+        $DOM = str_replace("<div id='show-reservation'></div>", $result, $DOM);
     }
     else{
         $DOM = str_replace("<div id='show-reservation'></div>", "<h2>Nessuna prenotazione attiva</h2>", $DOM);
     }
-
-    
-}
+//}
 
 echo($DOM);
 ?>

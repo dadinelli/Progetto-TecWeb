@@ -330,7 +330,7 @@ LOGIN
     font-size: 1em;
 }
 
-#login-window input, #login-window h1, button, h2, textarea, select{
+#login-window input, #login-window h1, #login-window button, #login-window h2, #login-window textarea, #login-windowselect{
     margin-bottom: 1.2em;
 }
 
@@ -360,11 +360,11 @@ LOGIN
     background-color: var(--bgcolor);
     color: var(--txtcolor);
     border: none;
-    height: 2.5em;
     padding-left: 0.5em;
     border-radius: 0.5em;
     width: 70%;
     transition: all 0.15s;
+    height: 3em;
 }
 
 #login-window label{
@@ -419,13 +419,6 @@ LOGIN
     }
 }
 
-#keep_connected_checkbox{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
 #login-window textarea{
     font-family: 'open sans', sans-serif;
     font-size: 0.8em;
@@ -448,6 +441,15 @@ LOGIN
     padding-left: 1em;
 }
 
+#login-window.with-margin{
+    margin-top: 10em;
+    margin-bottom: 10em;
+}
+
+#login-window ul{
+    /*list-style: none;*/
+    text-align: start;
+}
 
 /*
 =============
@@ -607,6 +609,10 @@ CHI SIAMO
     height: 80vh;
     text-align: center;
     border-radius: 0.5rem;
+}
+
+#chisiamo-presentazione div{
+    background-color: var(--menucolor);
 }
 
 #chisiamo-presentazione h1{
@@ -884,10 +890,7 @@ PRIVATE
 }
 
 #personal-info-display{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex: 1;    
 }
 
 #personal-data{
@@ -900,10 +903,27 @@ PRIVATE
 
 #reservation-form{
     flex: 1;
-    display: flex;
+    display: block;
+    margin-bottom: 12em;
+    /*display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 30em;
+    height: 30em;*/
+}
+
+#reservation-fieldset{
+    text-align: center;
+    border: none;
+}
+
+#reservation-fieldset legend{
+    text-indent: -9999px;
+    height: 0;
+    margin-bottom: 0;
+}
+
+#reservation-fieldset> *{
+    margin-bottom: 2em;
 }
 
 #reservation-form label{
@@ -912,6 +932,7 @@ PRIVATE
     justify-content: space-between;
     align-items: center;
 }
+
 
 #edit-personal-info-button{
     border: none;
@@ -995,9 +1016,23 @@ PRIVATE
         flex-direction: column;
     }
 
+    #reservation-form{
+        margin-bottom: 0;
+    }
+
     #reservation-form label{
         flex-direction: column;
         margin-bottom: 1em;
+    }
+
+    #reservation-form label[for="pranzo"], #reservation-form label[for="cena"]{
+        display: block;
+        margin-bottom: 0;
+    }
+
+    #reservation-form .label-container{
+        display: block;
+        align-items: center;
     }
 
     #numero-persone, #orario-pranzo, #orario-cena, #date{
@@ -1019,13 +1054,14 @@ PRIVATE
 }
 
 #label-checkbox{
-    display: inline-block;
+    display: block;
     background-color: var(--txtwarning);
     color: var(--txtdarkcolor);
     text-align: center;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1em;
     border-radius: 0.5em;
     padding: 0.3em 0em;
 }
@@ -1056,6 +1092,7 @@ input[type="checkbox"]:checked ~ .button-container{
 }
 
 #personal-info-display a{
+    display: block;
     background-color: var(--red);
     color: var(--txtdarkcolor);
     text-decoration: none;
@@ -1086,4 +1123,43 @@ input[type="checkbox"]:checked ~ .button-container{
 
 #pranzo:checked ~ #div-pranzo{
     display: block;
+}
+
+
+
+#reservation-form input[type="radio"]{
+    display: none;
+}
+
+.label-container{
+    display: inline-block;
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 0.3em 0;
+    width: 49%;
+    border: 1px solid var(--light-gray);
+    margin: auto;
+    align-items: center;
+}
+
+#pranzo:checked + .label-container{
+    background-color: var(--light-gray);
+    color: var(--txtdarkcolor);
+}
+
+#cena:checked + .label-container{
+    background-color: var(--light-gray);
+    color: var(--txtdarkcolor);
+}
+
+
+
+#reservation-form label[for="pranzo"], #reservation-form label[for="cena"]{
+    display: inline-block;
+    width: 100%;
+}
+
+#reservation-form label[for="pranzo"]:hover, #reservation-form label[for="cena"]:hover{
+    opacity: 0.7;
+    cursor: pointer;
 }

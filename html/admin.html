@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../style.css" media="screen">
+    <link rel="stylesheet" href="style.css" media="screen">
     <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
@@ -36,36 +36,33 @@
             </div>
     
             <nav id="breadcrumb">
-                <p>Ti trovi in: <span lang="en">Home</span></p>
+                <p>Ti trovi in: <a href="index.php"><span lang="en">Home</span></a>&nbsp;&sol;&nbsp;<span lang="en">Adimn</span></p>
             </nav>
         </nav>
     </header>
 
     <div id='show-reservation'></div>
 
-    <div id="login-window">
-        <h2>ID Prenotazione: $id</h2>
-        <ul>
-            <li>Nome: $name</li>
-            <li>Cognome: $cognome</li>
-            <li>Telefono: $telefono</li>
-            <li>Data: $date</li>
-            <li>Ora: $ora</li>
-            <li>N. persone: $numPersone</li>
-        </ul>
-    </div>
+    <footer>
+        <div id= "social">
+            <p>Seguici!</p>
+            <a href=""><p>Instagram</p></a>
+            <a href=""><p>Facebook</p></a>
+        </div>
 
-    <div id="login-window">
-        <h2>ID Prenotazione: $id</h2>
-        <ul>
-            <li>Nome: $name</li>
-            <li>Cognome: $cognome</li>
-            <li>Telefono: $telefono</li>
-            <li>Data: $date</li>
-            <li>Ora: $ora</li>
-            <li>N. persone: $numPersone</li>
-        </ul>
-    </div>
+        <div id="orari">
+            <p><abbr title="11-15"></abbr><time datetime="11:00">11:00</time> - <time datetime="15:00">15:00</time></p>
+            <p><abbr title="18-22"></abbr><time datetime="18:00">18:00</time> - <time datetime="22:00">22:00</time></p>
+            <p>Aperti tutti i giorni</p>
 
+            <address><p>Via Tiziano Aspetti 13 - Padova</p></address>
+        </div>
+
+        <div id="contatti">
+            <p>Scrivici!</p>
+            <a href="tel:+393939393939"><p>+39 393 939 3939</p></a>
+            <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
+        </div>
+    </footer>
 </body>
 </html>
