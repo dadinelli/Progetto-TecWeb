@@ -613,7 +613,6 @@ CHI SIAMO
     align-items: center;
     height: 80vh;
     text-align: center;
-    border-radius: 0.5rem;
     background-color: var(--menucolor);
 }
 
@@ -631,13 +630,10 @@ CHI SIAMO
 #storia, #missione{
     padding: 2rem;
     background-color: var(--menubgcolor);
-    margin-top: 2rem;
-    border-radius: 0.5rem;
 }
 
 #storia h2, #missione h2{
     font-size: 2rem;
-    margin-bottom: 1rem;
 }
 
 #storia p, #missione p{
