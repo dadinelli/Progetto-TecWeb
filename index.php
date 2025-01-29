@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include 'session_timeout.php';
+
 $DOM = file_get_contents("html/index.html");
 
 if(!isset($_SESSION["is_logged_in"])|| $_SESSION["is_logged_in"] == false){
