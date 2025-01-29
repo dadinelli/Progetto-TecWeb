@@ -100,18 +100,12 @@ if ($_SESSION['is_logged_in'] === true) {
             $stmt3->execute();
             if ($stmt->rowCount() > 0) { //email già stata utilizzata
                 echo "email già utilizzata da un altro utente";
-                header("Location: mod_private.php");
-                exit();
             }
             if ($stmt2->rowCount() > 0) { //email già stata utilizzata
                 echo "username già utilizzato da un altro utente";
-                header("Location: mod_private.php");
-                exit();
             }
             if ($stmt3->rowCount() > 0) { //email già stata utilizzata
                 echo "telefono già utilizzato da un altro utente";
-                header("Location: mod_private.php");
-                exit();
             }
             //email, username e telefono non ancora registrati da un altro utente
             //controllo che la password attuale inserita dall'utente corrisponda alla password salvata su db
@@ -124,8 +118,6 @@ if ($_SESSION['is_logged_in'] === true) {
                 $hash_password_cliente = $cliente['Pass'];
                 if(!password_verify($password_attuale, $hash_password_cliente)){
                     echo "Password attuale inserita errata";
-                    header("Location: mod_private.php");
-                    exit();
                 }
                 else { //passati tutti i controlli, email non utilizzata da nessun altro e password attuale inserita corretta
                     //posso fare update dei dati del cliente su db
@@ -143,8 +135,6 @@ if ($_SESSION['is_logged_in'] === true) {
                     }
                     else { 
                         $_SESSION['error_update'] = "Abbiamo avuto un problema con la modifica delle credenziali";
-                        header("Location: mod_private.php");
-                        exit();
                     }
                 }
             }
@@ -152,9 +142,8 @@ if ($_SESSION['is_logged_in'] === true) {
         else{
             //faccio visualizzare i messaggi di errore del form
             echo "form non valido";
-            header("Location: mod_private.php");
-            exit();
         }
+        header("Location: private.php");
     }
 }
 ?>
