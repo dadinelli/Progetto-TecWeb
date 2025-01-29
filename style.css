@@ -20,7 +20,6 @@
     --iconabgcolorhover: #ffefdb;
     --txtwarning: orange;
     --okcolor: #5ad67f;
-
 }
 
 html, body{
@@ -38,7 +37,7 @@ body{
     font-size: 100%;
     font-family: 'open sans', sans-serif;
     line-height: 1.5em;
-    font-weight: 100;
+    font-weight: 400;
     background-attachment: fixed;
     
 }
@@ -213,7 +212,7 @@ MAIN
 */
 
 main h2, h3{
-    font-weight: 100;
+    font-weight: 400;
 }
 
 #presentazione{
@@ -230,7 +229,7 @@ main h2, h3{
 
 #presentazione h1{
     font-size: 2em;
-    font-weight: 100;
+    font-weight: 400;
     text-shadow: 0 0 .3em rgb(54, 54, 54);
     transition: 1s;
 }
@@ -323,20 +322,20 @@ LOGIN
 }
 
 #login-window h1{
-    font-weight: 100;
+    font-weight: 400;
 }
 
 #login-window h2{
     font-size: 1em;
 }
 
-#login-window input, #login-window h1, #login-window button, #login-window h2, #login-window textarea, #login-windowselect{
+#login-window input, #login-window h1, #login-window button, #login-window h2, #login-window textarea, #login-window select{
     margin-bottom: 1.2em;
 }
 
 .login-button{
     font-family: 'open sans', sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     background-color: var(--light-gray);
     width: 5em;
     height: 2em;
@@ -356,7 +355,7 @@ LOGIN
 
 #login-window input{
     font-family: 'open sans', sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     background-color: var(--bgcolor);
     color: var(--txtcolor);
     border: none;
@@ -436,7 +435,7 @@ LOGIN
 
 #login-window select{
     font-family: 'open sans', sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     width: 80%;
     padding-left: 1em;
 }
@@ -450,6 +449,7 @@ LOGIN
     /*list-style: none;*/
     text-align: start;
 }
+
 
 /*
 =============
@@ -976,7 +976,7 @@ PRIVATE
 #check{
     background-color: var(--okcolor);
     border: none;
-    padding: 0.5em;
+    padding: 0.3em 1em;
     font-family: 'open sans', sans-serif;
     border-radius: 0.5em;
     width: 50%;
@@ -1063,7 +1063,7 @@ PRIVATE
     margin-right: auto;
     margin-bottom: 1em;
     border-radius: 0.5em;
-    padding: 0.3em 0em;
+    padding: 0.3em 1em;
 }
 
 #label-checkbox:hover{
@@ -1101,7 +1101,7 @@ input[type="checkbox"]:checked ~ .button-container{
     width: 50%;
     text-align: center;
     border-radius: 0.5em;
-    padding: 0.3em 0em;
+    padding: 0.3em 1em;
     margin-bottom: 1em;
 }
 

@@ -43,8 +43,6 @@ if ($_SESSION['is_logged_in'] === true) {
                     <li>Mail: $email</li>
                     <li>Tel: $telefono</li>
                 </ul>
-                
-                
             ";
 
             $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
