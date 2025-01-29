@@ -65,8 +65,8 @@ if ($_SESSION['is_logged_in'] === true) {
             $formValido = false;
         }
         $password_nuova = password_hash($password_nuova, PASSWORD_DEFAULT); // Hash della nuova password
-        //se il form è valido provo a connettermi al database
-        if($formValido){
+
+        if($formValido){ //se il form è valido provo a connettermi al database
             $host = 'localhost';                         
             $dbname = 'progettotecweb';          
             $userdbname = 'root';          
@@ -86,40 +86,65 @@ if ($_SESSION['is_logged_in'] === true) {
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':id_cliente', $idCliente, PDO::PARAM_STR);
             $stmt->execute();
+            //controllo che l'username inserito non sia già stato utilizzato da un utente con id diverso
+            $sqlCheckUsername = "SELECT * FROM Cliente WHERE Username = :username AND ID_Cliente != :id_cliente";
+            $stmt2 = $pdo->prepare($sqlCheckUsername);
+            $stmt2->bindParam(':username', $username, PDO::PARAM_STR);
+            $stmt2->bindParam(':id_cliente', $idCliente, PDO::PARAM_STR);
+            $stmt2->execute();
+            //controllo che il telefono inserito non sia già stato utilizzato da un utente con id diverso
+            $sqlCheckTel = "SELECT * FROM Cliente WHERE Telefono = :telefono AND ID_Cliente != :id_cliente";
+            $stmt3 = $pdo->prepare($sqlCheckTel);
+            $stmt3->bindParam(':telefono', $telefono, PDO::PARAM_STR);
+            $stmt3->bindParam(':id_cliente', $idCliente, PDO::PARAM_STR);
+            $stmt3->execute();
             if ($stmt->rowCount() > 0) { //email già stata utilizzata
                 echo "email già utilizzata da un altro utente";
+                header("Location: mod_private.php");
+                exit();
             }
-            else { //email non ancora registrata da un altro utente
-                //controllo che la password attuale inserita dall'utente corrisponda alla password salvata su db
-                $sqlGetClient = "SELECT * FROM Cliente WHERE ID_Cliente = :idCliente";
-                $stmt = $pdo->prepare($sqlGetClient);
-                $stmt->bindParam(':idCliente', $idCliente, PDO::PARAM_STR);
-                $stmt->execute();
-                if ($stmt->rowCount() > 0){ //ho ottenuto il cliente che sta cambiando i dati
-                    $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
-                    $hash_password_cliente = $cliente['Pass'];
-                    if(!password_verify($password_attuale, $hash_password_cliente)){
-                        echo "Password attuale inserita errata";
+            if ($stmt2->rowCount() > 0) { //email già stata utilizzata
+                echo "username già utilizzato da un altro utente";
+                header("Location: mod_private.php");
+                exit();
+            }
+            if ($stmt3->rowCount() > 0) { //email già stata utilizzata
+                echo "telefono già utilizzato da un altro utente";
+                header("Location: mod_private.php");
+                exit();
+            }
+            //email, username e telefono non ancora registrati da un altro utente
+            //controllo che la password attuale inserita dall'utente corrisponda alla password salvata su db
+            $sqlGetClient = "SELECT * FROM Cliente WHERE ID_Cliente = :idCliente";
+            $stmt = $pdo->prepare($sqlGetClient);
+            $stmt->bindParam(':idCliente', $idCliente, PDO::PARAM_STR);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0){ //ho ottenuto il cliente che sta cambiando i dati
+                $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+                $hash_password_cliente = $cliente['Pass'];
+                if(!password_verify($password_attuale, $hash_password_cliente)){
+                    echo "Password attuale inserita errata";
+                    header("Location: mod_private.php");
+                    exit();
+                }
+                else { //passati tutti i controlli, email non utilizzata da nessun altro e password attuale inserita corretta
+                    //posso fare update dei dati del cliente su db
+                    $sqlUpdate = "UPDATE Cliente SET Email = :email, Telefono = :telefono, Username = :username, Pass = :password  WHERE ID_Cliente = :idCliente";          
+                    $stmt = $pdo->prepare($sqlUpdate);
+                    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+                    $stmt->bindParam(':telefono', $telefono, PDO::PARAM_STR);
+                    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+                    $stmt->bindParam(':password', $password_nuova, PDO::PARAM_STR);
+                    $stmt->bindParam(':idCliente', $idCliente, PDO::PARAM_STR);
+                    if($stmt->execute()){
+                        $_SESSION['success_update'] = "Modifica credenziali avvenuta con successo!";
+                        header("Location: index.php");
+                        exit();
                     }
-                    else { //passati tutti i controlli, email non utilizzata da nessun altro e password attuale inserita corretta
-                        //posso fare update dei dati del cliente su db
-                        $sqlUpdate = "UPDATE Cliente SET Email = :email, Telefono = :telefono, Username = :username, Pass = :password  WHERE ID_Cliente = :idCliente";          
-                        $stmt = $pdo->prepare($sqlUpdate);
-                        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-                        $stmt->bindParam(':telefono', $telefono, PDO::PARAM_STR);
-                        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-                        $stmt->bindParam(':password', $password_nuova, PDO::PARAM_STR);
-                        $stmt->bindParam(':idCliente', $idCliente, PDO::PARAM_STR);
-                        if($stmt->execute()){
-                            $_SESSION['success_update'] = "Modifica credenziali avvenuta con successo!";
-                            header("Location: index.php");
-                            exit();
-                        }
-                        else { 
-                            $_SESSION['error_update'] = "Abbiamo avuto un problema con la modifica delle credenziali";
-                            header("Location: registrazione.php");
-                            exit();
-                        }
+                    else { 
+                        $_SESSION['error_update'] = "Abbiamo avuto un problema con la modifica delle credenziali";
+                        header("Location: mod_private.php");
+                        exit();
                     }
                 }
             }
@@ -127,9 +152,9 @@ if ($_SESSION['is_logged_in'] === true) {
         else{
             //faccio visualizzare i messaggi di errore del form
             echo "form non valido";
+            header("Location: mod_private.php");
+            exit();
         }
     }
 }
-
-echo($DOM);
 ?>
