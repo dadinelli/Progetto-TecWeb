@@ -689,12 +689,12 @@ CHI SIAMO
     padding: 1rem;
     background-color: var(--menubgcolor);
     border-radius: 1rem;
-    margin-top: 2rem;
+    margin: 2.5rem;
     line-height: 1.2;
 }
 
 #sostenibilita h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--txtdarkcolor);
 }
