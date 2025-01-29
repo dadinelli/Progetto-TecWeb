@@ -1,12 +1,8 @@
 <?php
-//if (isset($_SESSION["is_logged_in"]) == true && isset($_SESSION["numero-persone"]) && isset($_SESSION["date"]) && isset($_SESSION["orario"])){
-//$DOM = file_get_contents('html/private.html');
-
-//function reservation($DOM){
 
 session_start();
 
-$DOM = file_get_contents("html/prenota.html");
+$DOM = file_get_contents("html/prenotazione.html");
 
 if (isset($_SESSION["is_logged_in"]) == true){    
     $numPersone = $_POST["numero-persone"];
@@ -81,25 +77,35 @@ if (isset($_SESSION["is_logged_in"]) == true){
             $stmtPrenotazioneTavoli->execute();
             $pdo->commit();
 
-            $data_list = "<ul id='user-data-list'>
-                <li><strong>Username:</strong> $username</li>
-                <li><strong>Email:</strong> $email</li>
-                <li><strong>Telefono:</strong> $telefono</li>
-                <li><strong>Numero di persone:</strong> $numPersone</li>
-                <li><strong>Data:</strong> $data</li>
-                <li><strong>Orario:</strong> $orario</li>
-            </ul>";
+            $success = "
+            <h1>Prenotazione effettuata!</h1>
+            <p>Grazie, <strong>$name $cognome</strong>, per aver effettuato una prenotazione con noi!</p>
+            <div class='details'>
+                <h3>Dettagli prenotazione</h3>
+                <ul id='user-data-list'>
+                    <li><strong>Username:</strong> $username</li>
+                    <li><strong>Email:</strong> $email</li>
+                    <li><strong>Telefono:</strong> $telefono</li>
+                    <li><strong>Numero di persone:</strong> $numPersone</li>
+                    <li><strong>Data:</strong> $data</li>
+                    <li><strong>Orario:</strong> $orario</li>
+                </ul>
+            </div>
+            <p>Non vediamo l'ora di accoglierti! Grazie per aver scelto il nostro servizio!</p>
+            <p><a href='index.php'>Torna alla Home</a></p>"; 
 
-            $data_p = "<p>Grazie, <strong>$name $cognome</strong>, per aver effettuato una prenotazione con noi!</p>";
-
-            $DOM = str_replace("<ul id='user-data-list'></ul>", $data_list, $DOM);
-            $DOM = str_replace('<p></p>', $data_p, $DOM);
+            $DOM = str_replace("<p>content</p>", $success, $DOM);
         }else {
-            echo "Nessun tavolo disponibile per la prenotazione.";
+            $reject = "
+            <h1>Spiacenti, la prenotazione non è andata a buon fine</h1>
+            <p>Può succedere quando si tenta di prenotare più volte lo stesso giorno o semplicemente se
+                il ristorante è pieno.
+            </p>
+            <p>La preghiamo di riprovare inserendo un'altra data o orario, in alternativa contatta il ristorante!</p>";
+
+            $DOM = str_replace("<p>content</p>", $reject, $DOM);
         }
 }
-
-//}
 
 echo($DOM);
 ?>

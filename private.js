@@ -41,6 +41,7 @@ function clearError(){
 let reservation_form = document.getElementById('reservation-form');
 let date_error = true;
 let people_number_error = true;
+let time_error = true;
 
 reservation_form.addEventListener('change', function (e) {
 

@@ -2,15 +2,22 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Scopri la nostra pizzeria con pizze cotte a legna e ingredienti freschi. Vieni a trovarci o ordina online!">
-    <meta name="author" content="Davide Martinelli, Riccardo Valerio, Alex Shu, Enrico Bianchi">
     <title>Contatti - Forno 800</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contatti della pizzeria Forno 800: contattaci per avere informazioni su di noi o se vuoi lavorare con noi!">
+    <meta name="keywords" content="Pizzeria, contatti, dove siamo, padova, lavoro, informazioni">
+    <meta name="author" content="Davide Martinelli, Riccardo Valerio, Alex Shu, Enrico Bianchi">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
     <header>
+        <a href="#contact-main " class="hidden">Vai al contenuto</a>
         <nav id="menu">
             <div class="top_menu">
 
@@ -32,7 +39,7 @@
         </nav>
     </header>
 
-    <main class="contact-main">
+    <main class="contact-main" id="contact-main">
         <div class="contact-section">
             <h1>Contattaci</h1>
             <p>Email: <a href="mailto:forno800@example.com">forno800@example.com</a></p>
@@ -81,21 +88,31 @@
         </div>     
     </main>
 
+    <div class="back-up">
+        <a href="#" aria-label="torna su">&#8593;</a>
+    </div>
+
     <footer>
         <div id= "social">
             <p>Seguici!</p>
             <a href=""><p>Instagram</p></a>
             <a href=""><p>Facebook</p></a>
         </div>
+
         <div id="orari">
-            <p>Orari: 11:00 - 15:00 | 18:00 - 22:00</p>
+            <p><abbr title="11-15"></abbr><time datetime="11:00">11:00</time> - <time datetime="15:00">15:00</time></p>
+            <p><abbr title="18-22"></abbr><time datetime="18:00">18:00</time> - <time datetime="22:00">22:00</time></p>
             <p>Aperti tutti i giorni</p>
+
+            <address><p>Via Tiziano Aspetti 13 - Padova</p></address>
         </div>
+
         <div id="contatti">
             <p>Scrivici!</p>
-            <a href="tel:+393939393939">+39 393 939 3939</a>
-            <a href="mailto:forno800@example.com">forno800@example.com</a>
+            <a href="tel:+393939393939"><p>+39 393 939 3939</p></a>
+            <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
         </div>
+    </footer>
     </footer>
 
     <script src="menu.js"></script>

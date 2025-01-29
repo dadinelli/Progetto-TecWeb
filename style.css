@@ -20,12 +20,15 @@
     --iconabgcolorhover: #ffefdb;
     --txtwarning: orange;
     --okcolor: #5ad67f;
-
 }
 
 html, body{
     color: var(--txtcolor);
     background-color: var(--bgcolor);
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body{
@@ -34,8 +37,9 @@ body{
     font-size: 100%;
     font-family: 'open sans', sans-serif;
     line-height: 1.5em;
-    font-weight: 100;
+    font-weight: 400;
     background-attachment: fixed;
+    
 }
 
 @media screen and (max-width: 880px){
@@ -71,9 +75,17 @@ header h1{
     height: 0;
 }
 
+.hidden{
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    top: auto;
+}
+
 /*
 =============
-BARRA   MENU
+BARRA MENU
 =============
 */
 
@@ -200,7 +212,7 @@ MAIN
 */
 
 main h2, h3{
-    font-weight: 100;
+    font-weight: 400;
 }
 
 #presentazione{
@@ -217,7 +229,7 @@ main h2, h3{
 
 #presentazione h1{
     font-size: 2em;
-    font-weight: 100;
+    font-weight: 400;
     text-shadow: 0 0 .3em rgb(54, 54, 54);
     transition: 1s;
 }
@@ -245,28 +257,13 @@ section{
 }
 
 .text-container-right{
-    align-items: right;
     text-align: right;
 }
 
-.text-container-left{
-    align-items: left;
-}
 
 .facciata{
     flex: 1;
     width: 30%;
-}
-
-#recensioni{
-    color: var(--txtcolor);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 60vh;
 }
 
 @media screen and (max-width: 880px){
@@ -281,6 +278,23 @@ section{
     .facciata{
         width: 100%;
     }
+}
+
+.back-up{
+    text-align: center;
+    align-items: center;
+    margin-bottom: 0.9em;
+}
+
+.back-up a{
+    transition-duration: 0.3s;
+    background-color: var(--light-gray);
+    padding: 1em;
+    color: var(--bgcolor);
+    border-radius: 1em 1em 0 0;
+    text-decoration: none;
+    font-family: 'open sans', sans-serif;
+    font-weight: bolder;
 }
 
 /*
@@ -303,21 +317,25 @@ LOGIN
     padding: 1em 1em 0.5em 1em;
 }
 
+#login-window.wider{
+    width: 50%;   
+}
+
 #login-window h1{
-    font-weight: 100;
+    font-weight: 400;
 }
 
 #login-window h2{
     font-size: 1em;
 }
 
-#login-window input, h1, button, h2{
+#login-window input, #login-window h1, #login-window button, #login-window h2, #login-window textarea, #login-window select{
     margin-bottom: 1.2em;
 }
 
 .login-button{
     font-family: 'open sans', sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     background-color: var(--light-gray);
     width: 5em;
     height: 2em;
@@ -327,7 +345,8 @@ LOGIN
 }
 
 .login-button:hover{
-    opacity: 0.7;    
+    opacity: 0.7;
+    cursor: pointer;    
 }
 
 .login-button:active{
@@ -336,15 +355,15 @@ LOGIN
 
 #login-window input{
     font-family: 'open sans', sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     background-color: var(--bgcolor);
     color: var(--txtcolor);
     border: none;
-    height: 2.5em;
     padding-left: 0.5em;
     border-radius: 0.5em;
     width: 70%;
     transition: all 0.15s;
+    height: 3em;
 }
 
 #login-window label{
@@ -393,14 +412,44 @@ LOGIN
     #login-window{
         width: 70%;
     }
+
+    #login-window.wider{
+        width: 70%;
+    }
 }
 
-#keep_connected_checkbox{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+#login-window textarea{
+    font-family: 'open sans', sans-serif;
+    font-size: 0.8em;
+    width: 80%;
+    height: 7em;
+    resize: none;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
 }
+    
+#login-window textarea:focus{
+    outline: none;
+}
+
+#login-window select{
+    font-family: 'open sans', sans-serif;
+    font-weight: 400;
+    width: 80%;
+    padding-left: 1em;
+}
+
+#login-window.with-margin{
+    margin-top: 10em;
+    margin-bottom: 10em;
+}
+
+#login-window ul{
+    /*list-style: none;*/
+    text-align: start;
+}
+
 
 /*
 =============
@@ -537,7 +586,7 @@ CONTATTI
 
     #map iframe {
         width: 100%;
-        height: 25pvw;
+        height: 25vw;
     }
 }
 .contact-details p {
@@ -560,6 +609,10 @@ CHI SIAMO
     height: 80vh;
     text-align: center;
     border-radius: 0.5rem;
+}
+
+#chisiamo-presentazione div{
+    background-color: var(--menucolor);
 }
 
 #chisiamo-presentazione h1{
@@ -837,10 +890,7 @@ PRIVATE
 }
 
 #personal-info-display{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex: 1;    
 }
 
 #personal-data{
@@ -853,16 +903,36 @@ PRIVATE
 
 #reservation-form{
     flex: 1;
-    display: flex;
+    display: block;
+    margin-bottom: 12em;
+    /*display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 30em;*/
+}
+
+#reservation-fieldset{
+    text-align: center;
+    border: none;
+}
+
+#reservation-fieldset legend{
+    text-indent: -9999px;
+    height: 0;
+    margin-bottom: 0;
+}
+
+#reservation-fieldset> *{
+    margin-bottom: 2em;
 }
 
 #reservation-form label{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
+
 
 #edit-personal-info-button{
     border: none;
@@ -871,7 +941,7 @@ PRIVATE
     font-family: "open sans", sans-serif;
     padding: 0.5em;
     margin-bottom: 1em;
-    width: 50%;
+    width: 100%;
 }
  
 #logout-button{
@@ -887,12 +957,12 @@ PRIVATE
     opacity: 0.7;
 }
 
-#date:focus, #numero-persone:focus, #orario:focus{
+#date:focus, #numero-persone:focus, #orario-pranzo:focus, #orario-cena:focus{
     outline: none;
     opacity: 0.7;
 }
 
-#numero-persone, #orario, #date{
+#numero-persone, #orario-pranzo, #orario-cena, #date{
     width: 50%;
     background-color: var(--bgcolor);
     color: var(--txtcolor);
@@ -906,7 +976,7 @@ PRIVATE
 #check{
     background-color: var(--okcolor);
     border: none;
-    padding: 0.5em;
+    padding: 0.3em 1em;
     font-family: 'open sans', sans-serif;
     border-radius: 0.5em;
     width: 50%;
@@ -946,14 +1016,28 @@ PRIVATE
         flex-direction: column;
     }
 
+    #reservation-form{
+        margin-bottom: 0;
+    }
+
     #reservation-form label{
         flex-direction: column;
         margin-bottom: 1em;
     }
 
-    #numero-persone, #orario, #date{
+    #reservation-form label[for="pranzo"], #reservation-form label[for="cena"]{
+        display: block;
+        margin-bottom: 0;
+    }
+
+    #reservation-form .label-container{
+        display: block;
+        align-items: center;
+    }
+
+    #numero-persone, #orario-pranzo, #orario-cena, #date{
         margin: 0;
-        width: 100%;
+        width: 90%;
     }
 
     #personal-info-display{
@@ -965,6 +1049,117 @@ PRIVATE
     }
 }
 
-#user-data-list{
-    list-style: none;
+.edit-personal-data{
+    display: none;
+}
+
+#label-checkbox{
+    display: block;
+    background-color: var(--txtwarning);
+    color: var(--txtdarkcolor);
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    border-radius: 0.5em;
+    padding: 0.3em 1em;
+}
+
+#label-checkbox:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ .edit-personal-data{
+    display: block;
+}
+
+input[type="checkbox"]:checked ~ #personal-data{
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ #reservation-form{
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ .button-container{
+    display: none;
+}
+
+#personal-info-display a{
+    display: block;
+    background-color: var(--red);
+    color: var(--txtdarkcolor);
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 0.3em 1em;
+    margin-bottom: 1em;
+}
+
+#personal-info-display a:hover{
+    opacity: 0.7;
+}
+
+#div-cena{
+    display: none;
+}
+
+#cena:checked ~ #div-cena{
+    display: block;
+}
+
+#cena:checked ~ #div-pranzo{
+    display: none;
+} 
+
+#pranzo:checked ~ #div-pranzo{
+    display: block;
+}
+
+
+
+#reservation-form input[type="radio"]{
+    display: none;
+}
+
+.label-container{
+    display: inline-block;
+    text-align: center;
+    border-radius: 0.5em;
+    padding: 0.3em 0;
+    width: 49%;
+    border: 1px solid var(--light-gray);
+    margin: auto;
+    align-items: center;
+}
+
+#pranzo:checked + .label-container{
+    background-color: var(--light-gray);
+    color: var(--txtdarkcolor);
+}
+
+#cena:checked + .label-container{
+    background-color: var(--light-gray);
+    color: var(--txtdarkcolor);
+}
+
+
+
+#reservation-form label[for="pranzo"], #reservation-form label[for="cena"]{
+    display: inline-block;
+    width: 100%;
+}
+
+#reservation-form label[for="pranzo"]:hover, #reservation-form label[for="cena"]:hover{
+    opacity: 0.7;
+    cursor: pointer;
 }
