@@ -706,33 +706,6 @@ CHI SIAMO
     padding: 1rem;
 }
 
-#chisiamo-social {
-    text-align: center;
-    margin-top: 1rem;
-    color: var(--txtcolor);
-}
-
-#chisiamo-social h3 {
-    font-size: 2rem;
-    padding: 1rem;
-    color: var(--iconabgcolor);
-    font-weight: 400;
-}
-
-#chisiamo-social a {
-    margin: 0 1rem;
-}
-
-#chisiamo-social img {
-    width: 5rem;
-    height: 5rem;
-    transition: transform 0.3s;
-}
-
-#chisiamo-social img:hover {
-    transform: scale(1.1);
-}
-
 /*
 =============
 MENU
