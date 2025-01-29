@@ -40,7 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['username'] = $username;
                 $_SESSION['ID_Cliente'] = $user['ID_Cliente'];
                 $_SESSION['is_logged_in'] = true; //per capire se è loggato o no
-                header("Location: private.php");
+                $_SESSION['ruolo'] = $user['Ruolo'];
+                if($user['Ruolo'] == 'Cliente')
+                    header("Location: private.php");
+                else 
+                    header("Location: admin.php");
                 exit();
             } 
             else{
