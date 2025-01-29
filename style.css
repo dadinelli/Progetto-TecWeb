@@ -614,9 +614,6 @@ CHI SIAMO
     height: 80vh;
     text-align: center;
     border-radius: 0.5rem;
-}
-
-#chisiamo-presentazione div{
     background-color: var(--menucolor);
 }
 
