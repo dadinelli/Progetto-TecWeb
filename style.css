@@ -297,6 +297,14 @@ section{
     font-weight: bolder;
 }
 
+#login-window .def-list{
+    list-style: none;
+}
+
+#login-window .def-list li{
+    margin-bottom: 1em;
+}
+
 /*
 =============
 LOGIN

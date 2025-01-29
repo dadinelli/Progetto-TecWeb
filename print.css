@@ -5,3 +5,15 @@
 img{
     display: none;
 }
+
+.back-up a{
+    display: none;
+}
+
+.hidden{
+    display: none;
+}
+
+footer{
+    display: none;
+}

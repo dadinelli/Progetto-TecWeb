@@ -99,9 +99,9 @@ if (isset($_SESSION["is_logged_in"]) == true){
             $reject = "
             <h1>Spiacenti, la prenotazione non è andata a buon fine</h1>
             <p>Può succedere quando si tenta di prenotare più volte lo stesso giorno o semplicemente se
-                il ristorante è pieno.
-            </p>
-            <p>La preghiamo di riprovare inserendo un'altra data o orario, in alternativa contatta il ristorante!</p>";
+                il ristorante è pieno.</p>
+            <p>La preghiamo di riprovare inserendo un'altra data o orario.</p> 
+            <p>Se pensa che ci sia un errore non esiti a <a href='contatti.php'>contattarci</a>!</p>";
 
             $DOM = str_replace("<p>content</p>", $reject, $DOM);
         }
