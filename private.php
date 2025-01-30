@@ -51,8 +51,10 @@ if ($_SESSION['is_logged_in'] === true) {
             ";
 
             $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
+            
             $data_update = $_SESSION['data_update'];
             $DOM = str_replace('<dataUpdate/>', $data_update, $DOM);
+
             $DOM = str_replace("value='email'", "value='$email'", $DOM);
             $DOM = str_replace("value='username'", "value='$username'", $DOM);
             $DOM = str_replace("value='telefono'", "value='$telefono'", $DOM);

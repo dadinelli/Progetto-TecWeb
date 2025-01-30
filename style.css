@@ -37,7 +37,7 @@ body{
     background-size: cover;
     font-size: 100%;
     font-family: 'open sans', sans-serif;
-    line-height: 1.5em;
+    /*line-height: 1.5em;*/
     font-weight: 400;
     background-attachment: fixed;
     

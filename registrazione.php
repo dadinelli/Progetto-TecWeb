@@ -137,7 +137,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);
         if($stmt->execute()){
             $_SESSION['success_message'] = "Registrazione avvenuta con successo!";
-            header("Location: index.php");
+            header("Location: area-riservata.php");
             exit();
         }
         else { 
