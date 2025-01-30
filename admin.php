@@ -22,6 +22,7 @@ $DOM = file_get_contents("html/admin.html");
 
     $all_reservations = "SELECT * 
                                 from Prenotazione JOIN Cliente
+                                WHERE Data >= CurDate()
                                 ORDER BY Data";
     $stmt = $pdo->prepare($all_reservations);
     $stmt->execute();
@@ -30,7 +31,7 @@ $DOM = file_get_contents("html/admin.html");
 
     $result = "";
 
-    if(count($reservationList)>0){
+    if($stmt->rowCount() > 0){
         foreach($reservationList as $res){
             $id = $res['ID_Prenotazione'];
             $nome = $res['Nome'];
@@ -43,6 +44,7 @@ $DOM = file_get_contents("html/admin.html");
             $reservation = "
             <div id='login-window'>
             <h2>$nome $cognome - $id</h2>
+            <p>$tmp</p>
             <ul>
                 <li>Telefono: $telefono</li>
                 <li>Data: $data</li>
