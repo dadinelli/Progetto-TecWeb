@@ -51,8 +51,6 @@ if (isset($_SESSION["is_logged_in"]) == true){
     $CheckExist1 = 0;
     if ($CheckExist !== false) {
         $CheckExist1 = $CheckExist['ID_Cliente'];
-    } else {
-        echo "Nessuna prenotazione trovata per il cliente.";
     }
     if ($CheckExist1 != null) {
         $reject_reservation = "<h1>Spiacienti, la prenotazione non e' andata a buon fine</h1>";
@@ -62,73 +60,60 @@ if (isset($_SESSION["is_logged_in"]) == true){
         $new_message = "Motivo : Hai già effettuato una prenotazione in questa data, se ha dei cambiamenti la prego di chiamare direttamente alla pizzeria";
         $data_p = "<p>".$new_message."</p>";
         $DOM = str_replace("<p></p>",$data_p, $DOM);
-
     }else{
         $maxCapacity = 0;
-    if ($numPersone == 1) {
-        $minCapacity = 2; 
-        $maxCapacity = 2;
-    } elseif ($numPersone <= 2) {
-        $minCapacity = 2; 
-        $maxCapacity = 3; 
-    } elseif ($numPersone <= 3) {
-        $minCapacity = 3; 
-        $maxCapacity = 4; 
-    } elseif ($numPersone <= 4) {
-        $minCapacity = 4; 
-        $maxCapacity = 5; 
-    } elseif ($numPersone <= 5) {
-        $minCapacity = 5;
-        $maxCapacity = 6;
-    } elseif ($numPersone <= 6) {
-        $minCapacity = 6; 
-        $maxCapacity = 7;
-    } elseif ($numPersone <= 7) {
-        $minCapacity = 7; 
-        $maxCapacity = 8;
-    } elseif ($numPersone <= 8) {
-        $minCapacity = 8; 
-        $maxCapacity = 9;
-    } elseif ($numPersone <= 9) {
-        $minCapacity = 10; 
-        $maxCapacity = 10;
-    } else {
-        $minCapacity = 20; 
-        $maxCapacity = 20;
-    }
-    $stmt = $pdo->prepare("SELECT t.ID_Tavolo, t.Numero_Tavolo, t.Capacita
-                        FROM Tavoli t
-                        WHERE t.Capacita >= :minCapacity AND t.Capacita <= :maxCapacity
-                        AND NOT EXISTS (
-                            SELECT 1
-                            FROM Prenotazione_Tavoli pt
-                            JOIN Prenotazione p ON pt.ID_Prenotazione = p.ID_Prenotazione
-                            WHERE pt.ID_Tavolo = t.ID_Tavolo
-                            AND p.Data = :datas
-                            AND (
-                                (pt.Ora_Inizio < :orafine AND pt.Ora_Fine > :orainizio)
-                            )
-                        )
-                        ORDER BY t.Capacita ASC
-                        LIMIT 1;");
+        $minCapacity = 0;
+        if ($numPersone <= 2) {
+            $minCapacity = 1; 
+            $maxCapacity = 2;
+        } elseif ($numPersone == 3 || $numPersone == 4) {
+            $minCapacity = 3; 
+            $maxCapacity = 4; 
+        } elseif ($numPersone == 5 || $numPersone == 6) {
+            $minCapacity = 5;
+            $maxCapacity = 6;
+        } elseif ($numPersone == 7 || $numPersone == 8) {
+            $minCapacity = 7; 
+            $maxCapacity = 8;
+        } elseif ($numPersone == 9 || $numPersone == 10) {
+            $minCapacity = 10; 
+            $maxCapacity = 10;
+        } else {
+            $minCapacity = 20; 
+            $maxCapacity = 20;
+        }
+        $stmt = $pdo->prepare("SELECT t.ID_Tavolo, t.Numero_Tavolo, t.Capacita
+                                      FROM Tavoli t
+                                      WHERE t.Capacita = :capacita
+                                      AND NOT EXISTS (
+                                            SELECT 1
+                                            FROM Prenotazione_Tavoli pt
+                                            JOIN Prenotazione p ON pt.ID_Prenotazione = p.ID_Prenotazione
+                                            WHERE pt.ID_Tavolo = t.ID_Tavolo
+                                            AND p.Data = :datas
+                                            AND (
+                                                (pt.Ora_Inizio < :orafine AND pt.Ora_Fine > :orainizio)  
+                                                OR (pt.Ora_Inizio >= :orainizio AND pt.Ora_Fine <= :orafine)  
+                                                OR (pt.Ora_Inizio <= :orainizio AND pt.Ora_Fine >= :orafine)  
+                                            )
+                                        )
+                                        ORDER BY t.Capacita ASC
+                                        LIMIT 1;
+                                        ");
         $orarioDateTime = new DateTime($orario);
         $orarioDateTime->modify('+1 hour'); 
         $orarioFine = $orarioDateTime->format('H:i');
-        $stmt->bindParam(':minCapacity', $minCapacity, PDO::PARAM_INT);
-        $stmt->bindParam(':maxCapacity', $maxCapacity, PDO::PARAM_INT);
-        $stmt->bindParam(':numeropersone', $numPersone, PDO::PARAM_INT);
+        $stmt->bindParam(':capacita', $maxCapacity, PDO::PARAM_INT);
         $stmt->bindParam(':datas', $data, PDO::PARAM_STR);
-        $stmt->bindParam(':orafine',$orarioFine, PDO::PARAM_INT);
-        $stmt->bindParam(':orainizio', $orario, PDO::PARAM_INT);
+        $stmt->bindParam(':orafine',$orarioFine, PDO::PARAM_STR);
+        $stmt->bindParam(':orainizio', $orario, PDO::PARAM_STR);
         $stmt->execute();
         $idTavolo = 0;
         if ($stmt->rowCount() > 0) {
             $pdo->beginTransaction();
             $tavolo = $stmt->fetch(PDO::FETCH_ASSOC);
-      $idTavolo = $tavolo['ID_Tavolo'];
-
+            $idTavolo = $tavolo['ID_Tavolo'];
             //echo "ID Tavolo disponibile: " . $idTavolo . " - Numero Tavolo: " . $tavolo['Numero_Tavolo'];
-            
             $stmtPrenotazione = $pdo->prepare("INSERT INTO Prenotazione (data, Ora, Numero_Persone, Stato, ID_Cliente)
                                                     VALUES (:datas, :orario, :numeropersone, 'Confermata', :idcliente)");
             $stmtPrenotazione->bindParam(':datas', $data, PDO::PARAM_STR);
@@ -168,7 +153,7 @@ if (isset($_SESSION["is_logged_in"]) == true){
 
             $DOM = str_replace("<ul id='user-data-list'></ul>", "", $DOM);
             $DOM = str_replace("<h1></h1>", $reject_reservation, $DOM);
-            $new_message = "Ci scusi ma al momento i posti sono tutti occupati verso a quest'ora";
+            $new_message = "Ci scusi, al momento i posti da ".$numPersone." sono tutti occupati nell'orario : ".$orario;
             $data_p = "<p>".$new_message."</p>";
             $DOM = str_replace('<p></p>', $data_p, $DOM);
         }
