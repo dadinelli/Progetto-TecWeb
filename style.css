@@ -1193,3 +1193,30 @@ input[type="checkbox"]:checked ~ .button-container{
     display: flex;
     justify-content: flex-start;
 }
+
+.modifica-button,
+.elimina-button {
+    padding: 0.3rem 0.6rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.modifica-button {
+    background-color: green;
+    color: #fff;
+}
+
+.elimina-button {
+    background-color: red;
+    color: #fff;
+}
+
+.modifica-button:hover {
+    background-color: #388e3c;
+}
+
+.elimina-button:hover {
+    background-color: #d32f2f;
+}
