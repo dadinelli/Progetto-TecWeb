@@ -314,7 +314,7 @@ LOGIN
 */
 
 #login-window{
-    display: flex;
+    display: flex !important; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -637,6 +637,7 @@ footer{
         font-size: 1em;
         flex-direction: column;
         height: auto;
+        padding: 1em;
     }
 
     footer > *{
@@ -1051,10 +1052,12 @@ PRIVATE
 #check{
     background-color: var(--okcolor);
     border: none;
-    padding: 0.3em 1em;
+    padding: 0.5em 1em;
     font-family: 'open sans', sans-serif;
+    font-size: 1em;
     border-radius: 0.5em;
     width: 50%;
+    cursor: pointer;
 }
 
 .button-container{
