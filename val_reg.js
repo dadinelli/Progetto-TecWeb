@@ -35,6 +35,7 @@ email1_error = false;
 email2_error = false;
 tel1_error = false;
 tel2_error = false;
+user_error = false;
 pass_error = false;
 conf_pass_error = false;
 
@@ -81,6 +82,26 @@ reg_form.addEventListener('change', function (e) {
             email1_error = true;
         }
         else email1_error = false;
+        fetch("CheckEmailSaved.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({ checkEmail: email }) 
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            if(data.result){
+                showError("email2-error", "Email già registrata");
+                email2_error = true;
+            }
+            else if(!data.result){
+                email2_error = false;
+            }
+        })
+        .catch(error => {
+            console.error("Errore nella richiesta:", error);
+        });
     }
 
     //validazione telefono
@@ -92,6 +113,51 @@ reg_form.addEventListener('change', function (e) {
             tel1_error = true;
         }
         else tel1_error = false;
+        fetch("CheckTelSaved.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded" 
+            },
+            body: new URLSearchParams({ checkTel: tel }) 
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            if(data.result){
+                showError("tel2-error", "Telefono già registrato");
+                tel2_error = true;
+            }
+            else if(!data.result) {
+                tel2_error = false;
+            }
+        })
+        .catch(error => {
+            console.error("Errore nella richiesta:", error);
+        });
+    }
+    
+    //validazione user
+    let user = document.getElementById('username').value.trim();
+    if(user.length > 0){
+        fetch("CheckUserSaved.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded" 
+            },
+            body: new URLSearchParams({ checkUser: user }) 
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            if(data.result){
+                showError("username-error", "Username già registrato");
+                user_error = true;
+            }
+            else if(!data.result){
+                user_error = false;
+            }
+        })
+        .catch(error => {
+            console.error("Errore nella richiesta:", error);
+        });
     }
 
     //validazione password
@@ -118,7 +184,7 @@ reg_form.addEventListener('change', function (e) {
 reg_form.addEventListener('submit', function (e) {
 
     e.preventDefault();
-    if(!(name1_error || name2_error || surname1_error || surname2_error || email1_error || tel1_error || pass_error ||conf_pass_error)){
+    if(!(name1_error || name2_error || surname1_error || surname2_error || email1_error || email2_error || tel1_error || tel2_error || user_error || pass_error || conf_pass_error)){
         this.submit();
     }
 });
