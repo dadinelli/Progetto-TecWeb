@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $DOM = file_get_contents("html/admin.html");
 
 //if(isset($_SESSION)){
