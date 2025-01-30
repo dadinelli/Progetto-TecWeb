@@ -8,6 +8,10 @@ if(!isset($_SESSION["is_logged_in"]) || $_SESSION["is_logged_in"] == false){
     echo($DOM);
 }
 else{
-    header("Location: private.php");
+    if($_SESSION['ruolo'] == 'Cliente'){
+        header("Location: private.php");
+    }else{
+        header("Location: admin.php");
+    }
 }
 ?>
