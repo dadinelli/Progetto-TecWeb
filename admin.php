@@ -21,7 +21,7 @@ $DOM = file_get_contents("html/admin.html");
     $connection = new mysqli($host, $userdbname, $passwordDB, $dbname);
 
     $all_reservations = "SELECT * 
-                                from Prenotazione JOIN Cliente
+                                from Prenotazione JOIN Cliente on Prenotazione.ID_Cliente = Cliente.ID_Cliente
                                 WHERE Data >= CurDate()
                                 ORDER BY Data";
     $stmt = $pdo->prepare($all_reservations);
