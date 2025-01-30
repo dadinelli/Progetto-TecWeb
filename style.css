@@ -758,6 +758,16 @@ CHI SIAMO
 
 }
 
+.allinea-destra{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
 @media screen and (max-width: 880px){
     #chisiamo-presentazione{
         flex-direction: column;
