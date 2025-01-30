@@ -10,6 +10,9 @@ if ($_SESSION['is_logged_in'] === true) {
     if(!isset($_SESSION['data_update'])){
         $_SESSION['data_update'] = '';
     }
+
+    if($_SESSION['ruolo'] == 'Cliente') header("Location: admin.php");
+
     $idCliente = $_SESSION['ID_Cliente'];
 
     $host = 'localhost';           
@@ -51,7 +54,7 @@ if ($_SESSION['is_logged_in'] === true) {
             ";
 
             $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
-            
+
             $data_update = $_SESSION['data_update'];
             $DOM = str_replace('<dataUpdate/>', $data_update, $DOM);
 
