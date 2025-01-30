@@ -26,7 +26,7 @@ function clearError(){
     }
 }
 
-let reg_form = document.getElementById('login-window');
+let reg_form = document.getElementById('registration-form');
 name1_error = false;
 name2_error = false;
 surname1_error = false;

@@ -152,7 +152,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
         }
     }else{
         //faccio visualizzare i messaggi di errore del form
-        header("Location: registrazione.php");
+        header("Location: chisiamo.php");
         $messaggiForm = '<div id = "messageErrors"><ul>'. $messaggiForm. '</ul></div>';
         $paginaHTML= str_replace("<messaggiForm />", $messaggiForm, $paginaHTML);
         exit();
