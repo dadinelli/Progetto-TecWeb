@@ -7,6 +7,9 @@ $DOM = file_get_contents("html/private.html");
 
 //Load user data
 if ($_SESSION['is_logged_in'] === true) {
+    if(!isset($_SESSION['data_update'])){
+        $_SESSION['data_update'] = '';
+    }
     $idCliente = $_SESSION['ID_Cliente'];
 
     $host = 'localhost';           
@@ -48,7 +51,8 @@ if ($_SESSION['is_logged_in'] === true) {
             ";
 
             $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
-
+            $data_update = $_SESSION['data_update'];
+            $DOM = str_replace('<div id="data-update"></div>', $data_update, $DOM);
             $DOM = str_replace("value='email'", "value='$email'", $DOM);
             $DOM = str_replace("value='username'", "value='$username'", $DOM);
             $DOM = str_replace("value='telefono'", "value='$telefono'", $DOM);
@@ -69,5 +73,7 @@ if(isset($_POST['submit'])){
 }*/
 
 echo($DOM);
+
+$_SESSION['data_update'] = '';
 ?>
 
