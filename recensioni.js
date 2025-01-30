@@ -107,16 +107,24 @@ function creaElementoRecensione(recensione, isUserReview) {
     return recensioneElem;
 }
 
-// Mostra un form inline per modificare la recensione, sostituendo il testo
+// Mostra un form inline per modificare la recensione
 function mostraFormModifica(recensioneElem, recensione) {
+    // Trova la recensione-body e la svuota
     const body = recensioneElem.querySelector('.recensione-body');
     body.innerHTML = '';
 
+    // Crea un <form> 
     const form = document.createElement('form');
+    form.classList.add('edit-review-form');   
 
+    // Label voto
     const labelVoto = document.createElement('label');
     labelVoto.textContent = "Voto:";
+    labelVoto.classList.add('edit-review-label'); 
+    // Select voto
     const selectVoto = document.createElement('select');
+    selectVoto.classList.add('edit-review-select'); 
+
     for (let i = 1; i <= 5; i++) {
         const opt = document.createElement('option');
         opt.value = i;
@@ -125,30 +133,39 @@ function mostraFormModifica(recensioneElem, recensione) {
         selectVoto.appendChild(opt);
     }
 
+    // Label testo
     const labelTesto = document.createElement('label');
     labelTesto.textContent = "Recensione:";
+    labelTesto.classList.add('edit-review-label');
+
+    // Textarea
     const textarea = document.createElement('textarea');
     textarea.rows = 3;
     textarea.value = recensione.Testo;
+    textarea.classList.add('edit-review-textarea'); 
 
+    // Bottone Salva
     const btnSalva = document.createElement('button');
     btnSalva.textContent = "Salva";
     btnSalva.type = "submit";
+    btnSalva.classList.add('edit-review-btn'); 
 
+    // Bottone Annulla
     const btnAnnulla = document.createElement('button');
     btnAnnulla.textContent = "Annulla";
     btnAnnulla.type = "button";
+    btnAnnulla.classList.add('edit-review-btn');
 
     // Eventi
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         salvaModificaRecensione(recensione.ID_Recensione, selectVoto.value, textarea.value);
     });
-
     btnAnnulla.addEventListener('click', () => {
         caricaRecensioni();
     });
 
+    // Assembla il form
     form.appendChild(labelVoto);
     form.appendChild(selectVoto);
     form.appendChild(document.createElement('br'));
@@ -162,6 +179,7 @@ function mostraFormModifica(recensioneElem, recensione) {
 
     body.appendChild(form);
 }
+
 
 // Salva le modifiche (POST)
 function salvaModificaRecensione(idRecensione, voto, testo) {
