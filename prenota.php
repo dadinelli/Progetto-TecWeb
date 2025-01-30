@@ -57,7 +57,7 @@ if (isset($_SESSION["is_logged_in"]) == true){
 
         $DOM = str_replace("<ul id='user-data-list'></ul>", "", $DOM);
         $DOM = str_replace("<h1></h1>", $reject_reservation, $DOM);
-        $new_message = "Motivo : Hai già effettuato una prenotazione in questa data, se ha dei cambiamenti la prego di chiamare direttamente alla pizzeria";
+        $new_message = "Motivo : Hai già effettuato una prenotazione nella data seguente ".$data.", se hai dei cambiamenti la prego di chiamare direttamente alla pizzeria";
         $data_p = "<p>".$new_message."</p>";
         $DOM = str_replace("<p></p>",$data_p, $DOM);
     }else{
@@ -144,8 +144,7 @@ if (isset($_SESSION["is_logged_in"]) == true){
 
             $success_reservation = "<h1>Prenotazione Effettuata!</h1>";
             $data_p = "<p>Grazie, <strong>$name $cognome</strong>, per aver effettuato una prenotazione con noi!</p>";
-
-            $DOM = str_replace("<h1><h1>", $success_reservation, $DOM);
+            $DOM = str_replace("<h1></h1>", $success_reservation, $DOM);
             $DOM = str_replace("<ul id='user-data-list'></ul>", $data_list, $DOM);
             $DOM = str_replace('<p></p>', $data_p, $DOM);
         }else {
