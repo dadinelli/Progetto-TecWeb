@@ -6,11 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $host = 'localhost';
-    $port = '5432';
-    $dbname = 'progettotecweb';
-    $userdbname = 'root';
-    $passwordDB = '';
+    //$host = 'localhost';
+    $host = 'localhost';                          
+    //$dbname = 'progettotecweb';
+    $dbname = 'damartin';            
+    //$userdbname = 'root';  
+    $userdbname = 'damartin';        
+    $passwordDB = 'Doo3ieD4yoS7ienu';
+
     try {
         $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
         $pdo = new PDO($dsn, $userdbname, $passwordDB);
@@ -24,17 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && $con == true) {
         $username = $_POST['username'] ?? '';
         $password = $_POST['password'] ?? '';
-        $stmt = $pdo->prepare("SELECT * FROM cliente WHERE username = :username");
+        $stmt = $pdo->prepare("SELECT * FROM Cliente WHERE username = :username");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            // Verifica della password
-            /*-------------------------------------------------------------------------------------------------------------------------------
-            Nota!!!!!!!!!!!!!!
-            password_verify($password, $user['pass'] <--- da sostituire dopo perchè ora non abbiamo ancora fatto insert con password_hash che 
-            nasconde la password, dopo nella registrazione dobbiamo modificarlo e che faccia la roba della hash per la sicurazza.
-            --------------------------------------------------------------------------------------------------------------------------------*/
             if (password_verify($password, $user['Pass'])){
 
                 $_SESSION['username'] = $username;

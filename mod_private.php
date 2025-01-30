@@ -9,11 +9,14 @@ $DOM = file_get_contents("html/private.html");
 if ($_SESSION['is_logged_in'] === true) {
     $idCliente = $_SESSION['ID_Cliente'];
 
-    $host = 'localhost';           
-    //$port = '3306';               
-    $dbname = 'progettotecweb';   
-    $userdbname = 'root';          
-    $passwordDB = '';     
+    //$host = 'localhost';
+    $host = 'localhost';                          
+    //$dbname = 'progettotecweb';
+    $dbname = 'damartin';            
+    //$userdbname = 'root';  
+    $userdbname = 'damartin';        
+    $passwordDB = 'Doo3ieD4yoS7ienu';
+
     try {
         $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
         $pdo = new PDO($dsn, $userdbname, $passwordDB);

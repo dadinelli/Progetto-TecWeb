@@ -5,10 +5,15 @@ $DOM = file_get_contents("html/admin.html");
 //if(isset($_SESSION)){
     
     //connessione al db
-    $host = 'localhost';                         
-    $dbname = 'progettotecweb';          
-    $userdbname = 'root';          
-    $passwordDB = '';
+
+    //$host = 'localhost';
+    $host = 'localhost';                          
+    //$dbname = 'progettotecweb';
+    $dbname = 'damartin';            
+    //$userdbname = 'root';  
+    $userdbname = 'damartin';        
+    $passwordDB = 'Doo3ieD4yoS7ienu';
+
     try {
         $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
         $pdo = new PDO($dsn, $userdbname, $passwordDB);
@@ -21,7 +26,7 @@ $DOM = file_get_contents("html/admin.html");
     $connection = new mysqli($host, $userdbname, $passwordDB, $dbname);
 
     $all_reservations = "SELECT * 
-                                from Prenotazione JOIN Cliente
+                                from Prenotazione JOIN Cliente on Prenotazione.ID_Cliente = Cliente.ID_Cliente
                                 WHERE Data >= CurDate()
                                 ORDER BY Data";
     $stmt = $pdo->prepare($all_reservations);

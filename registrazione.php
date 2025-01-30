@@ -80,10 +80,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
     $password = password_hash($password, PASSWORD_DEFAULT); // Hash della password
     //se il form è valido provo a connettermi al database
     if($formValido){
-        $host = 'localhost';                         
-        $dbname = 'progettotecweb';          
-        $userdbname = 'root';          
-        $passwordDB = '';
+
+        //$host = 'localhost';
+        $host = 'localhost';                          
+        //$dbname = 'progettotecweb';
+        $dbname = 'damartin';            
+        //$userdbname = 'root';  
+        $userdbname = 'damartin';        
+        $passwordDB = 'Doo3ieD4yoS7ienu';
+
         try {
             $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
             $pdo = new PDO($dsn, $userdbname, $passwordDB);

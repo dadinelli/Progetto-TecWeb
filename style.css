@@ -326,6 +326,9 @@ LOGIN
     padding: 1em 1em 0.5em 1em;
 }
 
+
+
+
 #login-window.wider{
     width: 50%;   
 }
@@ -459,6 +462,143 @@ LOGIN
     text-align: start;
 }
 
+
+
+.login-window, .registration-window{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em auto;
+    text-align: center;
+    background-color: var(--menucolor);
+    border: 1px solid var(--light-gray);
+    border-radius: 0.5em;
+    padding: 1em 1em 0.5em 1em;
+}
+
+.login-window{
+    width: 50%;
+}
+
+form.registration-window{
+    width: 25%;
+}
+
+.login-window, .registration-window{
+    width: 50%;   
+}
+
+.login-window h1, .registration-window h1{
+    font-weight: 400;
+}
+
+.login-window h2, .registration-window h2{
+    font-size: 1em;
+}
+
+.login-window input, .login-window h1, .login-window button, .login-window h2, .login-window textarea, .login-window select,
+ .registration-window input,  .registration-window h1,  .registration-window button,  .registration-window h2,  .registration-window textarea,  .registration-window select{
+    margin-bottom: 1.2em;
+}
+
+.login-window input, .registration-window input{
+    font-family: 'open sans', sans-serif;
+    font-weight: 400;
+    background-color: var(--bgcolor);
+    color: var(--txtcolor);
+    border: none;
+    padding-left: 0.5em;
+    border-radius: 0.5em;
+    width: 70%;
+    transition: all 0.15s;
+    height: 3em;
+}
+
+.login-window label, .registration-window label{
+    display: inline-block;
+    width: 70%;
+    height: 0;
+    text-indent: -9999px;
+}
+
+.login-window input[type="checkbox"], .registration-window input[type="checkbox"]{
+    border: none;
+    height: 1.5em;
+}
+
+.login-window fieldset label, fieldset legend,
+.registration-window fieldset label, fieldset legend{
+    margin-bottom: 1em;
+}
+
+.personal-info, #user-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-window input:focus, .registration-window input:focus{
+    outline: none;
+    opacity: 0.7;
+}
+
+.login-window a:link, .registration-window a:link{
+    color: var(--linkcolor);
+    text-decoration: none;
+}
+
+.login-window a:visited, .registration-window a:visited{
+    color: var(--visitedcolor);
+}
+
+.login-window fieldset, .registration-window fieldset{
+    border: none;
+}
+
+@media screen and (max-width: 880px){
+    .login-window, form.registration-window{
+        width: 70%;
+    }
+
+    .login-window.wider, .registration-window.wider{
+        width: 70%;
+    }
+}
+
+.login-window textarea, .registration-window textarea{
+    font-family: 'open sans', sans-serif;
+    font-size: 0.8em;
+    width: 80%;
+    height: 7em;
+    resize: none;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
+}
+    
+.login-window textarea:focus, .registration-window textarea:focus{
+    outline: none;
+}
+
+.login-window select, .registration-window select{
+    font-family: 'open sans', sans-serif;
+    font-weight: 400;
+    width: 80%;
+    padding-left: 1em;
+}
+
+.login-window.with-margin{
+    margin-top: 10em;
+    margin-bottom: 10em;
+}
+
+.login-window ul, .registration-window ul{
+    /*list-style: none;*/
+    text-align: start;
+}
 
 /*
 =============
