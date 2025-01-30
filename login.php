@@ -48,15 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             } 
             else{
-                /*echo "Password errata.            ";
-                echo "La tua password : $password";
-                echo "password effettiva : ".$user['Pass'];*/
-
                 header("Location: permission_denied.php");
             }
 
         } else {
-            echo "Utente non trovato.";
+            header("Location: permission_denied.php");
         }
     } 
 }

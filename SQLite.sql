@@ -17,22 +17,6 @@ CREATE TABLE Cliente (
     Pass VARCHAR(100) NOT NULL
 );
 
-/*CREATE TABLE Owner (
-    ID_Owner INT PRIMARY KEY,
-    Pass VARCHAR(100) NOT NULL
-);*/
-
--- Tabella Lista di Cibo
-/*CREATE TABLE Cibo (
-    ID_Prodotto INT AUTO_INCREMENT PRIMARY KEY,
-    Categoria VARCHAR(50) NOT NULL,
-    Prezzo DECIMAL(10, 2) NOT NULL,
-    IndirizzoDiImmagine VARCHAR(100) NOT NULL,
-    Disponibilità BOOLEAN NOT NULL DEFAULT TRUE,
-    Caricante INT,
-    FOREIGN KEY (Caricante) REFERENCES Owner(ID_Owner) ON DELETE CASCADE ON UPDATE CASCADE
-);*/
-
 -- Tabella Prenotazione
 CREATE TABLE Prenotazione (
     ID_Prenotazione INT AUTO_INCREMENT PRIMARY KEY,

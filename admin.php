@@ -58,7 +58,7 @@ $DOM = file_get_contents("html/admin.html");
         $DOM = str_replace("<div id='show-reservation'></div>", $result, $DOM);
     }
     else{
-        $DOM = str_replace("<div id='show-reservation'></div>", "<h2>Nessuna prenotazione attiva</h2>", $DOM);
+        $DOM = str_replace("<div id='show-reservation'></div>", "<div id='login-window' class='with-margin'><h2>Nessuna prenotazione attiva</h2></div>", $DOM);
     }
 //}
 
