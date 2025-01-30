@@ -11,7 +11,7 @@ if ($_SESSION['is_logged_in'] === true) {
         $_SESSION['data_update'] = '';
     }
 
-    if($_SESSION['ruolo'] == 'Cliente') header("Location: admin.php");
+    if($_SESSION['ruolo'] != 'Cliente') header("Location: admin.php");
 
     $idCliente = $_SESSION['ID_Cliente'];
 
