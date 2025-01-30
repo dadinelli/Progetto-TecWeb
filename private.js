@@ -70,7 +70,7 @@ reservation_form.addEventListener('submit', function(e){
     }
 });
 
-edit_form = document.getElementById('login-window');
+edit_form = document.getElementById('change-data-form');
 
 email1_error = false;
 email2_error = false;
@@ -200,8 +200,8 @@ edit_form.addEventListener('change', function (e) {
     //validazione nuova password
     let new_password = document.getElementById('nuova-password').value.trim();
     if(new_password.length > 0){
-        if(new_password.length < 8){
-            showError("new-password-error", "Password deve avere almeno 8 caratteri");
+        if(new_password.length < 4){
+            showError("new-password-error", "Password deve avere almeno 4 caratteri");
             new_pass_error = true;
         }
         else new_pass_error = false;
