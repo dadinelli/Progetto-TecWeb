@@ -100,12 +100,18 @@ if ($_SESSION['is_logged_in'] === true) {
             $stmt3->execute();
             if ($stmt->rowCount() > 0) { //email già stata utilizzata
                 echo "email già utilizzata da un altro utente";
+                header("Location: private.php");
+                exit();    
             }
             if ($stmt2->rowCount() > 0) { //email già stata utilizzata
                 echo "username già utilizzato da un altro utente";
+                header("Location: private.php");
+                exit();
             }
             if ($stmt3->rowCount() > 0) { //email già stata utilizzata
                 echo "telefono già utilizzato da un altro utente";
+                header("Location: private.php");
+                exit();
             }
             //email, username e telefono non ancora registrati da un altro utente
             //controllo che la password attuale inserita dall'utente corrisponda alla password salvata su db
@@ -135,6 +141,8 @@ if ($_SESSION['is_logged_in'] === true) {
                     }
                     else { 
                         $_SESSION['error_update'] = "Abbiamo avuto un problema con la modifica delle credenziali";
+                        header("Location: private.php");
+                        exit();
                     }
                 }
             }
