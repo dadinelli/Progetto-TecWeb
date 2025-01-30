@@ -15,11 +15,14 @@ if ($_SESSION['is_logged_in'] === true) {
 
     $idCliente = $_SESSION['ID_Cliente'];
 
-    $host = 'localhost';           
-    //$port = '3306';               
-    $dbname = 'progettotecweb';   
-    $userdbname = 'root';          
-    $passwordDB = '';     
+    //$host = 'localhost';
+    $host = 'localhost';                          
+    //$dbname = 'progettotecweb';
+    $dbname = 'damartin';            
+    //$userdbname = 'root';  
+    $userdbname = 'damartin';        
+    $passwordDB = 'Doo3ieD4yoS7ienu';
+
     try {
         $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
         $pdo = new PDO($dsn, $userdbname, $passwordDB);
@@ -56,7 +59,7 @@ if ($_SESSION['is_logged_in'] === true) {
             $DOM = str_replace('<div id="content"></div>', $show_data, $DOM);
 
             $data_update = $_SESSION['data_update'];
-            $DOM = str_replace('<dataUpdate/>', $data_update, $DOM);
+            $DOM = str_replace('<div id="dataUpdate"></div>', $data_update, $DOM);
 
             $DOM = str_replace("value='email'", "value='$email'", $DOM);
             $DOM = str_replace("value='username'", "value='$username'", $DOM);

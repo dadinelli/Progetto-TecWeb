@@ -2,11 +2,15 @@
 session_start();
 header('Content-Type: application/json');
 
-// Connessione al DB
-$host = 'localhost';
-$dbname = 'progettotecweb';
-$userdbname = 'root';
-$passwordDB = '';
+
+//$host = 'localhost';
+$host = 'localhost';                          
+//$dbname = 'progettotecweb';
+$dbname = 'damartin';            
+//$userdbname = 'root';  
+$userdbname = 'damartin';        
+$passwordDB = 'Doo3ieD4yoS7ienu';
+
 
 try {
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";

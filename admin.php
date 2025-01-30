@@ -1,14 +1,22 @@
 <?php
+
+
 session_start();
+
 $DOM = file_get_contents("html/admin.html");
 
-//if(isset($_SESSION)){
+if($_SESSION['ruolo'] != 'Cliente'){
     
     //connessione al db
-    $host = 'localhost';                         
-    $dbname = 'progettotecweb';          
-    $userdbname = 'root';          
-    $passwordDB = '';
+
+    //$host = 'localhost';
+    $host = 'localhost';                          
+    //$dbname = 'progettotecweb';
+    $dbname = 'damartin';            
+    //$userdbname = 'root';  
+    $userdbname = 'damartin';        
+    $passwordDB = 'Doo3ieD4yoS7ienu';
+
     try {
         $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
         $pdo = new PDO($dsn, $userdbname, $passwordDB);
@@ -62,7 +70,7 @@ $DOM = file_get_contents("html/admin.html");
     else{
         $DOM = str_replace("<div id='show-reservation'></div>", "<div id='login-window' class='with-margin'><h2>Nessuna prenotazione attiva</h2></div>", $DOM);
     }
-//}
+}
 
 echo($DOM);
 ?>

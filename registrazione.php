@@ -62,8 +62,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
     }
 
     $password = trim($_POST['password']); //non usa pulisciInput perchè potrebbe togliere caratteri importanti
-    if(strlen($password) < 8){
-        $messaggiForm .= '<li>La password deve avere almeno 8 caratteri</li>';
+    if(strlen($password) < 4){
+        $messaggiForm .= '<li>La password deve avere almeno 4 caratteri</li>';
         $formValido = false;
     }
 
@@ -80,10 +80,15 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
     $password = password_hash($password, PASSWORD_DEFAULT); // Hash della password
     //se il form è valido provo a connettermi al database
     if($formValido){
-        $host = 'localhost';                         
-        $dbname = 'progettotecweb';          
-        $userdbname = 'root';          
-        $passwordDB = '';
+
+        //$host = 'localhost';
+        $host = 'localhost';                          
+        //$dbname = 'progettotecweb';
+        $dbname = 'damartin';            
+        //$userdbname = 'root';  
+        $userdbname = 'damartin';        
+        $passwordDB = 'Doo3ieD4yoS7ienu';
+
         try {
             $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
             $pdo = new PDO($dsn, $userdbname, $passwordDB);
@@ -147,7 +152,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
         }
     }else{
         //faccio visualizzare i messaggi di errore del form
-        header("Location: registrazione.php");
+        header("Location: chisiamo.php");
         $messaggiForm = '<div id = "messageErrors"><ul>'. $messaggiForm. '</ul></div>';
         $paginaHTML= str_replace("<messaggiForm />", $messaggiForm, $paginaHTML);
         exit();
