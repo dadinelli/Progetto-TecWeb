@@ -62,8 +62,8 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
     }
 
     $password = trim($_POST['password']); //non usa pulisciInput perchè potrebbe togliere caratteri importanti
-    if(strlen($password) < 8){
-        $messaggiForm .= '<li>La password deve avere almeno 8 caratteri</li>';
+    if(strlen($password) < 4){
+        $messaggiForm .= '<li>La password deve avere almeno 4 caratteri</li>';
         $formValido = false;
     }
 

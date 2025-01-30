@@ -97,8 +97,8 @@ reg_form.addEventListener('change', function (e) {
     //validazione password
     let password = document.getElementById('password').value.trim();
     if(password.length > 0){
-        if(password.length < 8){
-            showError("password-error", "Password deve avere almeno 8 caratteri");
+        if(password.length < 4){
+            showError("password-error", "Password deve avere almeno 4 caratteri");
             pass_error = true;
         }
         else pass_error = false;
