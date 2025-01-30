@@ -21,7 +21,7 @@
         <nav id="menu">
             <div class="top_menu">
 
-                <a href="index.php" id="logo-link"><img src="materiale/logo.webp" alt="Logo del ristorante" id="logo-img"></a>
+                <a href="index.php" id="logo-link"><img src="materiale/logo.webp" alt="Logo" id="logo-img"></a>
             
                 <button id="hamb-button" onclick="toggleMenu()"><img src="materiale/hamburger-menu-white.png" alt="Hamburger menu" id="hamb-button-img"></button>
 
@@ -56,7 +56,7 @@
                         <fieldset id='personal-info'>
                             <legend>Informazioni personali</legend>
                             <label for='email'>Email</label>
-                            <input id='email' name='email' type='email' placeholder='Email' value='email' autocomplete="email" required>
+                            <input id='email' name='email' type='email' placeholder='Email' value='email' autocomplete="given-email" required>
                             <p class='error email-error'></p>
                             <label for='tel'>Numero di Telefono</label>
                             <input id='tel' name='tel' type='tel' placeholder='Telefono' value='telefono' required>
@@ -68,13 +68,13 @@
                             <label for='username'>Username</label>
                             <input id='username' name='username' type='text' placeholder='Username' value='username' required>
                             <label for='password-attuale'>Password attuale</label>
-                            <input id='password-attuale' name='password-attuale' type='password' placeholder='Password attuale' autocomplete="current-password" required>
+                            <input id='password-attuale' name='password-attuale' type='password' placeholder='Password attuale' autocomplete="given-password" required>
                             <p class='error actual-password-error'></p>
                             <label for='nuova-password'>Nuova password</label>
-                            <input id='nuova-password' name='nuova-password' type='password' placeholder='Nuova password' autocomplete="new-password" required>
+                            <input id='nuova-password' name='nuova-password' type='password' placeholder='Nuova password' autocomplete="given-newpassword" required>
                             <p class='error new-password-error'></p>
                             <label for='confirm-new-password'>Conferma nuova password</label>
-                            <input id='confirm-new-password' name='confirm-new-password' type='password' placeholder='Conferma nuova password' autocomplete="new-password" required>
+                            <input id='confirm-new-password' name='confirm-new-password' type='password' placeholder='Conferma nuova password' autocomplete="given-newpassword" required>
                             <p class='error confirm-password-error'></p>
                         </fieldset>
                     
@@ -106,7 +106,7 @@
                     
                     <div id="div-pranzo">
                         <label for="orario-pranzo">Orario: 
-                        <select name="orario" id="orario-pranzo">
+                        <select name="orariopranzo" id="orario-pranzo">
                             <option value="">Selezione un'opzione</option>
                             <option value="11:00">11:00</option>
                             <option value="11:15">11:15</option>
@@ -130,7 +130,7 @@
 
                     <div id="div-cena">
                         <label for="orario-cena" id="label-cena">Orario: 
-                        <select name="orario" id="orario-cena">
+                        <select name="orariocena" id="orario-cena">
                             <option value="">Selezione un'opzione</option>
                             <option value="18:00">18:00</option>
                             <option value="18:15">18:15</option>
@@ -153,7 +153,7 @@
                     </div>
                 </fieldset>
 
-                <div class="button-container"><button type="submit" id="check" onkeydown="enter">Verifica disponibilità</button></div>
+                <div class="button-container"><button type="submit" id="check" onkeydown="enter">Verifica disponibilita'</button></div>
             </form>
 
             <p class="success success-submission"></p>
