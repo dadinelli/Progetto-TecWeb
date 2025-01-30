@@ -9,38 +9,37 @@ function caricaRecensioni() {
             const container = document.getElementById('recensioni-container');
             container.innerHTML = '';
 
-            /*
-             Mostra o nasconde il form di inserimento recensione
-             Se l'utente è loggato e HA una recensione (data.userReview != null),
-             allora nascondi il form; altrimenti, mostralo.
-            */
+            // Mostra o nasconde il form di inserimento
             if (data.isLoggedIn && data.userReview) {
-                // Utente loggato con recensione -> nascondi form
                 document.getElementById('login-window').style.display = 'none';
             } else {
-                // Utente non loggato OPPURE utente loggato senza recensione
-                // -> mostra form
                 document.getElementById('login-window').style.display = 'block';
             }
 
-            // Se l'utente è loggato e ha una recensione personale, mostriamola
+            // Recensione dell’utente
             if (data.isLoggedIn && data.userReview) {
                 const userReviewElem = creaElementoRecensione(data.userReview, true);
                 container.appendChild(userReviewElem);
             }
 
-            // Aggiunge le recensioni "recenti"
+            // Recensioni recenti
             if (data.recentReviews && data.recentReviews.length > 0) {
                 data.recentReviews.forEach(rec => {
                     const recensioneElem = creaElementoRecensione(rec, false);
                     container.appendChild(recensioneElem);
                 });
             }
+
             totalPages = data.totalPages;
-            document.getElementById('load-more-reviews').style.display = (currentPage < totalPages) ? 'block' : 'none';
-            document.getElementById('load-less-reviews').style.display = (currentPage > 1) ? 'block' : 'none';
+            document.getElementById('load-more-reviews').style.display =
+                (currentPage < totalPages) ? 'block' : 'none';
+            document.getElementById('load-less-reviews').style.display =
+                (currentPage > 1) ? 'block' : 'none';
         })
-        .catch(error => console.error("Errore nel caricamento delle recensioni:", error));
+        // Se c'è un problema di rete (fetch fallisce)
+        .catch(() => {
+            alert("Errore di rete nel caricamento delle recensioni.");
+        });
 }
 
 // Crea un singolo elemento DOM recensione
@@ -81,7 +80,7 @@ function creaElementoRecensione(recensione, isUserReview) {
     body.appendChild(pValutazione);
     body.appendChild(pTesto);
 
-    // Se è la recensione dell'utente loggato, aggiungi pulsanti Modifica/Elimina
+    // Pulsanti Modifica/Elimina se è la recensione dell'utente
     if (isUserReview) {
         const btnModifica = document.createElement('button');
         btnModifica.classList.add('modifica-button');
@@ -109,21 +108,18 @@ function creaElementoRecensione(recensione, isUserReview) {
 
 // Mostra un form inline per modificare la recensione
 function mostraFormModifica(recensioneElem, recensione) {
-    // Trova la recensione-body e la svuota
     const body = recensioneElem.querySelector('.recensione-body');
     body.innerHTML = '';
 
-    // Crea un <form> 
     const form = document.createElement('form');
-    form.classList.add('edit-review-form');   
+    form.classList.add('edit-review-form');
 
-    // Label voto
     const labelVoto = document.createElement('label');
     labelVoto.textContent = "Voto:";
-    labelVoto.classList.add('edit-review-label'); 
-    // Select voto
+    labelVoto.classList.add('edit-review-label');
+
     const selectVoto = document.createElement('select');
-    selectVoto.classList.add('edit-review-select'); 
+    selectVoto.classList.add('edit-review-select');
 
     for (let i = 1; i <= 5; i++) {
         const opt = document.createElement('option');
@@ -133,30 +129,25 @@ function mostraFormModifica(recensioneElem, recensione) {
         selectVoto.appendChild(opt);
     }
 
-    // Label testo
     const labelTesto = document.createElement('label');
     labelTesto.textContent = "Recensione:";
     labelTesto.classList.add('edit-review-label');
 
-    // Textarea
     const textarea = document.createElement('textarea');
     textarea.rows = 3;
     textarea.value = recensione.Testo;
-    textarea.classList.add('edit-review-textarea'); 
+    textarea.classList.add('edit-review-textarea');
 
-    // Bottone Salva
     const btnSalva = document.createElement('button');
     btnSalva.textContent = "Salva";
     btnSalva.type = "submit";
-    btnSalva.classList.add('edit-review-btn'); 
+    btnSalva.classList.add('edit-review-btn');
 
-    // Bottone Annulla
     const btnAnnulla = document.createElement('button');
     btnAnnulla.textContent = "Annulla";
     btnAnnulla.type = "button";
     btnAnnulla.classList.add('edit-review-btn');
 
-    // Eventi
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         salvaModificaRecensione(recensione.ID_Recensione, selectVoto.value, textarea.value);
@@ -165,7 +156,6 @@ function mostraFormModifica(recensioneElem, recensione) {
         caricaRecensioni();
     });
 
-    // Assembla il form
     form.appendChild(labelVoto);
     form.appendChild(selectVoto);
     form.appendChild(document.createElement('br'));
@@ -180,8 +170,7 @@ function mostraFormModifica(recensioneElem, recensione) {
     body.appendChild(form);
 }
 
-
-// Salva le modifiche (POST)
+// Salva le modifiche
 function salvaModificaRecensione(idRecensione, voto, testo) {
     fetch('modifica_recensione.php', {
         method: 'POST',
@@ -195,31 +184,37 @@ function salvaModificaRecensione(idRecensione, voto, testo) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert(data.message);
-            caricaRecensioni(); 
+            // Nessun messaggio di successo, semplicemente ricarico
+            caricaRecensioni();
         } else {
-            alert(data.message || "Errore durante la modifica");
+            // Mostro messaggio d'errore
+            alert(data.message || "Errore durante la modifica.");
         }
     })
-    .catch(err => console.error("Errore modifica:", err));
+    .catch(() => {
+        alert("Errore di rete o server durante la modifica.");
+    });
 }
 
 // Elimina la recensione
 function eliminaRecensione(idRecensione) {
-    if (!confirm("Sei sicuro di voler eliminare questa recensione?")) return;
+    // Se vuoi anche togliere la conferma, rimuovi questa riga
+    // if (!confirm("Sei sicuro di voler eliminare questa recensione?")) return;
+
     fetch(`elimina_recensione.php?id=${idRecensione}`)
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert(data.message);
-            // Dopo l'eliminazione, ricarico le recensioni:
-            // userReview diventerà null e il form tornerà visibile
+            // Nessun messaggio di successo, ricarico in silenzio
             caricaRecensioni();
         } else {
-            alert(data.message || "Errore durante l'eliminazione");
+            // Mostro messaggio d'errore
+            alert(data.message || "Errore durante l'eliminazione.");
         }
     })
-    .catch(err => console.error("Errore eliminazione:", err));
+    .catch(() => {
+        alert("Errore di rete o server durante l'eliminazione.");
+    });
 }
 
 // Navigazione tra le pagine
@@ -237,5 +232,5 @@ function tornaIndietro() {
     }
 }
 
-// Avvia
+// Al caricamento pagina
 window.addEventListener('load', caricaRecensioni);
