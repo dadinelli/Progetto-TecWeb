@@ -130,7 +130,7 @@ if ($_SESSION['is_logged_in'] === true) {
                     $stmt->bindParam(':idCliente', $idCliente, PDO::PARAM_STR);
                     if($stmt->execute()){
                         $_SESSION['success_update'] = "Modifica credenziali avvenuta con successo!";
-                        header("Location: index.php");
+                        header("Location: private.php");
                         exit();
                     }
                     else { 
