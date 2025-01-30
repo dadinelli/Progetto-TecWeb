@@ -71,6 +71,13 @@
         </section>
 
         <div id="ins_recensioni"></div>
+            <p id="no-review-message">Non hai ancora lasciato una recensione.</p>
+            <div id="recensioni-container" aria-live="polite"></div>
+            <div id="button-container">
+            <button id="load-more-reviews" onclick="caricaAltreRecensioni()" aria-label="Carica altre recensioni" >Carica altre recensioni</button>
+            <button id="load-less-reviews" onclick="tornaIndietro()" aria-label="Torna indietro alle recensioni precedenti">Torna indietro</button>
+        </div>
+
     </main>
 
     <div class="back-up">
@@ -98,42 +105,7 @@
             <a href="mailto:forno800@example.com"><p>forno800@example.com</p></a>
         </div>
     </footer>
-    <script>
-        function caricaRecensioni() {
-            // Effettua una richiesta AJAX al file PHP per ottenere le recensioni
-            fetch('visualizza_recensioni.php')
-                .then(response => response.json())
-                .then(data => {
-                    const recensioniUL = document.getElementById('recensioni-container');
-                    recensioniUL.innerHTML = ''; // Pulisce eventuali recensioni precedenti
-                    if (data.error) {
-                        recensioniUL.innerHTML = `<p>${data.error}</p>`;
-                    } else {
-                        // Loop per visualizzare ogni recensione
-                        data.forEach(recensione => {
-                            const recensioneElem = document.createElement('li');
-
-                            // Aggiungi il contenuto per ogni recensione
-                            recensioneElem.innerHTML = `
-                                <span class="username-recensioni">${recensione.Username}</span>
-                                <p class="valutazione-recensioni">${recensione.Valutazione}</p>
-                                <p class="testo-recensioni">${recensione.Testo}</p>
-                                <p class="data-recensioni">${recensione.Data}</small>
-                            `;
-
-                            // Aggiungi la recensione all'ul
-                            recensioniUL.appendChild(recensioneElem);
-                        });
-                    }
-                })
-                .catch(error => {
-                    document.getElementById('recensioni-container').innerHTML = `<p>Errore nel caricamento delle recensioni.</p>`;
-                });
-        }
-
-        // Carica le recensioni al caricamento della pagina
-        window.onload = caricaRecensioni;
-    </script>
+    <script src="recensioni.js"></script>
     <script src="menu.js"></script>
 </body>
 </html>

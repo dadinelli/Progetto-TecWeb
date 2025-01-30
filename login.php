@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
         } else {
-            echo "Utente non trovato.";
+            header("Location: permission_denied.php");
         }
     } 
 }
