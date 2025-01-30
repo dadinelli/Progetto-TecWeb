@@ -32,7 +32,8 @@ $DOM = file_get_contents("html/admin.html");
     $result = "";
 
     if($stmt->rowCount() > 0){
-        foreach($reservationList as $res){
+        for($i = 0; $i < $stmt->rowCount(); $i++){
+            $res = $reservationList[$i];
             $id = $res['ID_Prenotazione'];
             $nome = $res['Nome'];
             $cognome = $res['Cognome'];
@@ -44,7 +45,6 @@ $DOM = file_get_contents("html/admin.html");
             $reservation = "
             <div id='login-window'>
             <h2>$nome $cognome - $id</h2>
-            <p>$tmp</p>
             <ul>
                 <li>Telefono: $telefono</li>
                 <li>Data: $data</li>
