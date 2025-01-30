@@ -1,4 +1,5 @@
 <?php 
+session_start();
 header("Content-type: application/json");
 
 $risultato = false;
@@ -18,12 +19,21 @@ if(isset($_POST['checkTel'])){
         echo "Connessione fallita: " . $e->getMessage();
         exit(); //se connessione al database è fallita esce dal flusso 
     }
-
-    $sqlCheckTel = "SELECT * FROM Cliente WHERE Telefono = :telefono";
-    $stmt = $pdo->prepare($sqlCheckTel);
-    $stmt->bindParam(':telefono', $TelRicevuto, PDO::PARAM_STR);
+    if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === true){
+        $idCliente = $_SESSION['ID_Cliente'];
+        $sqlCheckTel = "SELECT * FROM Cliente WHERE Telefono = :telefono AND ID_Cliente != :id_cliente";
+        $stmt = $pdo->prepare($sqlCheckTel);
+        $stmt->bindParam(':telefono', $TelRicevuto, PDO::PARAM_STR);
+        $stmt->bindParam(':id_cliente', $idCliente, PDO::PARAM_STR);
+    }
+    else {
+        $sqlCheckTel = "SELECT * FROM Cliente WHERE Telefono = :telefono";
+        $stmt = $pdo->prepare($sqlCheckTel);
+        $stmt->bindParam(':telefono', $TelRicevuto, PDO::PARAM_STR);
+    }
+    
     $stmt->execute();
-    if($stmt->rowCount() > 0){ //email già registrata
+    if($stmt->rowCount() > 0){ //telefono già registrato
         $risultato = true;
     }
     echo json_encode(["result" => $risultato]);
