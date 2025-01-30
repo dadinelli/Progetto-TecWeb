@@ -624,8 +624,12 @@ footer{
     
 }
 
-#contatti a, #social a {
-    color:darkblue;
+#contatti a:link, #social a:link {
+    color: darkblue;
+}
+
+#contatti a:visited, #social a:visited {
+    color: rgb(7, 7, 226);
 }
 
 @media screen and (max-width: 880px){
