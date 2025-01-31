@@ -184,10 +184,8 @@ function salvaModificaRecensione(idRecensione, voto, testo) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // Nessun messaggio di successo, semplicemente ricarico
             caricaRecensioni();
         } else {
-            // Mostro messaggio d'errore
             alert(data.message || "Errore durante la modifica.");
         }
     })
@@ -198,17 +196,13 @@ function salvaModificaRecensione(idRecensione, voto, testo) {
 
 // Elimina la recensione
 function eliminaRecensione(idRecensione) {
-    // Se vuoi anche togliere la conferma, rimuovi questa riga
-    // if (!confirm("Sei sicuro di voler eliminare questa recensione?")) return;
 
     fetch(`elimina_recensione.php?id=${idRecensione}`)
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // Nessun messaggio di successo, ricarico in silenzio
             caricaRecensioni();
         } else {
-            // Mostro messaggio d'errore
             alert(data.message || "Errore durante l'eliminazione.");
         }
     })

@@ -28,7 +28,6 @@ if (!isset($_SESSION['ID_Cliente'])) {
 
 $userID = $_SESSION['ID_Cliente'];
 
-// Se lo passi in GET (es. elimina_recensione.php?id=xxx)
 if (!isset($_GET['id'])) {
     echo json_encode(["success" => false, "message" => "ID recensione mancante."]);
     exit();
