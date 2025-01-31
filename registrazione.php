@@ -24,57 +24,47 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
     //controllo input 
     $nome = pulisciInput($_POST['nome']);
     if(strlen($nome) == 0){
-        $messaggiForm .= '<li>Nome non inserito</li>';
         $formValido = false;
     }
 
     $cognome = pulisciInput($_POST['cognome']);
     if(strlen($cognome) == 0){
-        $messaggiForm .= '<li>Cognome non inserito</li>';
         $formValido = false;
     }
 
     $username = pulisciInput($_POST['username']);
     if(strlen($username) == 0){
-        $messaggiForm .= '<li>Username non inserito</li>';
         $formValido = false;
     }
 
     $email = pulisciInput($_POST['email']);
     $email_filtred = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     if(strlen($email) == 0){
-        $messaggiForm .= '<li>Email non inserita</li>';
         $formValido = false;
     }
     else if(!$email_filtred){ //controlla che l'email sia scritta nel formato corretto
-        $messaggiForm .= '<li>Email non valida</li>';
         $formValido = false;
     }
 
     $telefono = pulisciInput($_POST['tel']);
     if(strlen($telefono) == 0){
-        $messaggiForm .= '<li>Numero di Telefono non inserito</li>';
         $formValido = false;
     }
     else if(!preg_match('/^\+?[0-9]{10,15}$/', $telefono)){
-        $messaggiForm .= '<li>Numero di Telefono non valido</li>';
         $formValido = false;
     }
 
     $password = trim($_POST['password']); //non usa pulisciInput perchè potrebbe togliere caratteri importanti
     if(strlen($password) < 4){
-        $messaggiForm .= '<li>La password deve avere almeno 4 caratteri</li>';
         $formValido = false;
     }
 
     $conferma_password = trim($_POST['conferma_password']);
     if(strlen($conferma_password) == 0){
-        $messaggiForm .= '<li>Password di conferma non inserita</li>';
         $formValido = false;
     }
 
     if($password !== $conferma_password){
-        $messaggiForm .= '<li>Password di conferma diversa dalla password inserita</li>';
         $formValido = false;
     }
     $password = password_hash($password, PASSWORD_DEFAULT); // Hash della password
@@ -115,17 +105,14 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
         $stmt3->execute();
         
         if ($stmt->rowCount() > 0) { //email già stata utilizzata
-            $messaggiForm .= '<li>Email già utilizzata</li>';
             header("Location: registrazione.php");
             exit();
         }
         if ($stmt2->rowCount() > 0) { //username già stato utilizzato
-            $messaggiForm .= '<li>Username già utilizzato</li>';
             header("Location: registrazione.php");
             exit();
         }
         if ($stmt3->rowCount() > 0) { //telefono già stato utilizzato
-            $messaggiForm .= '<li>Telefono già utilizzato</li>';
             header("Location: registrazione.php");
             exit();
         }
@@ -152,9 +139,7 @@ if($_SERVER['REQUEST_METHOD']=="POST"){ //bottone submit premuto
         }
     }else{
         //faccio visualizzare i messaggi di errore del form
-        header("Location: chisiamo.php");
-        $messaggiForm = '<div id = "messageErrors"><ul>'. $messaggiForm. '</ul></div>';
-        $paginaHTML= str_replace("<messaggiForm />", $messaggiForm, $paginaHTML);
+        header("Location: area-riservata.php");
         exit();
     }
 }

@@ -44,15 +44,16 @@ if ($_SESSION['is_logged_in'] === true) {
         }
         else if(!preg_match('/^\+?[0-9]{10,15}$/', $telefono)){
             $formValido = false;
+
         }
 
         $password_attuale = trim($_POST['password-attuale']); //non usa pulisciInput perchè potrebbe togliere caratteri importanti
-        if(strlen($password_attuale) < 8){
+        if(strlen($password_attuale) < 4){
             $formValido = false;
         }
 
         $password_nuova = trim($_POST['nuova-password']); //non usa pulisciInput perchè potrebbe togliere caratteri importanti
-        if(strlen($password_nuova) < 8){
+        if(strlen($password_nuova) < 4){
             $formValido = false;
         }
 
@@ -148,7 +149,7 @@ if ($_SESSION['is_logged_in'] === true) {
             echo "form non valido";
             $_SESSION['data_update'] = "Problema con la modifica dei dati: controllare che le credenziali inserite siano corrette";
         }
-        header("Location: private.php");
+        //header("Location: private.php");
     }
 }
 ?>

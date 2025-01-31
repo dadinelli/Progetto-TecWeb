@@ -9,6 +9,7 @@ if(isset($_POST['checkPass'])){
         $idCliente = $_SESSION['ID_Cliente'];
     }
    
+    $passRicevuta = $_POST['checkPass'];
     //$host = 'localhost';
     $host = 'localhost';                          
     //$dbname = 'progettotecweb';
